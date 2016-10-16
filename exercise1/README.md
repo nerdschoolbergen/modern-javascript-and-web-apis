@@ -35,7 +35,7 @@ In this workshop you'll create everything yourself from scratch so you can see h
 Let's start with GitHub.
 
 ### 2.1 Creating a new git repository
-- Go to GitHub and [create a new repository](https://github.com/new). Give it a new, check that you want a readme file and in the **Add .gitignore: None** dropdown box, select _Node_ and click the _Create repository_ button.
+- Go to GitHub and [create a new repository](https://github.com/new). Give it a name, check the box for adding a readme file and in the **Add .gitignore: None** dropdown box, select _Node_ and click the _Create repository_ button.
 - Click the green _Clone or download_ button and copy the URL.
 - Open a terminal in a folder where you want to store this project and clone the GitHub repo here: `git clone [URL]`
 - In the terminal, go into the new project directory. There should be a _README.md_ and a _.gitignore_ file there aswell as a _.git_ folder. Files and folders starting with `.` is hidden by default. Now we have a completely empty project that we can work in.
@@ -43,7 +43,7 @@ Let's start with GitHub.
 ### 2.2 Initializing the Node Package Manager (npm)
 
 #### 2.2.1 npm
-Npm is an additional tool we get when we install NodeJS (the web platform). We use npm to install and manage dependencies in our project. Our project's Node-related meta information, tasks, and list of dependencies is kept in a `package.json` file. The following steps will create this file from scratch.
+Npm is an additional tool we get when we install NodeJS (the JavaScript runtime). We use npm to install and manage dependencies in our project. Our project's Node-related meta information, tasks, and list of dependencies is kept in a `package.json` file. The following steps will create this file from scratch.
 
 * In the terminal you already have open in your project directory, type `npm init` to start the process of creating the file. The first entry is the project's name. It'll suggest the name of the folder you're in. Just hit Enter if this is fine, or type another name.
 * Next is the version, just hit Enter to keep _1.0.0_ as the starting version.
@@ -90,21 +90,21 @@ $ git push origin master
 #### 2.2.2 Dependencies
 One of the huge benefits of working with JavaScript these days is the abundance of third-party libraries and frameworks.
 
-The first thing we need is a web server. "But wait, I thought NodeJS is the web server", you say. NodeJS is the JavaScript runtime which we can run a JavaScript-based web server on. It's more like a virtual machine that we can run other software on top of.
+The first thing we need is a web server. "But wait, I thought NodeJS is the web server", you say. Not really - NodeJS is the JavaScript _runtime/platform_ which we can run a JavaScript-based _web server_ on. NodeJs is more like a virtual machine that we can run other software on top of.
 
 We're going to use the web server _Express_ which is one of the most used and most popular available for NodeJS.
 
 - In the terminal type `npm install express --save`.
 
-Two things should happen: First, `express` should be listed in the _dependencies_ section in your `package.json` file (because we added `--save`). Second, a new `node_modules` directory was created in our project. This directory has lots of other directories. This is where all npm packages for your project are installed to.
+Two things should happen: First, `express` should be listed in the _dependencies_ section in your `package.json` file (because we installed using `--save`). Second, a new `node_modules` directory was created in our project. This directory has lots of other directories. This is where all npm packages for your project is installed to. You'll find the _express_ directory there, and all the other directories are express's dependencies.
 
-> By adding the `-g` switch to `npm install`, we can install the package globally on the computer instead of to the current directory.
+> By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
 
-You might think the massive _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git. It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git. It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
 
 ~~~~
 $ git clone [repo] <- get the code
-$ npm install <- install dependencies
+$ npm install <- install dependencies, creates node_modules and fetches all of its contents.
 ...
 ~~~~
 
@@ -173,8 +173,14 @@ In the center, starting from the top is an address bar and a dropdown where you 
 
 After a request has been sent, the response is shown below (green). You can see the body and headers of the response (green), the status code, and the data.
 
-* With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
+- With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
 
-Now that we're all set-up, let's move on to make something.
+- Open `README.md` in your project. Write a simple list of how someone can start your web server from scratch. It should include the exact terminal commands of how to...
+  - Get code from GitHub
+  - Install dependencies
+  - Start the web server.
+- Complete the exercise by committing all new and changed files to git, then push it to GitHub. See that GitHub now shows the contents of the readme file on the repository's front page.
+
+Now that we're all set-up, let's move on to make something more interesting!
 
 ## [Go to next exercise =>](../exercise2/README.md)
