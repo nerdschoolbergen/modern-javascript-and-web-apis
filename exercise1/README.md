@@ -165,7 +165,7 @@ If you can't find it, go to [chrome://extensions/](chrome://extensions/) and mak
 
 Spend a few minutes by making yourself familiar with the interface.
 
-![postman app](../images/postman_app.PNG)
+![postman app](../images/postman_app.png)
 
 To the left is the log of the last requests and responses you did in Chrome. Postman acts as a proxy for all communication in Chrome, so as you visit a webpage, it'll show up in Postman's History view.
 
