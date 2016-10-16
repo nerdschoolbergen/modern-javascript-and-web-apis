@@ -1,0 +1,180 @@
+# Exercise 1 - Up and running
+In this exercise you will create the basic project structure and files required for the next exercises.
+
+You will:
+1. Install NodeJS if you haven't already
+2. Initialize Git and npm for your project
+3. Create a basic web server using NodeJS
+4. Verify the web server is working by using the Postman plugin for Chrome
+
+## 1. Install software
+
+### 1.1 NodeJS
+NodeJS is the platform/runtime that's going to run our web server. You can test if you already have NodeJS installed
+by opening a terminal and entering `node -v` which should return a version number if it's installed.
+
+If you don't have NodeJS installed, you can [download it here](https://nodejs.org/en/).
+
+> If you have Node installed with a version less than 6, please upgrade to the latest before continuing.
+
+### 1.2 Git
+We're going synchronize our project with GitHub, so make sure you have Git installed. You can test if you have Git by opening a terminal and entering `git --version` which should return a version number if it's installed.
+
+#### 1.2.1 GitHub
+You're going to need an account on [GitHub](https://github.com/).
+
+### 1.3 Chrome
+[Install Google Chrome if you don't have it](https://www.google.com/chrome/browser/desktop/)
+
+### 1.3.1 Postman
+Postman is a Chrome extension you will use to test your REST interface. It allows us to create web requests without having a website. [Download Postman here](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en).
+
+## 2. Create project and initialize frameworks
+In this workshop you'll create everything yourself from scratch so you can see how all the pieces are assembled and come together.
+
+Let's start with GitHub.
+
+### 2.1 Creating a new git repository
+- Go to GitHub and [create a new repository](https://github.com/new). Give it a new, check that you want a readme file and in the **Add .gitignore: None** dropdown box, select _Node_ and click the _Create repository_ button.
+- Click the green _Clone or download_ button and copy the URL.
+- Open a terminal in a folder where you want to store this project and clone the GitHub repo here: `git clone [URL]`
+- In the terminal, go into the new project directory. There should be a _README.md_ and a _.gitignore_ file there aswell as a _.git_ folder. Files and folders starting with `.` is hidden by default. Now we have a completely empty project that we can work in.
+
+### 2.2 Initializing the Node Package Manager (npm)
+
+#### 2.2.1 npm
+Npm is an additional tool we get when we install NodeJS (the web platform). We use npm to install and manage dependencies in our project. Our project's Node-related meta information, tasks, and list of dependencies is kept in a `package.json` file. The following steps will create this file from scratch.
+
+* In the terminal you already have open in your project directory, type `npm init` to start the process of creating the file. The first entry is the project's name. It'll suggest the name of the folder you're in. Just hit Enter if this is fine, or type another name.
+* Next is the version, just hit Enter to keep _1.0.0_ as the starting version.
+* Then there is the description. Type something that describes the project and hit Enter.
+* Next is the entry point, meaning where is the start of your package. (In Java/C#-speak: where is your `static void Main(string[] args)`). Type in `server.js` and hit Enter.
+* Finish the rest of the steps with the info you like. When finished you should have a `package.json` file in your project directory looking something like this:
+
+~~~~json
+{
+  "name": "nerdschool-modernjs",
+  "version": "1.0.0",
+  "description": "Building a REST-based web server",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaardal/nerdschool-modernjs.git"
+  },
+  "keywords": [
+    "rest",
+    "http",
+    "web",
+    "fun"
+  ],
+  "author": "Eirik Årdal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eaardal/nerdschool-modernjs/issues"
+  },
+  "homepage": "https://github.com/eaardal/nerdschool-modernjs#readme"
+}
+~~~~
+
+* In your terminal, add the package json to Git, then make a new commit and push it to GitHub.
+~~~~
+$ git add package.json
+$ git commit -m "Added a fancy package.json file"
+$ git push origin master
+~~~~
+* When you refresh the repository on GitHub there should now be a package.json file there.
+
+#### 2.2.2 Dependencies
+One of the huge benefits of working with JavaScript these days is the abundance of third-party libraries and frameworks.
+
+The first thing we need is a web server. "But wait, I thought NodeJS is the web server", you say. NodeJS is the JavaScript runtime which we can run a JavaScript-based web server on. It's more like a virtual machine that we can run other software on top of.
+
+We're going to use the web server _Express_ which is one of the most used and most popular available for NodeJS.
+
+- In the terminal type `npm install express --save`.
+
+Two things should happen: First, `express` should be listed in the _dependencies_ section in your `package.json` file (because we added `--save`). Second, a new `node_modules` directory was created in our project. This directory has lots of other directories. This is where all npm packages for your project are installed to.
+
+> By adding the `-g` switch to `npm install`, we can install the package globally on the computer instead of to the current directory.
+
+You might think the massive _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git. It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+
+~~~~
+$ git clone [repo] <- get the code
+$ npm install <- install dependencies
+...
+~~~~
+
+- Let's check this change in to git by repeating the same steps as before: add the file to git, make a commit, push to github.
+
+## 3. Creating a web server using Express
+
+- In your project directory, create a new file `server.js`.
+- In server.js, we're going to _require_ express: `const express = require('express')`, which will let us use Express in the `server.js` _module_ (as in a JavaScript _module_). This is equivalent to `import` or `using` in other languages.
+- Then we will use express: `const app = express()`.
+- Next, we will make a simple REST endpoint which will answer all `GET` requests at the root path (`/`) of our domain. This means if our web server is running on `http://localhost:3000`, then this endpoint will answer all `GET` requests to `http://localhost:3000/` aka the root. For now, we'll just return the text _Hello World_:
+
+~~~~javascript
+app.get('/', (request, response) => response.send('Hello World'));
+~~~~
+
+Alternatively, we could write the above this way using a _function_ instead of a _lambda/arrow function_:
+
+~~~~javascript
+app.get('/', function (request, response) {
+  response.send('Hello World');
+});
+~~~~
+
+We're going to finish of by telling express to start listening for requests on a port we choose:
+
+~~~~javascript
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`); // Note the `` backticks is NOT the same as single quotes ''
+});
+~~~~
+
+The finished `server.js` file should look like this:
+
+~~~~javascript
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (request, response) => response.send('Hello World'));
+
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}`);
+});
+~~~~
+
+- In your terminal, type `node server.js` to get node to run your new express web server.
+- In Chrome, go to http://localhost:3000/ and you should see the text _Hello World_.
+
+### 3.1 Testing with Postman
+
+After installing Postman you should have a new button at the Chrome address bar to access it:
+
+![postman chrome toolbar](../images/postman_chrome_toolbar.PNG)
+
+If you can't find it, go to [chrome://extensions/](chrome://extensions/) and make sure it's enabled.
+
+Spend a few minutes by making yourself familiar with the interface.
+
+![postman app](../images/postman_app.PNG)
+
+To the left is the log of the last requests and responses you did in Chrome. Postman acts as a proxy for all communication in Chrome, so as you visit a webpage, it'll show up in Postman's History view.
+
+In the center, starting from the top is an address bar and a dropdown where you can choose what kind of http verb you want to use. Below the address bar (blue) are options for filling out meta information and data to send along in the request. The Send button will send the request with it's headers and body.
+
+After a request has been sent, the response is shown below (green). You can see the body and headers of the response (green), the status code, and the data.
+
+* With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
+
+Now that we're all set-up, let's move on to make something.
+
+## [Go to next exercise =>](../exercise2/README.md)
