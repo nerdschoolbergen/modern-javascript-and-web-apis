@@ -181,12 +181,15 @@ After a request has been sent, the response is shown below (green). You can see 
 
 - With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
 
+## 4. Finishing up
+Now that we have a working web server, let's make sure we're keeping everything in our project up to date, including some documentation. It's common to include a short "how to get starting" section in the frontpage readme on GitHub so that others can see how they can get your project up and running, and remind yourself when you haven't worked on it for 3 months.
+
 - Open `README.md` in your project. Write a simple list of how someone can start your web server from scratch. It should include the exact terminal commands of how to...
-  - Get code from GitHub
+  - Get the code from GitHub
   - Install dependencies
   - Start the web server.
-- Complete the exercise by committing all new and changed files to git, then push it to GitHub. See that GitHub now shows the contents of the readme file on the repository's front page.
+- Complete the exercise by committing all new and changed files to git, then push it to GitHub. See that GitHub now show the content of the readme file on the repository's front page.
 
-Now that we're all set-up, let's move on to make something more interesting!
+Now that we're all set-up, let's implement some features!
 
 ## [Go to next exercise =>](../exercise2/README.md)
