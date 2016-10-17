@@ -5,7 +5,7 @@ You will:
 
 1. Install NodeJS if you haven't already
 2. Initialize Git and npm for your project
-3. Create a basic web server using NodeJS
+3. Create a basic web server using NodeJS and Express
 4. Verify the web server is working by using the Postman plugin for Chrome
 
 ## 1. Install software
@@ -19,27 +19,32 @@ If you don't have NodeJS installed, you can [download it here](https://nodejs.or
 > If you have Node installed with a version less than 6, please upgrade to the latest before continuing.
 
 ### 1.2 Git
-We're going synchronize our project with GitHub, so make sure you have Git installed. You can test if you have Git by opening a terminal and entering `git --version` which should return a version number if it's installed.
+We're going synchronize our project with GitHub, so make sure you have Git installed. You can test if you have Git by opening a terminal and entering `git --version` which should return a version number if it's installed. If not, [download Git here](https://git-scm.com/).
 
 #### 1.2.1 GitHub
-You're going to need an account on [GitHub](https://github.com/).
+You're going to need a [GitHub account](https://github.com/).
 
 ### 1.3 Chrome
 [Install Google Chrome if you don't have it](https://www.google.com/chrome/browser/desktop/)
 
 ### 1.3.1 Postman
-Postman is a Chrome extension you will use to test your REST interface. It allows us to create web requests without having a website. [Download Postman here](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en).
+Postman is a Chrome extension you will use to test your REST interface. It allows us to create web requests without having a website. [Install Postman here](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en).
 
 ## 2. Create project and initialize frameworks
 In this workshop you'll create everything yourself from scratch so you can see how all the pieces are assembled and come together.
 
-Let's start with GitHub.
+Let's start with making a new Git repository on GitHub. When we make a project we can choose to initialize Git in two ways:
+
+1. We can do `git init` in the project directory locally, which will create a local Git repository. Then we can create a repository on GitHub and in our local repository add GitHub as the _remote_ which will link the two repositories together.
+2. Or, as we will do below, we can make the GitHub repository first, then clone it locally to our computer. 
+
+Both options result in the same set-up. Typically we do option 1 when we already have a codebase we want to push to GitHub, and option 2 when we are starting fresh. Let's continue with option 2.
 
 ### 2.1 Creating a new git repository
-- Go to GitHub and [create a new repository](https://github.com/new). Give it a name, check the box for adding a readme file and in the **Add .gitignore: None** dropdown box, select _Node_ and click the _Create repository_ button.
-- Click the green _Clone or download_ button and copy the URL.
-- Open a terminal in a folder where you want to store this project and clone the GitHub repo here: `git clone [URL]`
-- In the terminal, go into the new project directory. There should be a _README.md_ and a _.gitignore_ file there aswell as a _.git_ folder. Files and folders starting with `.` is hidden by default. Now we have a completely empty project that we can work in.
+- Go to GitHub and [create a new repository](https://github.com/new). Give it a name, check the box for adding a readme file and in the _Add .gitignore: None_ dropdown list, select _Node_ and click the _Create repository_ button.
+- In the newly created repository, click the green _Clone or download_ button and copy the URL.
+- Open a terminal on your computer in a folder where you want to store this project and clone the GitHub repo here: `git clone [URL]`
+- In the terminal, go into the new project directory. There should be a _README.md_ and a _.gitignore_ file there aswell as a _.git_ folder. Files and folders starting with `.` is hidden by default, but they're there. Now we have a completely empty project that we can work in.
 
 ### 2.2 Initializing the Node Package Manager (npm)
 
@@ -101,7 +106,7 @@ Two things should happen: First, `express` should be listed in the _dependencies
 
 > By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
 
-You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git. It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git (_node_modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
 
 ~~~~
 $ git clone [repo] <- get the code
