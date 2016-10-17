@@ -2,6 +2,7 @@
 In this exercise you will create the basic project structure and files required for the next exercises.
 
 You will:
+
 1. Install NodeJS if you haven't already
 2. Initialize Git and npm for your project
 3. Create a basic web server using NodeJS
