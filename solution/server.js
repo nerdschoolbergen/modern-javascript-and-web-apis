@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-
+const tvShowRouter =  require('./routers/tvShowRouter');
 const app = express();
 const APP_PORT = 3000;
 
@@ -10,4 +10,8 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!')
 });
 
-app.listen(APP_PORT);
+app.use('/tvshow', tvShowRouter);
+
+app.listen(APP_PORT, () => {
+  console.log(`App running on port ${APP_PORT}`);
+});
