@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const tvShowRouter = express.Router();
+const postTvShow = require('../services/tvShow.service')
 
 // Exsercise #2
 tvShowRouter.get('/', (req, res) => {
