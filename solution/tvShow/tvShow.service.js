@@ -1,6 +1,7 @@
 'use strict';
+const TvShow = require('./TvShow');
 
-let tvShows;
+const tvShows = [];
 
 const postTvShow = (tvShow) => {
   tvShows.push(tvShow);
@@ -16,7 +17,7 @@ const getTvShow = (id) => {
 };
 
 const getAllTvShows = () => {
-
+  return tvShows;
 };
 
 module.exports = {
@@ -24,4 +25,4 @@ module.exports = {
   putTvShow,
   getTvShow,
   getAllTvShows,
-}
+};
