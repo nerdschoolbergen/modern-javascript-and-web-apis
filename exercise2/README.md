@@ -19,10 +19,10 @@ A resource is an entity we make REST operations for. We can have many resources 
 The urls we use for a REST API reflect our _resources_ along with the correct _http verb_. For example, above we listed a set of operations we will learn in this exercise. The following is how we expect to implement and use our REST API for the tv show resource:
 
 - _Get all_ tv shows: `GET http://localhost:3000/tvshow/`
-- _Get single`_ tv show: `GET http://localhost:3000/tvshow/[id]/`
+- _Get single`_ tv show: `GET http://localhost:3000/tvshow/{id}/`
 - _Insert_ a tv show: `POST http://localhost:3000/tvshow/` (The tv show data we will insert is in the request's _body_)
-- _Delete_ a tv show: `DELETE http://localhost:3000/tvshow/[id]/`
-- _Update_ a tv show: `PUT http://localhost:3000/tvshow/[id]/` (The tv show data we will insert is in the request's _body_)
+- _Delete_ a tv show: `DELETE http://localhost:3000/tvshow/{id}/`
+- _Update_ a tv show: `PUT http://localhost:3000/tvshow/{id}/` (The tv show data we will insert is in the request's _body_)
 
 ## 0.1 Fancy logging
 
@@ -36,7 +36,19 @@ We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) t
 * Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.
 * Git commit the changes, push to github.
 
+Example of output:
+
 ![morgan logging](../images/morgan_logging.PNG)
+
+## 0.2 Preparing for JSON
+
+It's common in the modern JavaScript and NodeJS world that an application is made up of many small pieces that you wire together as you need.
+
+One of the pieces we need to wire up now is proper JSON handling for Express. For this, we need a new library, `body-parser`.
+
+* Install body-parser: `npm i body-parser --save`. (`i` is a shorter alias for `install`).
+* In `server.js`, _require_ body-parser: `const bodyParser = require('body-parser')`.
+* In `server.js`, _use_ body-parser: `app.use(bodyParser.json())`.
 
 ## 1. Make a endpoint for fetching all tv shows
 
@@ -104,11 +116,12 @@ tvShowRouter.get('/', (req, res) => {
 ~~~~
 
 > What is `(req, res)`? This is the _request_ and _response_ objects. Naming of parameters is irrelevant in JavaScript so these shorter terms are used alot when working with Express.
+
 > What is `res.json(tvShows)`? Here we say that _take my tvShows array, parse it to json, and set it as my response's body aka the response data_.
 
 Start the web server again: `node server.js`
 
-In Postman, select the http verb `GET` and enter http://localhost:3000/tvshow/.
+In Postman, select the http verb `GET` and enter `http://localhost:3000/tvshow/`.
 
 The response should have a status code 200 OK and the body should contain this JSON content:
 ~~~~json
@@ -165,9 +178,10 @@ In express, we can define _route placeholders_ which we can then refer to in cod
 For example, the `:name` and `:age` parameters below:
 
 ~~~~javascript
-app.route('/peraon/:name/:age').get((req, res) => {
-  const name = req.params.name;
-  const age = req.params.age;
+// http://localhost/person/bob/25
+app.route('/person/:name/:age').get((req, res) => {
+  const name = req.params.name; // bob
+  const age = req.params.age; // 25
   res.send(`Hello ${name}, you are ${age} years old`);
 });
 ~~~~
@@ -208,7 +222,7 @@ console.log(inventory.find(fruit => fruit.name === 'cherries')); // { name: 'che
 
 * Use the example above to implement `tvShowService.getById(id)` to return a tv show that matches the given id.
 * Make sure you have a couple of tv shows to test with. Just hard-code a few into the constructor of `tvShowService`.
-* Test that calling http://localhost:3000/tvshow/1 returns the tv show with id 1. Test with more tv shows if you can.
+* Test that calling `http://localhost:3000/tvshow/1` returns the tv show with id 1. Test with more tv shows if you can.
 * Git commit and push to GitHub.
 
 
@@ -247,7 +261,7 @@ Next, we need to implement the `createTvShow` method on the `tvShowService`.
 * Add the new tv show to the array of tv shows.
 * Return the new tv show.
 
-### Discussing ID's
+### Generating ID's
 
 A common problem at this point is "how do I assign my new tv show a new, 100% unique ID automatically?". We don't want the user to have to keep track of ID's and create new ones. We need to generate something that we can be sure is unique.
 
@@ -377,16 +391,154 @@ tvShowRouter.route('/:tvShowId')
 
 ![postman post body](../images/postman_post_body.png)
 
-* Click _Send_ and see that you get the new tv show back.
+* Click _Send_ and see that you get the new tv show back with a generated ID.
 
 * Do another GET `http://localhost:3000/tvshow/` to list all tv shows. You should now see the new tv show in the list.
 
 ![postman post after](../images/postman_post_after.png)
-
-### Finishing up
 
 Congratulations on making it this far! Your REST API now actually has real, useful functionality.
 
 Let's finish up like before:
 
 * Git commit everything, push to GitHub.
+
+## Making a endpoint for deleting a tv show
+
+By now you can probably guess how this will be achieved. Feel free to stop reading here and try implement this feature yourself, then come back and compare your solution to the below.
+
+Let's start by adding a request handler for `DELETE` `http://localhost:3000/tvshow/{id}`.
+
+Open `tvShowRouter` and review how it currently works. We can `GET` `/`, `POST` `/`, and `GET` for the _route_ `/:tvShowId`. What we want to do now is to `DELETE` for the same route `/:tvShowId`. Thankfully, express has a nice fluent syntax for adding handlers to this route:
+
+~~~~javascript
+app.route(/:id)
+  .get((req, res) => { })
+  .post((req, res) => { })
+  .put((req, res) => { })
+  .delete((req, res) => { })
+~~~~
+
+* In `tvShowRouter`, add a `.delete((req, res) => { })` handler to the existing `/:tvShowId` route.
+* Extract the `:tvShowId` parameter like you did in the handler for getting a tv show by it's ID.
+* Call a method on the `tvShowService` that will delete the tv show by the given ID.
+* After the service has deleted the tv show, do a call to `tvShowService.getAll()` and write the remaining tv shows to the response.
+
+Next, we must implement the delete logic in the tv show service.
+
+* Open `tvShowService` and create the function that will delete the tv show by the given ID.
+* Implement delete logic. There are many ways of achieving this but the shortest, and using ES6 syntax, is
+~~~~javascript
+remove(id) {
+  this.tvShows = this.tvShows.filter(tvShow => tvShow.id !== id);
+}
+~~~~
+`filter()` acts much like `find()` we used earlier. It returns a new array as its result, and takes a function as parameter which will be invoked for every item in the array. If the function returns true, the item will be included in the new result array. If it returns false, it won't be included. [Here is more documentation for filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter).
+
+* Restart the web server and list all tv shows in Postman.
+* In Postman, change http verb to DELETE. Change the url to include a valid tv show ID: `http://localhost:3000/tvshow/e371` (your ID will be different).
+* See that the response in Postman is now all tv shows minus the one you just removed.
+* Do another call to list all tv shows and see it's still gone.
+
+> You might need to clean up the request body and headers you used in Postman when making the POST request in the previous task. The request body should be empty.
+
+* Git commit and push to GitHub.
+
+You have now implemented the most necessary API's for managing tv shows. If you're doing good on time at this point, feel free to implement the next task below as well. If you have less than an hour left of the workshop, move on to exercise 3.
+
+## [Go to next exercise =>](../exercise3/README.md)
+
+## Bonus: Making a endpoint for updating an existing tv show
+
+To update an existing item, you can choose how you want to send the request data. The most common practice is to give the item's ID as a url parameter, and the fields you want to update as the request body. The other option would be to give the ID in the request body as well and not have it in the url.
+
+In other words, given that my tv shows list looks like this:
+
+~~~~json
+[
+  {
+    "id": "56f8",
+    "name": "Mr.Robot",
+    "genre": "Drama"
+  },
+  {
+    "id": "32ac",
+    "name": "The Office",
+    "genre": "Comedy"
+  }
+]
+~~~~
+
+A `PUT` to `http://localhost:3000/tvshow/32ac` with the request body
+
+~~~~JSON
+{
+  "name": "The Office (US)",
+}
+~~~~
+
+would update the tv show with ID `32ac` to have the name "The Office (US)".
+
+* Add a request handler for `PUT` `http://localhost:3000/tvshow/{id}`.
+* Call a update function on the tv show service which takes the id and the properties to update.
+* The update function on the tv show service should return the updated tv show. Write the updated tv show to the response.
+* In `tvShowService`, implement the logic for updating an existing tv show. Give it a try yourself before continuing.
+
+### Updating an existing item
+
+We've already used `find()` and `filter()`. Now we must use another ES6 array function: `map()`. Just like the find and filter, this also takes a function as parameter, and creates a new array from the result. But instead of returning a true or false, we return the item which will be put into the new result array. Map is for _transforming items in the array_.
+
+The next new thing we need to learn is `Object.assign()`. Think of this like a copy or merge function. When passing many objects to it, it will copy properties over, overwriting the first property values it finds with later ones with matching property names.
+
+Example:
+
+~~~~javascript
+const bob40 = { name: 'Bob', age = 40 };
+const bob50 = { name: 'Bob', age = 50 };
+const bob = Object.assign({}, bob40, bob50);
+// { name: 'Bob', age: 50 }
+~~~~
+
+So for our task, if we give just the name as the request body
+
+~~~~JSON
+{
+  "name": "The Office (US)",
+}
+~~~~
+
+and then pass the whole object into `Object.assign()` after the original tv show object, it will just update the name property.
+
+I'm sure [this documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)  makes a lot more sense :)
+
+Here is the entire update functionality:
+
+~~~~javascript
+update(id, updatedTvShow) {
+  // Did you know that a copy & paste will shorten your lifespan by 14 years?!
+  this.tvShows = this.tvShows
+    .map(tvShow => {
+      if (tvShow.id === id) {
+        return Object.assign({}, tvShow, updatedTvShow);
+      }      
+      return tvShow;
+    });
+  return this.getById(id);
+}
+~~~~
+
+Try to understand this properly before moving on.
+
+For clarity, here is the `PUT` handler in `tvShowRouter`:
+
+~~~~javascript
+.put((req, res) => {
+  const tvShow = tvShowService.update(req.params.tvShowId, req.body); // Just passing the whole request body to the service
+  res.send(tvShow);
+})
+~~~~
+
+* Test the new PUT endpoint in Postman by first listing all tv shows, then change http verb to PUT and try updating the name of a tv show
+* Git commit and push to GitHub
+
+## [Go to next exercise =>](../exercise3/README.md)
