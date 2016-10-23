@@ -11,7 +11,7 @@ You will:
 1. Make a endpoint for deleting an existing tv show
 1. Make a endpoint for updating an existing tv show
 
-## 0. Discussing a _resource_
+## 1. Discussing a _resource_
 
 When working with REST, we often talk about _resources_. We say we want to _make a REST API for a resource_. What is a resource?
 A resource is an entity we make REST operations for. We can have many resources in our application. In this workshop we will use _tv show_ and _review_. In this exercise, our resource is _tv show_.
@@ -24,7 +24,7 @@ The urls we use for a REST API reflect our _resources_ along with the correct _h
 - _Delete_ a tv show: `DELETE http://localhost:3000/tvshow/{id}/`
 - _Update_ a tv show: `PUT http://localhost:3000/tvshow/{id}/` (The tv show data we will insert is in the request's _body_)
 
-## 0.1 Fancy logging
+## 2. Better logging
 
 A helpful tool when developing is to log what's going on during runtime of our application. Since we are working with a web server in a console/terminal environment, let's get it to log all requests there so we can see what's going on.
 
@@ -40,7 +40,7 @@ Example of output:
 
 ![morgan logging](../images/morgan_logging.PNG)
 
-## 0.2 Preparing for JSON
+## 3. Preparing for JSON
 
 It's common in the modern JavaScript and NodeJS world that an application is made up of many small pieces that you wire together as you need.
 
@@ -50,9 +50,9 @@ One of the pieces we need to wire up now is proper JSON handling for Express. Fo
 * In `server.js`, _require_ body-parser: `const bodyParser = require('body-parser')`.
 * In `server.js`, _use_ body-parser: `app.use(bodyParser.json())`.
 
-## 1. Make a endpoint for fetching all tv shows
+## 4. Make a endpoint for fetching all tv shows
 
-### 1.1 Introducing a Router
+### 4.1 Introducing a Router
 
 It's good practice to separate functionality into smaller modules which has a single and clear responsibility. Let's do this by separating all REST functionality into it's own _tv show router_.
 
@@ -81,7 +81,7 @@ app.listen(APP_PORT, () => {
 });
 ~~~~
 
-### 1.1 TV Show model
+### 4.2 TV Show model
 
 * Create a new folder: `tvShow`
 * Create a new file `TvShow.js`. This file should just contain our tv show _model_:
@@ -99,7 +99,7 @@ module.exports = TvShow;
 
 > Note the `module.exports = TvShow` line. Remember that a `.js` file is equal to a javascript _module_ and by default, all members in a module is private. So in order to be able to _import_ our TvShow class, we need to export it - to make it public.
 
-### 1.1 TV Show Router
+### 4.3 TV Show Router
 
 * Make a new file `tvShowRouter.js`.
 * Import express: `const express = require('express')`.
@@ -139,7 +139,7 @@ The response should have a status code 200 OK and the body should contain this J
 ]
 ~~~~
 
-### 1.1 TV Show Service
+### 4.4 TV Show Service
 
 It's good practice to have as few _responsibilities_ in one class or module as possible. Preferably only 1 responsibility pr class or module. Our `tvShowRouter` currently has 2: Handle routing for our TV Show _resource_, and keeping track of our tv shows in our array.
 
@@ -169,7 +169,7 @@ module.exports = TvShowService;
 * Test that everything still works with Postman (remember to restart the web server).
 * Git commit the changes and push to github
 
-## 2. Making a endpoint to get a tv show by it's ID
+## 5. Making a endpoint to get a tv show by it's ID
 
 In `tvShowRouter`, we need to add a `GET` handler for the route `http://localhost:3000/tvshow/{id}`.
 
@@ -226,7 +226,7 @@ console.log(inventory.find(fruit => fruit.name === 'cherries')); // { name: 'che
 * Git commit and push to GitHub.
 
 
-## 3. Making a endpoint to create a new tv show
+## 6. Making a endpoint to create a new tv show
 
 In `tvShowRouter`, we need to add a `POST` handler for the route `http://localhost:3000/tvshow/`.
 
@@ -261,12 +261,12 @@ Next, we need to implement the `createTvShow` method on the `tvShowService`.
 * Add the new tv show to the array of tv shows.
 * Return the new tv show.
 
-### Generating ID's
+### 6.1 Generating ID's
 
 A common problem at this point is "how do I assign my new tv show a new, 100% unique ID automatically?". We don't want the user to have to keep track of ID's and create new ones. We need to generate something that we can be sure is unique.
 
 * Create a new folder in your project: `utils`
-* Copy & paste this snippet in:
+* _Copy & paste_ (yay!) this snippet in:
 
 ~~~~javascript
 const s4 = () =>
@@ -296,7 +296,8 @@ class TvShowService {
   getAll() {
     return this.tvShows;
   }
-  // Copy & paste is the root of all evil :D
+  // Thou shalt not copy & paste, for it is evil!
+  //   -- Abraham Lincoln
   getById(id) {
     return this.tvShows.find(tvShow => tvShow.id == id);
   }
@@ -322,7 +323,7 @@ const tvShowRouter = express.Router();
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShowService.getAll());
 });
-// No copy & paste today!
+// Ask yourself: would Jesus copy & paste?
 tvShowRouter.post('/', (req, res) => {
   const name = req.body.name;
   const genre = req.body.genre;
@@ -374,7 +375,7 @@ tvShowRouter.route('/:tvShowId')
 }
 ~~~~
 
-#### Creating a POST request in Postman
+#### 6.2 Creating a POST request in Postman
 
 * First, select `POST` as the http verb in the dropdown list next to the url textbox.
 * Next, we need to add a http header that tells the server what kind of data it can expect to find in the request. We want to use JSON, so we need to specify that the header `Content-Type` is `application/json`.
@@ -403,7 +404,7 @@ Let's finish up like before:
 
 * Git commit everything, push to GitHub.
 
-## Making a endpoint for deleting a tv show
+## 7. Making a endpoint for deleting a tv show
 
 By now you can probably guess how this will be achieved. Feel free to stop reading here and try implement this feature yourself, then come back and compare your solution to the below.
 
@@ -448,7 +449,7 @@ You have now implemented the most necessary API's for managing tv shows. If you'
 
 ## [Go to next exercise =>](../exercise3/README.md)
 
-## Bonus: Making a endpoint for updating an existing tv show
+## 8. Bonus: Making a endpoint for updating an existing tv show
 
 To update an existing item, you can choose how you want to send the request data. The most common practice is to give the item's ID as a url parameter, and the fields you want to update as the request body. The other option would be to give the ID in the request body as well and not have it in the url.
 
