@@ -36,6 +36,8 @@ We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) t
 * Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.
 * Git commit the changes, push to github.
 
+![morgan logging]("../images/morgan_logging.PNG")
+
 ## 1. Make a endpoint for fetching all tv shows
 
 ### 1.1 Introducing a Router
