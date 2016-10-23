@@ -36,7 +36,7 @@ We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) t
 * Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.
 * Git commit the changes, push to github.
 
-![morgan logging]('../images/morgan_logging.PNG')
+![morgan logging](../images/morgan_logging.PNG)
 
 ## 1. Make a endpoint for fetching all tv shows
 
@@ -365,7 +365,7 @@ tvShowRouter.route('/:tvShowId')
 * First, select `POST` as the http verb in the dropdown list next to the url textbox.
 * Next, we need to add a http header that tells the server what kind of data it can expect to find in the request. We want to use JSON, so we need to specify that the header `Content-Type` is `application/json`.
 
-![postman post headers]('../images/postman_post_headers.png')
+![postman post headers](../images/postman_post_headers.png)
 
 * Finally, we create the body which we mentioned at the start of this task:
 ~~~~JSON
@@ -375,13 +375,13 @@ tvShowRouter.route('/:tvShowId')
 }
 ~~~~
 
-![postman post body]('../images/postman_post_body.png')
+![postman post body](../images/postman_post_body.png)
 
 * Click _Send_ and see that you get the new tv show back.
 
 * Do another GET `http://localhost:3000/tvshow/` to list all tv shows. You should now see the new tv show in the list.
 
-![postman post after]('../images/postman_post_after.png')
+![postman post after](../images/postman_post_after.png)
 
 ### Finishing up
 
