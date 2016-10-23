@@ -8,6 +8,3 @@ const s4 = () =>
 const createId = () => `${s4()}`;
 
 module.exports = createId;
-  //
-  // return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-  //   s4() + '-' + s4() + s4() + s4();

@@ -1,11 +1,10 @@
 'use strict';
 
-const createId = require('../utils/id.util');
 class TvShow {
-  constructor(name, genre) {
+  constructor(id, name, genre) {
+    this.id = id;
     this.name = name;
-    this.genre = genre;
-    this.id = createId();
+    this.genre = genre;    
   }
 };
 
