@@ -1,3 +1,4 @@
+'use strict';
 const TvShow = require('./TvShow');
 const createId = require('../utils/idUtil');
 

@@ -1,13 +1,22 @@
 'use strict';
 const express = require('express');
 const tvShowService = require('./tvShowService');
+const reviewService = require('../review/reviewService');
 const TvShow = require('./TvShow');
 const tvShowRouter = express.Router();
 
 // GET http://localhost:3000/tvshow/
 tvShowRouter.get('/', (req, res) => {
   const tvShows = tvShowService.getAll();
-  res.send(tvShows);
+  res.send(tvShows.map(tvShow =>
+    Object.assign(
+      {},
+      tvShow,
+      {
+        reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
+      }
+    )
+  ));
 });
 
 // POST http://localhost:3000/tvshow/ Body: { "name": {name}, "genre": {genre} }
@@ -23,7 +32,13 @@ tvShowRouter.route('/:tvShowId')
   .get((req, res) => {
     const tvShowId = req.params.tvShowId;
     const tvShow = tvShowService.getById(tvShowId);
-    res.send(tvShow);
+    res.send(Object.assign(
+      {},
+      tvShow,
+      {
+        reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
+      }
+    ));
   })
 
   // PUT // http://localhost:3000/tvshow/:tvShowId/ Body: { "name": {name} }
@@ -40,6 +55,13 @@ tvShowRouter.route('/:tvShowId')
     tvShowService.remove(tvShowId);
     const remainingTvShows = tvShowService.getAll();
     res.send(remainingTvShows);
+  });
+
+tvShowRouter.route('/:tvShowId/review')
+  .get((req, res) => {
+    const relatedItemId = req.params.tvShowId;
+    const tvShowReviews = reviewService.getAllForRelatedItem(relatedItemId);
+    res.send(tvShowReviews);
   });
 
 module.exports = tvShowRouter;
