@@ -36,7 +36,7 @@ In this workshop you'll create everything yourself from scratch so you can see h
 Let's start with making a new Git repository on GitHub. When we make a project we can choose to initialize Git in two ways:
 
 1. We can do `git init` in the project directory locally, which will create a local Git repository. Then we can create a repository on GitHub and in our local repository add GitHub as the _remote_ which will link the two repositories together.
-2. Or, as we will do below, we can make the GitHub repository first, then clone it locally to our computer. 
+2. Or, as we will do below, we can make the GitHub repository first, then clone it locally to our computer.
 
 Both options result in the same set-up. Typically we do option 1 when we already have a codebase we want to push to GitHub, and option 2 when we are starting fresh. Let's continue with option 2.
 
@@ -98,7 +98,7 @@ One of the huge benefits of working with JavaScript these days is the abundance 
 
 The first thing we need is a web server. "But wait, I thought NodeJS is the web server", you say. Not really - NodeJS is the JavaScript _runtime/platform_ which we can run a JavaScript-based _web server_ on. NodeJs is more like a virtual machine that we can run other software on top of.
 
-We're going to use the web server _Express_ which is one of the most used and most popular available for NodeJS.
+We're going to use the web server [_Express_](http://expressjs.com/) which is one of the most used and most popular available for NodeJS.
 
 - In the terminal type `npm install express --save`.
 
@@ -106,7 +106,7 @@ Two things should happen: First, `express` should be listed in the _dependencies
 
 > By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
 
-You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git (_node_modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+You might think the huge _node__modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. node_modules is never checked in to git (_node__modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
 
 ~~~~
 $ git clone [repo] <- get the code
