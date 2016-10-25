@@ -4,21 +4,22 @@ const reviewService = require('./reviewService');
 const Review = require('./Review');
 const reviewRouter = express.Router();
 
+
+reviewRouter.route('/')
 // GET http://localhost:3000/review/
-reviewRouter.get('/', (req, res) => {
-  const reviews = reviewService.getAll();
-  res.send(reviews);
-});
+  .get((req, res) => {
+    const reviews = reviewService.getAll();
+    res.send(reviews);
+  })
+  // POST http://localhost:3000/review/
+  .post((req, res) => {
+    const content = req.body.content;
+    const score = req.body.score;
+    const relatedItemId = req.body.relatedItemId;
 
-// POST http://localhost:3000/review/
-reviewRouter.post('/', (req, res) => {
-  const content = req.body.content;
-  const score = req.body.score;
-  const relatedItemId = req.body.relatedItemId;
-
-  const newReview = reviewService.createReview(content, score, relatedItemId);
-  res.send(newReview);
-});
+    const newReview = reviewService.createReview(content, score, relatedItemId);
+    res.send(newReview);
+  });
 
 reviewRouter.route('/:reviewId')
   // GET http://localhost:3000/review/:reviewId/
