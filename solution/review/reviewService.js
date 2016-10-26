@@ -28,7 +28,9 @@ class ReviewService {
   }
 
   remove(id) {
+    const reviewToDelete = this.getById(id);
     this.reviews = this.reviews.filter(review => review.id !== id);
+    return reviewToDelete;
   }
 
   update(id, updatedReview) {

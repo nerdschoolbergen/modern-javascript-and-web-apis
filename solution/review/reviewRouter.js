@@ -40,9 +40,8 @@ reviewRouter.route('/:reviewId')
   // DELETE http://localhost:3000/review/:reviewId/
   .delete((req, res) => {
     const reviewId = req.params.reviewId;
-    reviewService.remove(reviewId);
-    const remaingingReviews = reviewService.getAll();
-    res.send(remaingingReviews);
+    const deletedReview = reviewService.remove(reviewId);
+    res.send(deletedReview);
   });
 
 module.exports = reviewRouter;

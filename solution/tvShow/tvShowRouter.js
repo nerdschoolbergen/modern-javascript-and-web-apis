@@ -50,9 +50,8 @@ tvShowRouter.route('/:tvShowId')
   // DELETE http://localhost:3000/tvshow/:tvShowId/
   .delete((req, res) => {
     const tvShowId = req.params.tvShowId;
-    tvShowService.remove(tvShowId);
-    const remainingTvShows = tvShowService.getAll();
-    res.send(remainingTvShows);
+    const deletedTvShow = tvShowService.remove(tvShowId);
+    res.send(deletedTvShow);
   });
 
 tvShowRouter.route('/:tvShowId/review')

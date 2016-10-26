@@ -27,7 +27,9 @@ class TvShowService {
   }
 
   remove(id) {
+    const tvShowToDelete = this.getById(id);
     this.tvShows = this.tvShows.filter(tvShow => tvShow.id !== id);
+    return tvShowToDelete;
   }
 
   update(id, updatedTvShow) {
