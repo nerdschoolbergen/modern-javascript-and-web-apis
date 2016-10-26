@@ -7,7 +7,15 @@ const tvShowRouter = express.Router();
 
 // GET http://localhost:3000/tvshow/
 tvShowRouter.get('/', (req, res) => {
-  const tvShows = tvShowService.getAll();
+  const tvShows = tvShowService.getAll().map(tvShow =>
+    Object.assign(
+      {},
+      tvShow,
+      {
+        reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
+      }
+    )
+  );
   res.send(tvShows);
 });
 
@@ -24,9 +32,14 @@ tvShowRouter.route('/:tvShowId')
   .get((req, res) => {
     const tvShowId = req.params.tvShowId;
     const tvShow = tvShowService.getById(tvShowId);
-    res.send(tvShow);
+    res.send(Object.assign(
+      {},
+      tvShow,
+      {
+        reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
+      }
+    ));
   })
-
   // PUT // http://localhost:3000/tvshow/:tvShowId/ Body: { "name": {name} }
   .put((req, res) => {
     const tvShowId = req.params.tvShowId;
@@ -34,7 +47,6 @@ tvShowRouter.route('/:tvShowId')
     const updatedTvShow = tvShowService.update(tvShowId, tvShowToUpdate);
     res.send(updatedTvShow);
   })
-
   // DELETE http://localhost:3000/tvshow/:tvShowId/
   .delete((req, res) => {
     const tvShowId = req.params.tvShowId;

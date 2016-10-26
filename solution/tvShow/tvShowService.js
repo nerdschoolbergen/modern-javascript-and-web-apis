@@ -11,26 +11,12 @@ class TvShowService {
   }
 
   getAll() {
-    return this.tvShows.map(tvShow =>
-      Object.assign(
-        {},
-        tvShow,
-        {
-          reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
-        }
-      )
-    );
+    return this.tvShows;
   }
 
   getById(id) {
-    const tvShow = this.tvShows.find(tvShow => tvShow.id == id)
-    return Object.assign(
-      {},
-      tvShow,
-      {
-        reviews: `http://localhost:3000/tvShow/${tvShow.id}/review`
-      }
-    );
+    const tvShow = this.tvShows.find(tvShow => tvShow.id == id);
+    return tvShow;
   }
 
   createTvShow(name, genre) {
