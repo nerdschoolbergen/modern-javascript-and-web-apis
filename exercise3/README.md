@@ -30,8 +30,10 @@ i.e. the base route for reviews should be `/review`.
 
 The service for this functionality should accept `content`, `score` and `relatedItemId`.
 
+The response should reflect that the item has been created, i.e. the response status should be 201
+
 ## 2. Make a endpoint for fetching all reviews
-Now that we are able to create reviews we can start making functionality for retrieving the reviews we have created. For this task you will create a endpoint that gives us all existing reviews.
+Now that we are able to create reviews we can start making functionality for retrieving the reviews we have created. For this task you will create an endpoint that gives us all existing reviews.
 
 A review in the response should look something like this:
 ```
@@ -44,9 +46,41 @@ A review in the response should look something like this:
 ```
 
 ## 3. Make a endpoint for fetching a review by it's ID
+For this task you will create the functionality for fetching a specific review given by its id. The id should be reflected in the route.
 
-## 4. Make a endpoint for fetching all reviews for a TV-show
+## 4. Make a endpoint for updating an existing review
+What if we change our mind about a review that we previously posted? Then we should be able to change it, and that is what you will solve in this task. Implement the functionality that lets you update a specific review given its ID.
 
-## 5. Make a endpoint for updating an existing review
+## 5. Make a endpoint for deleting an existing review
+We should also be able to delete existing reviews. Implement this feature. A review should be deleted based on it's ID.
 
-## 6. Make a endpoint for deleting an existing review
+## 6. Make a endpoint for fetching all reviews for a TV-show
+Now, having a bunch of reviews is very good, but what if we just want to get the reviews for a specific TV-show? Lets solve that problem! First, where should that REST-resource exist ? Should it be available at the `/review` route? What would that look like? `/review/tvShow/:tvShowId`? A better approach is to make those reviews available at the TV-show resource.
+
+Add functionality to the existing TV-show features so that it is possible to get reviews for a specific TV-show (you also need to make changes to some of the review features...). When you are done the TV-show resource should look like this:
+```
+{
+  id: "74aa",
+  name: "Black Mirror",
+  genre: "Drama",
+  reviews: "http://localhost:3000/tvShow/74aa/review"
+}
+```
+
+Notice the new `reviews` attribute; it is a link, to another resource. This is a very RESTy way of solving this problem. You could argue that we could just include the reviews in this response like this:
+```
+{
+  id: "74aa",
+  name: "Black Mirror",
+  genre: "Drama",
+  reviews: [
+    {
+      id: "3df1",
+      content: "Kinda weird",
+      score: 3,
+      relatedItemId: "74aa"
+    }
+  ]
+}
+```
+ but REST is about resources, and the above example is a TV-show resource, not a review resource.

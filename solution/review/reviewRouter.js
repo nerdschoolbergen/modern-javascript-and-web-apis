@@ -18,7 +18,7 @@ reviewRouter.route('/')
     const relatedItemId = req.body.relatedItemId;
 
     const newReview = reviewService.createReview(content, score, relatedItemId);
-    res.send(newReview);
+    res.staus(201).send(newReview);
   });
 
 reviewRouter.route('/:reviewId')
