@@ -106,7 +106,9 @@ Two things should happen: First, `express` should be listed in the _dependencies
 
 > By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
 
-You might think the huge _node__modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. node_modules is never checked in to git (_node__modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git (_node__modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
+
+> If node_modules or anything in it shows up when you type `git status`, node_modules is probably not listed in your .gitignore file. Add the line "node_modules/" to this file before continuing and make sure you don't check anything in this folder into Git.
 
 ~~~~
 $ git clone [repo] <- get the code
@@ -127,7 +129,7 @@ $ npm install <- install dependencies, creates node_modules and fetches all of i
 app.get('/', (request, response) => response.send('Hello World'));
 ~~~~
 
-Alternatively, we could write the above this way using a _function_ instead of a _lambda/arrow function_:
+Alternatively, we could write the above this way using a _function_ instead of a _lambda/arrow function_. The below is exactly the same as above:
 
 ~~~~javascript
 app.get('/', function (request, response) {
@@ -182,7 +184,7 @@ After a request has been sent, the response is shown below (green). You can see 
 - With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
 
 ## 4. Finishing up
-Now that we have a working web server, let's make sure we're keeping everything in our project up to date, including some documentation. It's common to include a short "how to get starting" section in the frontpage readme on GitHub so that others can see how they can get your project up and running, and remind yourself when you haven't worked on it for 3 months.
+Now that we have a working web server, let's make sure we're keeping everything in our project up to date, _including some documentation_. It's common to include a short "how to get starting" section in the front-page readme on GitHub so that others can see how they can get your project up and running, and to remind yourself when you haven't worked on it for 3 months and can't remember a thing.
 
 - Open `README.md` in your project. Write a simple list of how someone can start your web server from scratch. It should include the exact terminal commands of how to...
   - Get the code from GitHub

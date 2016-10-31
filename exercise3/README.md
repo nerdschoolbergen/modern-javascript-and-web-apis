@@ -12,7 +12,7 @@ You will:
 1. Make a endpoint for updating an existing review
 1. Make a endpoint for fetching all reviews for a TV-show
 
-For this exercise you should follow the same guidelines as discussed in exercise 2.
+For this exercise you should follow the same guidelines as discussed in exercise 2. Most of the endpoints you'll implement is very similar to what you did in exercise 2.
 
 ## 1. Make a endpoint for inserting a new review for a TV-show
 Since there are no pre-stored reviews (as there was with TV-shows),
@@ -23,7 +23,7 @@ The resource `Review` should have the following properties:
  * **id**
  * **content** - The content of the review
  * **score** - The review score
- * **relatedItemId** - the ID of the item the review should be related to
+ * **relatedItemId** - the ID of the item the review should be related to (in this case, the TV-show ID it's related to).
 
 Since REST is resource-centric, reviews should be its own resource,
 i.e. the base route for reviews should be `/review`.
@@ -49,7 +49,7 @@ A review in the response should look something like this:
 For this task you will create the functionality for fetching a specific review given by its id. The id should be reflected in the route.
 
 ## 4. Make a endpoint for updating an existing review
-What if we change our mind about a review that we previously posted? Then we should be able to change it, and that is what you will solve in this task. Implement the functionality that lets you update a specific review given its ID.
+What if we change our mind about a review that we previously posted? Then we should be able to change it, and that is what you will solve in this task. Implement the functionality that lets you update a specific review given its ID. (It might be worth doing the bonus task in exercise 2 for hints if you're stuck.)
 
 ## 5. Make a endpoint for deleting an existing review
 We should also be able to delete existing reviews. Implement this feature. A review should be deleted based on it's ID.
@@ -83,4 +83,4 @@ Notice the new `reviews` attribute; it is a link, to another resource. This is a
   ]
 }
 ```
- but REST is about resources, and the above example is a TV-show resource, not a review resource.
+ but REST is about resources, and the above example is a TV-show resource, not a review resource so the RESTful approach is to provide the url for the related resource and then it's up to the consumer of this REST API to follow the link for more data if they wish.

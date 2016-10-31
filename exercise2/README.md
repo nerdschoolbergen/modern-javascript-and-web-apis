@@ -5,16 +5,16 @@ In this exercise you will create a full REST API to work with TV Shows.
 
 You will:
 
-1. Make a endpoint for fetching all tv shows
-1. Make a endpoint for fetching a tv show by it's ID
-1. Make a endpoint for inserting a new tv show
-1. Make a endpoint for deleting an existing tv show
-1. Make a endpoint for updating an existing tv show
+1. Make an endpoint for fetching all tv shows
+1. Make an endpoint for fetching a tv show by it's ID
+1. Make an endpoint for inserting a new tv show
+1. Make an endpoint for deleting an existing tv show
+1. Make an endpoint for updating an existing tv show
 
 ## 1. Discussing a _resource_
 
 When working with REST, we often talk about _resources_. We say we want to _make a REST API for a resource_. What is a resource?
-A resource is an entity we make REST operations for. We can have many resources in our application. In this workshop we will use _tv show_ and _review_. In this exercise, our resource is _tv show_.
+A resource is an entity we make REST operations for. We can have many resources in our application. In this workshop, _tv show_ and _review_ is our _resources_. In this exercise, our resource is _tv show_.
 
 The urls we use for a REST API reflect our _resources_ along with the correct _http verb_. For example, above we listed a set of operations we will learn in this exercise. The following is how we expect to implement and use our REST API for the tv show resource:
 
@@ -24,6 +24,8 @@ The urls we use for a REST API reflect our _resources_ along with the correct _h
 - _Delete_ a tv show: `DELETE http://localhost:3000/tvshow/{id}/`
 - _Update_ a tv show: `PUT http://localhost:3000/tvshow/{id}/` (The tv show data we will insert is in the request's _body_)
 
+REST is all about leveraging the power of plain HTTP and how the web works. The combination of HTTP verbs, routes, and request/response is the essence of it. Instead of making a complicated proprietary standard that languages and platforms must implement, we just use the internet. A resource is defined by it's route, it's accessed by using the correct http verb, and data is transferred in the request and response body.
+
 ## 2. Better logging
 
 A helpful tool when developing is to log what's going on during runtime of our application. Since we are working with a web server in a console/terminal environment, let's get it to log all requests there so we can see what's going on.
@@ -32,7 +34,7 @@ We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) t
 
 * Install Morgan: `npm install morgan --save`
 * In `server.js`, _require_ morgan: `const morgan = require('morgan')`.
-* In `server.js`, _use_ morgan: `app.use(morgan('dev'))`. "Dev" is a pre-set log configuration which gives short, concise log statements. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api).
+* In `server.js`, _use_ morgan: `app.use(morgan('dev'))`. "Dev" is a pre-set log configuration which gives short, concise log statements suitable for development. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api).
 * Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.
 * Git commit the changes, push to github.
 
@@ -54,7 +56,7 @@ One of the pieces we need to wire up now is proper JSON handling for Express. Fo
 
 ### 4.1 Introducing a Router
 
-It's good practice to separate functionality into smaller modules which has a single and clear responsibility. Let's do this by separating all REST functionality into it's own _tv show router_.
+It's good practice to separate functionality into smaller modules which has a single and clear responsibility. Let's do this by separating all REST functionality that has to do with the tv show resource into it's own _tv show router_.
 
 * In `server.js`, add another _require_ statement at the top: `const tvShowRouter = require('./tvShow/tvShowRouter')`. This doesn't exist yet.
 * In `server.js` where we set-up our routes, add the new `tvShowRouter` to handle all requests to the `/tvshow` path: `app.use('/tvshow', tvShowRouter)`.
@@ -63,10 +65,15 @@ Your `server.js` file should now look something like this:
 
 ~~~~javascript
 const express = require('express');
-const tvShowRouter =  require('./tvShow/tvShow.router');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const tvShowRouter =  require('./tvShow/tvShowRouter');
 
 const app = express();
 const APP_PORT = 3000;
+
+app.use(morgan('dev'));
+app.use(bodyParser.json());
 
 // Exercise #1
 app.get('/hello', (req, res) => {
@@ -82,6 +89,8 @@ app.listen(APP_PORT, () => {
 ~~~~
 
 ### 4.2 TV Show model
+
+We need something to represent a TV Show and carry data for a tv show. We call this a _model_. Let's use a fancy ES6 class to make this.
 
 * Create a new folder: `tvShow`
 * Create a new file `TvShow.js`. This file should just contain our tv show _model_:
@@ -101,11 +110,13 @@ module.exports = TvShow;
 
 ### 4.3 TV Show Router
 
+This will handle everything web related that has to do with the tv show resource.
+
 * Make a new file `tvShowRouter.js`.
 * Import express: `const express = require('express')`.
 * Import the TvShow model class: `const TvShow = require('./TvShow')`. (When we import local _modules_ we use the filename sans the extension: `TvShow.js -> require('TvShow')`. The relative path to the file is also important. Here the file is in the same directory: `./[name of file]`).
 * Create a new instance of an express Router: `const tvShowRouter = express.Router()`.
-* Create a new array to hold our tv shows: `const tvShows = []`. We're going to split this out into another file later, but let's play around with it abit first.
+* Create a new array to hold our tv shows: `const tvShows = []`. We're going to split this out into another file later, but let's play around with it a bit first.
 * Make a couple of dummy tv shows in the array for now: `const tvShows = [new TvShow(1, 'Mr.Robot', 'Drama'), new TvShow(2, 'Black Mirror', 'Drama')]`
 * Make a route for _fetching all tv shows_: `GET http://localhost:3000/tvshow/`:
 * Remember to _export the router so it's possible to `require()` it from other modules_.
@@ -119,9 +130,9 @@ tvShowRouter.get('/', (req, res) => {
 
 > What is `res.json(tvShows)`? Here we say that _take my tvShows array, parse it to json, and set it as my response's body aka the response data_.
 
-Start the web server again: `node server.js`
+* Start the web server again: `node server.js`
 
-In Postman, select the http verb `GET` and enter `http://localhost:3000/tvshow/`.
+* In Postman, select the http verb `GET` and enter `http://localhost:3000/tvshow/`.
 
 The response should have a status code 200 OK and the body should contain this JSON content:
 ~~~~json
@@ -141,9 +152,11 @@ The response should have a status code 200 OK and the body should contain this J
 
 ### 4.4 TV Show Service
 
-It's good practice to have as few _responsibilities_ in one class or module as possible. Preferably only 1 responsibility pr class or module. Our `tvShowRouter` currently has 2: Handle routing for our TV Show _resource_, and keeping track of our tv shows in our array.
+It's good practice to have as few _responsibilities_ in one class or module as possible. Preferably only 1 responsibility pr class or module. Our `tvShowRouter` currently has 2: Handle routing for our TV Show resource, _and_ keeping track of our tv shows in our array. If you have to explain something by using "and", you know you have more than 1 responsibility be it a function, module, or class.
 
 Let's introduce another level of abstraction - a _tv show service_ which will handle all operations that has to do with managing tv shows. Our router will only deal with the http routing and calling the service as needed.
+
+> The difference between the tv show _service_ and tv show _router_ is that the router handles only http and web related things, and the service handles anything _except_ http and web related things. Ideally, the service should not have any "knowledge" about the internet or anything web framework related at all.
 
 * In the `tvShow` folder, create a new file `tvShowService.js`.
 * In `tvShowService.js`, create a class that has a tvShows array and a `getAll` method that returns the array.
@@ -161,7 +174,7 @@ class TvShowService {
 module.exports = TvShowService;
 ~~~~
 
-> A class in JavaScript has no concept of private members. Everything is public. This means when we do `this.tvShows = []` in the constructor we made the array public to the class, which may be a bad thing if we want to be 100% sure someone is _only_ using our class methods to access the content of the array. If you want a 100% private array, move it outside of the class so it's private to the _module_ and not the class.
+> A class in JavaScript has no concept of private members. Everything is public. This means that when we do `this.tvShows = []` in the constructor we made the array public to the class, which may be a bad thing if we want to be 100% sure someone is _only_ using our class methods to access the content of the array. If you want a 100% private array, move it outside of the class so it's a member to the _module_ and not the class.
 
 * In `tvShowRouter`, _require_ the `tvShowService`.
 * Remove the `tvShows` array
@@ -178,7 +191,7 @@ In express, we can define _route placeholders_ which we can then refer to in cod
 For example, the `:name` and `:age` parameters below:
 
 ~~~~javascript
-// http://localhost/person/bob/25
+// GET http://localhost/person/bob/25
 app.route('/person/:name/:age').get((req, res) => {
   const name = req.params.name; // bob
   const age = req.params.age; // 25
@@ -194,7 +207,7 @@ app.route('/person/:name/:age').get((req, res) => {
 Next, we need to implement the `getById(id)` function in the service.
 
 * In `tvShowService`, create the `getbyId(id)` function.
-* The easiest way to return an item in an array by a property value is using the `find()` method on the array which takes a function as a parameter. It will invoke this function for every item in the array, and if the function returns `true`, it will return that item. Here is the [example from MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/find):
+* The easiest way to return an item in an array by a property value (it's ID in this case) is using the `find()` ES6 method on the array which takes a function as a parameter. It will invoke this function for every item in the array, and if the function returns `true`, it will return that item. Here is the [example from MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/find):
 
 ~~~~javascript
 // ES5 syntax:
@@ -251,7 +264,7 @@ tvShowRouter.post('/', (req, res) => {
 });
 ~~~~
 
-* [Find a clever way](http://expressjs.com/en/4x/api.html#req) to get the `name` and `genre` from the _request body_.
+* [Find a clever way](http://expressjs.com/en/4x/api.html#req) to get the `name` and `genre` from the _request body_, very similar to how we got the tvShowId param before.
 * In the post handler, call a method on `tvShowService` which can create and insert the new tv show. Make sure this method returns the new tv show: `const newTvShow = tvShowService.createTvShow(name, genre)`.
 * Send the new tv show back with the response.
 
@@ -263,9 +276,9 @@ Next, we need to implement the `createTvShow` method on the `tvShowService`.
 
 ### 6.1 Generating ID's
 
-A common problem at this point is "how do I assign my new tv show a new, 100% unique ID automatically?". We don't want the user to have to keep track of ID's and create new ones. We need to generate something that we can be sure is unique.
+A common problem at this point is "how do I assign my new tv show a new, 100% unique ID automatically?". We don't want the user to have to keep track of ID's and create new ones. We need to generate something that we can be sure is unique (enough).
 
-* Create a new folder in your project: `utils`
+* Create a new folder in your project: `utils`, and a new file in that folder: `idUtil.js`.
 * _Copy & paste_ (yay!) this snippet in:
 
 ~~~~javascript
@@ -285,6 +298,9 @@ You don't need to worry too much about this, it'll generate some random letters 
 * Replace all existing hard-coded ID's with this function:
 
 ~~~~javascript
+const TvShow = require('./TvShow');
+const createId = require('../utils/idUtil');
+
 class TvShowService {
   constructor() {
     this.tvShows = [
@@ -341,6 +357,8 @@ tvShowRouter.route('/:tvShowId')
 * Restart the web server and test that all endpoints are working:
 
 **GET `http://localhost:3000/tvshow/`**
+Returns (with my hard-coded tv shows):
+
 ~~~~json
 [
   {
@@ -357,6 +375,8 @@ tvShowRouter.route('/:tvShowId')
 ~~~~
 
 **GET `http://localhost:3000/tvshow/e706`** (your ID will be different)
+Returns for me:
+
 ~~~~json
 {
   "id": "e706",
@@ -366,6 +386,7 @@ tvShowRouter.route('/:tvShowId')
 ~~~~
 
 **POST `http://localhost:3000/tvshow/`**
+Returns the new tv show that was created:
 
 ~~~~json
 {
@@ -375,10 +396,12 @@ tvShowRouter.route('/:tvShowId')
 }
 ~~~~
 
+Doing a new call to "get all" now returns 3 tv shows for me.
+
 #### 6.2 Creating a POST request in Postman
 
 * First, select `POST` as the http verb in the dropdown list next to the url textbox.
-* Next, we need to add a http header that tells the server what kind of data it can expect to find in the request. We want to use JSON, so we need to specify that the header `Content-Type` is `application/json`.
+* Next, we need to add a http header that tells the server what kind of data it can expect to find in the request. We want to use JSON, so we need to specify that the header `Content-Type` is `application/json` (see image below).
 
 ![postman post headers](../images/postman_post_headers.png)
 
@@ -434,7 +457,9 @@ remove(id) {
   this.tvShows = this.tvShows.filter(tvShow => tvShow.id !== id);
 }
 ~~~~
-`filter()` acts much like `find()` we used earlier. It returns a new array as its result, and takes a function as parameter which will be invoked for every item in the array. If the function returns true, the item will be included in the new result array. If it returns false, it won't be included. [Here is more documentation for filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter).
+Here we say that our array of tv shows is equal to all tv shows _except_ the one we want to remove. The `filter()` method acts much like `find()` we used earlier. It returns a new array as its result, and takes a function as parameter which will be invoked for every item in the array. If the function returns true, the item will be included in the new result array. If it returns false, it won't be included. [Here is more documentation for filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter).
+
+> Many languages have list filtering, sorting, and list operations like `filter()` and `find()` that works in almost identical ways, by passing in functions. In Java 8 these are called _Streams_, in C# it's called _LINQ_.
 
 * Restart the web server and list all tv shows in Postman.
 * In Postman, change http verb to DELETE. Change the url to include a valid tv show ID: `http://localhost:3000/tvshow/e371` (your ID will be different).
