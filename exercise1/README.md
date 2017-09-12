@@ -192,6 +192,7 @@ Now that we have a working web server, let's make sure we're keeping everything 
   - Get the code from GitHub
   - Install dependencies
   - Start the web server.<br/>
+  
 :pencil2: Complete the exercise by committing all new and changed files to git, then push it to GitHub. See that GitHub now show the content of the readme file on the repository's front page.
 
 Now that we're all set-up, let's implement some features!
