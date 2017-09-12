@@ -32,3 +32,31 @@ This repository contains a set of exercises organized in folders. Each folder co
 - `letVsVarExample.js` - A file located at the root of this repository, containing a comparison between `var` and `let` in JavaScript.
 - [MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 - [Chrome Dev Tools documentation](https://developers.google.com/web/tools/chrome-devtools/)
+
+
+### Symbols and notation used in exercises
+
+#### Icons with special meaning
+
+:pencil2: - A task you should do  
+:book: - A section of text to read (no tasks, just information).  
+:bulb: - Additional information.  
+:exclamation: - Something important.  
+:question: - Open-ended question for the reader ("What do you think would happen if...")  
+:poop: - Bad practice (don't-do-this)  
+:star: - A bonus task (not required)  
+
+#### Keyboard keys
+
+Will look like this:
+
+<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
+
+#### Diff blocks
+
+Emphasizes how lines of text should change.
+
+```diff
+- this text was removed
++ and replaced with this text
+```
