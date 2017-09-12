@@ -197,4 +197,4 @@ Now that we have a working web server, let's make sure we're keeping everything 
 
 Now that we're all set-up, let's implement some features!
 
-## [Go to next exercise =>](../exercise2/README.md)
+### [Go to exercise 2 :arrow_right:](../exercise2/README.md)
