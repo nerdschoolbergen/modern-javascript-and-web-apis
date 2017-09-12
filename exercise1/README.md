@@ -105,11 +105,11 @@ We're going to use the web server [_Express_](http://expressjs.com/) which is on
 
 :book: Two things should happen: First, `express` should be listed in the _dependencies_ section in your `package.json` file (because we installed using `--save`). Second, a new `node_modules` directory was created in our project. This directory has lots of other directories. This is where all npm packages for your project is installed to. You'll find the _express_ directory there, and all the other directories are express's dependencies.
 
-> By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
+:book: By adding the `-g` switch when doing `npm install`, we can install the package globally on the computer instead of to the current directory. For example: `npm install -g typescript` (or shorter: `npm i -g typescript`) will install the TypeScript language globally on our computer. But let's not do that now!
 
 :book: You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git (_node__modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
 
-> If node_modules or anything in it shows up when you type `git status`, node_modules is probably not listed in your .gitignore file. <br/>
+:book: If node_modules or anything in it shows up when you type `git status`, node_modules is probably not listed in your .gitignore file. <br/>
 :pencil2: Add the line "node_modules/" to this file before continuing and make sure you don't check anything in this folder into Git.
 
 ~~~~
