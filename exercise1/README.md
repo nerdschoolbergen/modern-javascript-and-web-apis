@@ -183,7 +183,7 @@ In the center, starting from the top is an address bar and a dropdown where you 
 
 After a request has been sent, the response is shown below (green). You can see the body and headers of the response (green), the status code, and the data.
 
-- With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
+:pencil2: With the express server still running in your terminal, enter its Hello World url into Postman, select GET as the http verb, and click Send. Verify you get Hello World with a 200 OK response back.
 
 ## 4. Finishing up
 Now that we have a working web server, let's make sure we're keeping everything in our project up to date, _including some documentation_. It's common to include a short "how to get starting" section in the front-page readme on GitHub so that others can see how they can get your project up and running, and to remind yourself when you haven't worked on it for 3 months and can't remember a thing.
