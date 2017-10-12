@@ -567,4 +567,4 @@ For clarity, here is the `PUT` handler in `tvShowRouter`:
 * Test the new PUT endpoint in Postman by first listing all tv shows, then change http verb to PUT and try updating the name of a tv show
 * Git commit and push to GitHub
 
-## [Go to next exercise =>](../exercise3/README.md)
+### [Go to exercise 3 :arrow_right:](../exercise3/README.md)
