@@ -14,7 +14,7 @@ You will learn to:
 ## 2.1 Discussing a _resource_
 
 When working with REST, we often talk about _resources_. We say we want to _make a REST API for a resource_. What is a resource?
-A resource is an entity we make REST operations for. We can have many resources in our application. In this workshop, _tv show_ and _review_ is our _resources_. In this exercise, our resource is _tv show_.
+A resource is an entity we make REST operations for. We can have many resources in our application. In this workshop, _tv show_ and _review_ are our _resources_. In this exercise, our resource is _tv show_.
 
 The urls we use for a REST API reflect our _resources_ along with the correct _http verb_. For example, above we listed a set of operations we will learn in this exercise. The following is how we expect to implement and use our REST API for the tv show resource:
 
