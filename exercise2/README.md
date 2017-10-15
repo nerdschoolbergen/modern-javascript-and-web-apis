@@ -33,8 +33,8 @@ A helpful tool when developing is to log what's going on during runtime of our a
 We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) to do this for us.
 
 :pencil2: Install Morgan: `npm install morgan --save`<br/>
-:pencil2: In `server.js`, _require_ morgan: `const morgan = require('morgan')`.<br/>
-:pencil2: In `server.js`, _use_ morgan: `app.use(morgan('dev'))`. "Dev" is a pre-set log configuration which gives short, concise log statements suitable for development. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api).<br/>
+:pencil2: In `server.js`, _require_ morgan: `const morgan = require('morgan');`.<br/>
+:pencil2: In `server.js`, _use_ morgan: `app.use(morgan('dev'));`. "Dev" is a pre-set log configuration which gives short, concise log statements suitable for development. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api).<br/>
 :pencil2: Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.<br/>
 :pencil2: Git commit the changes, push to github.<br/>
 
@@ -49,8 +49,8 @@ It's common in the modern JavaScript and NodeJS world that an application is mad
 One of the pieces we need to wire up now is proper JSON handling for Express. For this, we need a new library, `body-parser`.
 
 :pencil2: Install body-parser: `npm i body-parser --save`. (`i` is a shorter alias for `install`).<br/>
-:pencil2: In `server.js`, _require_ body-parser: `const bodyParser = require('body-parser')`.<br/>
-:pencil2: In `server.js`, _use_ body-parser: `app.use(bodyParser.json())`.<br/>
+:pencil2: In `server.js`, _require_ body-parser: `const bodyParser = require('body-parser');`.<br/>
+:pencil2: In `server.js`, _use_ body-parser: `app.use(bodyParser.json());`.<br/>
 
 ## 2.4 Make a endpoint for fetching all tv shows
 
@@ -58,8 +58,8 @@ One of the pieces we need to wire up now is proper JSON handling for Express. Fo
 
 It's good practice to separate functionality into smaller modules which has a single and clear responsibility. Let's do this by separating all REST functionality that has to do with the tv show resource into it's own _tv show router_.<br/>
 
-:pencil2: In `server.js`, add another _require_ statement at the top: `const tvShowRouter = require('./tvShow/tvShowRouter')`. This doesn't exist yet.<br/>
-:pencil2: In `server.js` where we set-up our routes, add the new `tvShowRouter` to handle all requests to the `/tvshow` path: `app.use('/tvshow', tvShowRouter)`.
+:pencil2: In `server.js`, add another _require_ statement at the top: `const tvShowRouter = require('./tvShow/tvShowRouter');`. This doesn't exist yet.<br/>
+:pencil2: In `server.js` where we set-up our routes, add the new `tvShowRouter` to handle all requests to the `/tvshow` path: `app.use('/tvshow', tvShowRouter);`.
 
 Your `server.js` file should now look something like this:
 
@@ -70,21 +70,19 @@ const morgan = require('morgan');
 const tvShowRouter =  require('./tvShow/tvShowRouter');
 
 const app = express();
-const APP_PORT = 3000;
+const port = 3000;
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-// Exercise #1
-app.get('/hello', (req, res) => {
-  res.send('Hello World!')
-});
-
 // Exercise #2
 app.use('/tvshow', tvShowRouter);
 
-app.listen(APP_PORT, () => {
-  console.log(`App running on port ${APP_PORT}`);
+// Exercise #1
+app.get('/', (request, response) => response.send('Hello World'));
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
 ~~~~
 
@@ -93,7 +91,7 @@ app.listen(APP_PORT, () => {
 We need something to represent a TV Show and carry data for a tv show. We call this a _model_. Let's use a fancy ES6 class to make this.
 
 :pencil2: Create a new folder: `tvShow`.<br/>
-:pencil2: Create a new file `TvShow.js`. This file should just contain our tv show _model_:
+:pencil2: Create a new file `TvShow.js` inside this new folder. This file should just contain our tv show _model_:
 
 ~~~~javascript
 class TvShow {
@@ -112,19 +110,19 @@ module.exports = TvShow;
 
 This will handle everything web related that has to do with the tv show resource.
 
-:pencil2: Make a new file `tvShowRouter.js`.<br/>
-:pencil2: Import express: `const express = require('express')`.<br/>
-:pencil2: Import the TvShow model class: `const TvShow = require('./TvShow')`. (When we import local _modules_ we use the filename sans the extension: `TvShow.js -> require('TvShow')`. The relative path to the file is also important. Here the file is in the same directory: `./[name of file]`).<br/>
-:pencil2: Create a new instance of an express Router: `const tvShowRouter = express.Router()`.<br/>
-:pencil2: Create a new array to hold our tv shows: `const tvShows = []`. We're going to split this out into another file later, but let's play around with it a bit first.<br/>
-:pencil2: Make a couple of dummy tv shows in the array for now: `const tvShows = [new TvShow(1, 'Mr.Robot', 'Drama'), new TvShow(2, 'Black Mirror', 'Drama')]`.<br/>
+:pencil2: Make a new file `tvShowRouter.js` inside the `tvShow` folder.<br/>
+:pencil2: Import express: `const express = require('express');`.<br/>
+:pencil2: Import the TvShow model class: `const TvShow = require('./TvShow');`. (When we import local _modules_ we use the filename sans the extension: `TvShow.js -> require('TvShow')`. The relative path to the file is also important. Here the file is in the same directory: `./[name of file]`).<br/>
+:pencil2: Create a new instance of an express Router: `const tvShowRouter = express.Router();`.<br/>
+:pencil2: Create a new array to hold our tv shows: `const tvShows = [];`. We're going to split this out into another file later, but let's play around with it a bit first.<br/>
+:pencil2: Make a couple of dummy tv shows in the array for now: `const tvShows = [new TvShow(1, 'Mr.Robot', 'Drama'), new TvShow(2, 'Black Mirror', 'Drama')];`.<br/>
 :pencil2: Make a route for _fetching all tv shows_: `GET http://localhost:3000/tvshow/`:<br/>
-:pencil2: Remember to _export the router so it's possible to `require()` it from other modules_.
 ~~~~javascript
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShows);
 });
 ~~~~
+:pencil2: Remember to _export the router so it's possible to `require()` it from other modules_.
 
 :book: What is `(req, res)`? This is the _request_ and _response_ objects. Naming of parameters is irrelevant in JavaScript so these shorter terms are used alot when working with Express.
 
@@ -171,10 +169,10 @@ class TvShowService {
     return this.tvShows;
   }
 }
-module.exports = TvShowService;
+module.exports = new TvShowService();
 ~~~~
 
-:book: A class in JavaScript has no concept of private members. Everything is public. This means that when we do `this.tvShows = []` in the constructor we made the array public to the class, which may be a bad thing if we want to be 100% sure someone is _only_ using our class methods to access the content of the array. If you want a 100% private array, move it outside of the class so it's a member to the _module_ and not the class.
+:book: A class in JavaScript has no concept of private members. Everything is public. This means that when we do `this.tvShows = [];` in the constructor we made the array public to the class, which may be a bad thing if we want to be 100% sure someone is _only_ using our class methods to access the content of the array. If you want a 100% private array, move it outside of the class so it's a member to the _module_ and not the class.
 
 :pencil2: In `tvShowRouter`, _require_ the `tvShowService`.<br/>
 :pencil2: Remove the `tvShows` array.<br/>
@@ -201,7 +199,7 @@ app.route('/person/:name/:age').get((req, res) => {
 
 :pencil2: In `tvShowRouter`, add a route that has a `:tvShowId` placeholder value to make up the url `http://localhost:3000/tvshow/:tvShowId`.<br/>
 :pencil2: In the function that handles the request, extract the `:tvShowId` value and print it to the console: _"Fetching TV Show with id: {tvShowId}"_.<br/>
-:pencil2: In the same function, call a function on the service: `tvShowService.getById(id)`.<br/>
+:pencil2: In the same function, call a function on the service: `tvShowService.getById(tvShowId)`.<br/>
 :pencil2: Write the result from calling this function to the response.<br/>
 
 Next, we need to implement the `getById(id)` function in the service.
@@ -265,7 +263,7 @@ tvShowRouter.post('/', (req, res) => {
 ~~~~
 
 :pencil2: [Find a clever way](http://expressjs.com/en/4x/api.html#req) to get the `name` and `genre` from the _request body_, very similar to how we got the tvShowId param before.<br/>
-:pencil2: In the post handler, call a method on `tvShowService` which can create and insert the new tv show. Make sure this method returns the new tv show: `const newTvShow = tvShowService.createTvShow(name, genre)`.<br/>
+:pencil2: In the post handler, call a method on `tvShowService` which can create and insert the new tv show. Make sure this method returns the new tv show: `const newTvShow = tvShowService.createTvShow(name, genre);`.<br/>
 :pencil2: Send the new tv show back with the response.<br/>
 
 Next, we need to implement the `createTvShow` method on the `tvShowService`.
@@ -433,7 +431,7 @@ By now you can probably guess how this will be achieved. Feel free to stop readi
 Let's start by adding a request handler for `DELETE` `http://localhost:3000/tvshow/{id}`.
 
 :pencil2: Open `tvShowRouter` and review how it currently works. <br/>
-We can `GET` `/`, `POST` `/`, and `GET` for the _route_ `/:tvShowId`. What we want to do now is to `DELETE` for the same route `/:tvShowId`. Thankfully, express has a nice fluent syntax for adding handlers to this route:
+We can `GET /`, `POST /`, and `GET` for the _route_ `/:tvShowId`. What we want to do now is to `DELETE` for the same route `/:tvShowId`. Thankfully, express has a nice fluent syntax for adding handlers to this route:
 
 ~~~~javascript
 app.route(/:id)
@@ -505,10 +503,10 @@ A `PUT` to `http://localhost:3000/tvshow/32ac` with the request body
 
 would update the tv show with ID `32ac` to have the name "The Office (US)".
 
-* Add a request handler for `PUT` `http://localhost:3000/tvshow/{id}`.
-* Call a update function on the tv show service which takes the id and the properties to update.
-* The update function on the tv show service should return the updated tv show. Write the updated tv show to the response.
-* In `tvShowService`, implement the logic for updating an existing tv show. Give it a try yourself before continuing.
+:pencil2: Add a request handler for `PUT` `http://localhost:3000/tvshow/{id}`.<br/>
+:pencil2: Call a update function on the tv show service which takes the id and the properties to update.<br/>
+:pencil2: The update function on the tv show service should return the updated tv show. Write the updated tv show to the response.<br/>
+:pencil2: In `tvShowService`, implement the logic for updating an existing tv show. Give it a try yourself before continuing.
 
 ### Updating an existing item
 
