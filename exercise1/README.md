@@ -109,23 +109,15 @@ By adding the `-g` switch when doing `npm install`, we can install the package g
 
 You might think the huge _node_modules_ directory will make our git repository massive in size, but if you type `git status` in your terminal, only the package.json file has changed. Node_modules is never checked in to git (_node__modules_ is listed in the _.gitignore_ file which lists files and folders git will ignore). It is only ever generated locally when we do `npm install` as part of beginning working on a project. A typical workflow for working on someone else's project is
 
-If node_modules or anything in it shows up when you type `git status`, node_modules is probably not listed in your .gitignore file. <br/>
-
-:pencil2: Add the line "node_modules/" to this file before continuing and make sure you don't check anything in this folder into Git.
-
-~~~~
-$ git clone [repo] <- get the code
-$ npm install <- install dependencies, creates node_modules and fetches all of its contents.
-...
-~~~~
-
+:exclamation: If node_modules or anything in it shows up when you type `git status`, node_modules is probably not listed in your .gitignore file. If this is true, do the following steps:<br/>
+ :pencil2: Add the line "node_modules/" to your .gitignore file before continuing if it's not already listed and make sure you don't check anything in this folder into Git.<br/>
 :pencil2: Let's check this change in to git by repeating the same steps as before: add the file to git, make a commit, push to github.
 
 ## 1.3 Creating a web server using Express
 
 :pencil2: In your project directory, create a new file `server.js`.<br/>
-:pencil2: In server.js, we're going to _require_ express: `const express = require('express')`, which will let us use Express in the `server.js` _module_ (as in a JavaScript _module_). This is equivalent to `import` or `using` in other languages.<br/>
-:pencil2: Then we will use express: `const app = express()`.<br/>
+:pencil2: In server.js, we're going to _require_ express: `const express = require('express');`, which will let us use Express in the `server.js` _module_ (as in a JavaScript _module_). This is equivalent to `import` or `using` in other languages.<br/>
+:pencil2: Then we will use express: `const app = express();`.<br/>
 :pencil2: Next, we will make a simple REST endpoint which will answer all `GET` requests at the root path (`/`) of our domain. This means if our web server is running on `http://localhost:3000`, then this endpoint will answer all `GET` requests to `http://localhost:3000/` aka the root. For now, we'll just return the text _Hello World_:
 
 ~~~~javascript
