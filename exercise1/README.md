@@ -35,7 +35,7 @@ Postman is a Chrome extension you will use to test your REST interface. It allow
 ## 1.2 Create project and initialize frameworks
 In this workshop you'll create everything yourself from scratch so you can see how all the pieces are assembled and come together.
 
-:pencil2: Let's start with making a new Git repository on GitHub. When we make a project we can choose to initialize Git in two ways:
+Let's start with making a new Git repository on GitHub. When we make a project we can choose to initialize Git in two ways:
   1. We can do `git init` in the project directory locally, which will create a local Git repository. Then we can create a repository on GitHub and in our local repository add GitHub as the _remote_ which will link the two repositories together.
   2. Or, as we will do below, we can make the GitHub repository first, then clone it locally to our computer.
 
