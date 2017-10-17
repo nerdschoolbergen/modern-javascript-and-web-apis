@@ -6,7 +6,7 @@ This workshop also covers more of working with web development in a browser deve
 
 This repository contains a link to a Google Presentation and three exercises.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1VKwwQTko4h3j06QQaNLJEghQf4UWwEmeQ6WN5qphNt8/edit#slide=id.g16f2a71539_2_51)
+## [Open presentation slides](https://docs.google.com/presentation/d/1YATOAweWuNNhncbuCpZ2yb2bikARbavsh0tq9ZbP2_8/edit#slide=id.g16f2a71539_2_51)
 
 ## What you need
 
