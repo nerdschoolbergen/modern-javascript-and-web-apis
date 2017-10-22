@@ -117,12 +117,13 @@ This will handle everything web related that has to do with the tv show resource
 :pencil2: Create a new array to hold our tv shows: `const tvShows = [];`. We're going to split this out into another file later, but let's play around with it a bit first.<br/>
 :pencil2: Make a couple of dummy tv shows in the array for now: `const tvShows = [new TvShow(1, 'Mr.Robot', 'Drama'), new TvShow(2, 'Black Mirror', 'Drama')];`.<br/>
 :pencil2: Make a route for _fetching all tv shows_: `GET http://localhost:3000/tvshow/`:<br/>
+:pencil2: Remember to _export the router so it's possible to `require()` it from other modules_.
+
 ~~~~javascript
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShows);
 });
 ~~~~
-:pencil2: Remember to _export the router so it's possible to `require()` it from other modules_.
 
 :book: What is `(req, res)`? This is the _request_ and _response_ objects. Naming of parameters is irrelevant in JavaScript so these shorter terms are used alot when working with Express.
 
