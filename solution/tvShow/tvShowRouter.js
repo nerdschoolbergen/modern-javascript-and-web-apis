@@ -2,7 +2,6 @@
 const express = require('express');
 const tvShowService = require('./tvShowService');
 const reviewService = require('../review/reviewService');
-const TvShow = require('./TvShow');
 const tvShowRouter = express.Router();
 
 // GET http://localhost:3000/tvshow/

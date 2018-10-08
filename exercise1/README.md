@@ -16,7 +16,7 @@ by opening a terminal and entering `node -v` which should return a version numbe
 
 If you don't have NodeJS installed, you can [download it here](https://nodejs.org/en/).
 
-:exclamation: If you have Node installed with a version less than 6, please upgrade to the latest before continuing.
+:exclamation: If you have Node installed with a version less than 8, please upgrade to the latest before continuing.
 
 ### 1.1.2 Git
 We're going synchronize our project with GitHub, so make sure you have Git installed. <br/>
@@ -193,7 +193,7 @@ Now that we have a working web server, let's make sure we're keeping everything 
   - Get the code from GitHub
   - Install dependencies
   - Start the web server.<br/>
-  
+
 :pencil2: Complete the exercise by committing all new and changed files to git, then push it to GitHub. See that GitHub now show the content of the readme file on the repository's front page.
 
 Now that we're all set-up, let's implement some features!

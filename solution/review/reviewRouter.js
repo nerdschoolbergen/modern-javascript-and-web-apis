@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const reviewService = require('./reviewService');
-const Review = require('./Review');
 const reviewRouter = express.Router();
 
 
