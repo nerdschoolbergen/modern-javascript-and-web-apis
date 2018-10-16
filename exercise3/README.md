@@ -1,7 +1,7 @@
 # Exercise 3 - Making a REST API for Reviews (for a TV-show)
 In this exercise you will create a full REST API to work with reviews (for a TV-show).
 
-:exclamation: In this exercise you will continue on the work you did in exercise 1 and 2, so no need to creating something new.
+:exclamation: In this exercise you will continue on the work you did in exercise 1 and 2, so no need to create a new repository.
 
 You will learn to:
 

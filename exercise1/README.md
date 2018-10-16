@@ -42,10 +42,10 @@ Let's start with making a new Git repository on GitHub. When we make a project w
 Both options result in the same set-up. Typically we do option 1 when we already have a codebase we want to push to GitHub, and option 2 when we are starting fresh. Let's continue with option 2.
 
 ### 1.2.1 Creating a new git repository
-:pencil2: Go to GitHub and [create a new repository](https://github.com/new). Give it a name, check the box for adding a readme file and in the _Add .gitignore: None_ dropdown list, select _Node_ and click the _Create repository_ button.<br/>
+:pencil2: Go to GitHub and [create a new repository](https://github.com/new). Give it a name, check the box for adding a readme file and in the _Add .gitignore: None_ dropdown list and click the _Create repository_ button.<br/>
 :pencil2: In the newly created repository, click the green _Clone or download_ button and copy the URL.<br/>
 :pencil2: Open a terminal on your computer in a folder where you want to store this project and clone the GitHub repo here: `git clone [URL]` <br/>
-:pencil2: In the terminal, go into the new project directory. There should be a _README.md_ and a _.gitignore_ file there aswell as a _.git_ folder. Files and folders starting with `.` is hidden by default, but they're there. Now we have a completely empty project that we can work in.
+:pencil2: In the terminal, go into the new project directory. There should be a _README.md_ as well as a _.git_ folder. Files and folders starting with `.` is hidden by default, but they're there. Now we have a completely empty project that we can work in.
 
 ### 1.2.2 Initializing the Node Package Manager (npm)
 
