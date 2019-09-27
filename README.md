@@ -6,12 +6,12 @@ This workshop also covers more of working with web development in a browser deve
 
 This repository contains a link to a Google Presentation and three exercises.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1t_j42Ck6JtYuBLhR-RlfXFpEBqCIsMIBuOD5XrnhSuE/edit#slide=id.g16f2a71539_2_51)
+## [Open presentation slides](https://docs.google.com/presentation/d/1uSMSw9_o-krhU3yWBmGX4RoOA6fGe1hrp9NoN9bryv8)
 
 ## What you need
 
 * A browser: [Chrome](https://www.google.com/chrome)
-* A code editor: [Atom](https://atom.io/)
+* A code editor: [Visual Studio Code](https://code.visualstudio.com)
 
 ## How to get started
 * Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
