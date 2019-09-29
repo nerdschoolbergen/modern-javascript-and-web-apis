@@ -29,8 +29,8 @@ We're going synchronize our project with GitHub, so make sure you have Git insta
 :pencil2: [Install Google Chrome if you don't have it](https://www.google.com/chrome/browser/desktop/)
 
 ### 1.1.3.1 Postman
-Postman is a Chrome extension you will use to test your REST interface. It allows us to create web requests without having a website. <br/>
-:pencil2: [Install Postman here](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en).
+Postman is an app you will use to test your REST interface. It allows us to create web requests without having a website. <br/>
+:pencil2: [Install Postman here](https://www.getpostman.com/).
 
 ## 1.2 Create project and initialize frameworks
 In this workshop you'll create everything yourself from scratch so you can see how all the pieces are assembled and come together.
@@ -160,11 +160,7 @@ app.listen(port, function () {
 
 ### 1.3.1 Testing with Postman
 
-After installing Postman you should have a new button at the Chrome address bar to access it:
-
-![postman chrome toolbar](../images/postman_chrome_toolbar.PNG)
-
-:exclamation: If you can't find it, go to [chrome://extensions/](chrome://extensions/) and make sure it's enabled.
+Open the Postman app you have installed.
 
 :pencil2: Spend a few minutes by making yourself familiar with the interface.
 

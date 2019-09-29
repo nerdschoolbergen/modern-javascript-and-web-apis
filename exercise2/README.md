@@ -34,7 +34,7 @@ We're going to use the library [_Morgan_](https://github.com/expressjs/morgan) t
 
 :pencil2: Install Morgan: `npm install morgan --save`<br/>
 :pencil2: In `server.js`, _require_ morgan: `const morgan = require('morgan');`.<br/>
-:pencil2: In `server.js`, _use_ morgan: `app.use(morgan('dev'));`. "Dev" is a pre-set log configuration which gives short, concise log statements suitable for development. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api).<br/>
+:pencil2: In `server.js`, _use_ morgan: `app.use(morgan('dev'));`. "Dev" is a pre-set log configuration which gives short, concise log statements suitable for development. You can [try out other configurations if you want](https://github.com/expressjs/morgan#api). Be sure to add this line *before* the `app.get`.<br/>
 :pencil2: Restart the web server and invoke a few requests using Postman. See in your terminal that it now logs.<br/>
 :pencil2: Git commit the changes, push to github.<br/>
 
@@ -123,6 +123,8 @@ This will handle everything web related that has to do with the tv show resource
 tvShowRouter.get('/', (req, res) => {
   res.json(tvShows);
 });
+
+module.exports = tvShowRouter
 ~~~~
 
 :book: What is `(req, res)`? This is the _request_ and _response_ objects. Naming of parameters is irrelevant in JavaScript so these shorter terms are used alot when working with Express.
@@ -178,7 +180,7 @@ module.exports = new TvShowService();
 :pencil2: In `tvShowRouter`, _require_ the `tvShowService`.<br/>
 :pencil2: Remove the `tvShows` array.<br/>
 :pencil2: Replace the usage of the array with a call to `tvShowService.getAll()`.<br/>
-:pencil2: Test that everything still works with Postman (remember to restart the web server).<br/>
+:pencil2: Test that everything still works with Postman (remember to restart the web server). Note: Postman should show [] now as the result.<br/>
 :pencil2: Git commit the changes and push to github.
 
 ## 2.5 Making a endpoint to get a tv show by it's ID
@@ -201,7 +203,7 @@ app.route('/person/:name/:age').get((req, res) => {
 :pencil2: In `tvShowRouter`, add a route that has a `:tvShowId` placeholder value to make up the url `http://localhost:3000/tvshow/:tvShowId`.<br/>
 :pencil2: In the function that handles the request, extract the `:tvShowId` value and print it to the console: _"Fetching TV Show with id: {tvShowId}"_.<br/>
 :pencil2: In the same function, call a function on the service: `tvShowService.getById(tvShowId)`.<br/>
-:pencil2: Write the result from calling this function to the response.<br/>
+:pencil2: Write the result (send it with the response.json) from calling this function to the response.<br/>
 
 Next, we need to implement the `getById(id)` function in the service.
 
@@ -233,7 +235,7 @@ console.log(inventory.find(fruit => fruit.name === 'cherries')); // { name: 'che
 ~~~~
 
 :pencil2: Use the example above to implement `tvShowService.getById(id)` to return a tv show that matches the given id.<br/>
-:pencil2: Make sure you have a couple of tv shows to test with. Just hard-code a few into the constructor of `tvShowService`.<br/>
+:pencil2: Make sure you have a couple of tv shows to test with. Just hard-code a few into the constructor of `tvShowService` (remember to *require* the TvShow class!).<br/>
 :pencil2: Test that calling `http://localhost:3000/tvshow/1` returns the tv show with id 1. Test with more tv shows if you can.<br/>
 :pencil2: Git commit and push to GitHub.
 

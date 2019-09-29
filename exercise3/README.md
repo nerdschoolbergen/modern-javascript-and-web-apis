@@ -30,7 +30,14 @@ i.e. the base route for reviews should be `/review`.
 
 The service for this functionality should accept `content`, `score` and `relatedItemId`.
 
-The response should reflect that the item has been created, i.e. the response status should be 201
+The response should reflect that the item has been created, i.e. the response status should be 201.
+
+Note: the status can be set in the following manner:
+```js
+///
+res.status(201).json(review)
+///
+```
 
 ## 3.2 Make a endpoint for fetching all reviews
 :pencil2: Now that we are able to create reviews we can start making functionality for retrieving the reviews we have created. For this task you will create an endpoint that gives us all existing reviews.
