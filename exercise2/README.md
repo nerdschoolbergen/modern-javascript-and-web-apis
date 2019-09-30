@@ -52,7 +52,7 @@ One of the pieces we need to wire up now is proper JSON handling for Express. Fo
 :pencil2: In `server.js`, _require_ body-parser: `const bodyParser = require('body-parser');`.<br/>
 :pencil2: In `server.js`, _use_ body-parser: `app.use(bodyParser.json());`.<br/>
 
-## 2.4 Make a endpoint for fetching all tv shows
+## 2.4 Make an endpoint for fetching all tv shows
 
 ### 2.4.1 Introducing a Router
 
