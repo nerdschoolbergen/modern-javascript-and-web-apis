@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "The Matrix",
+    "description": "Movie about computers and stuff"
+  },
+  {
+    "id": 2,
+    "name": "Avatar",
+    "description": "Movie about aliens and stuff"
+  }
+]
