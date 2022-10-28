@@ -1,65 +1,34 @@
-# Exercise {Number} - {Title}
+# Exercise 2 - List movies
 
-{Summary and goal of this exercise}
+In this exercise you will create an API to list movie data as JSON. Next you will learn how to fetch JSON data from the server into the browser and display the data in the developer tools console.
 
 You will learn to:
 
-- Bla bla
-- Bla bla
-- Bla bla
+- Make an API endpoint that returns JSON data describing movies
+- Output the data to the console
 
-## Required software and tools for this exercise
+## 1.1 Creating an API endpoint for getting all movies
 
-- Tech
-- Tech
-- Tech
+Before we start coding we need to plan out the data model for movies.
 
-## 1.1 {Exersice section}v
+We want the API to describe the following movie details:
 
-:book: Use `:book:` to indicate a section with text to read (no tasks, just theory). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+- Title ("The Godfather")
+- Release date ("1927-03-14")
+- Overview ("Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.")
+- Vote average (from 0.0 to 10.0, eg. 8.7)
+- Movie poster (image)
 
-> :exclamation: Use `> :exclamation:` to indicate something important. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+In web API semantics we call different kinds of data _resources_. _Movie_ is a resource our API will expoose.
 
-> :question: Use `> :question:` for open-ended questions to the reader ("What do you think would happen if..."). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+We use URLs to organize different resources in the API. We use _http metods_ like GET, POST, DELETE and PUT combined with the URL to describe different API operations:
 
-> :poop: Use `> :poop:` to indicate a bad practice (don't-do-this). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+- _Get all_ movies: `GET http://localhost:3000/movie/`
+- _Get single_ movie: `GET http://localhost:3000/movie/{id}/`
+- _Insert_ a movie: `POST http://localhost:3000/movie/` (The movie data we will insert is in the request's _body_)
+- _Delete_ a movie: `DELETE http://localhost:3000/movie/{id}/`
+- _Update_ a movie: `PUT http://localhost:3000/movie/{id}/` (The movie data we will insert is in the request's _body_)
 
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.<br/>
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-
-(Note: Use two spaces at the end of a line or `<br/>` to force a new line without using lists/bulletpoints)
-
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-
-## 1.2 {Exersice section}
-
-Any reference to something in code should be wrapped in either a `inline code` section or a
-```
-code block
-```
-
-Always highlight with the programming language if possible:
-
-```javascript
-function code() {
-  return 'awesome';
-}
-```
-
-Use the `diff` code block to indicate changes in code
-
-```diff
-- foo
-+ bar
-```
-
-Use the `<kbd>` HTML tag to indicate keyboard keys:
-
-<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
-
-`<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>`
+For now we are going to concentrate on the first one, _get all_ movies.
 
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)
