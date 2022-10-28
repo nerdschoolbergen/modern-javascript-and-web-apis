@@ -24,11 +24,11 @@ This repository contains a link to a Google Presentation and three exercises.
 
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
 
-* [Exercise 1](./exercise1/README.md)
-* [Exercise 2](./exercise2/README.md)
-* [Exercise 3](./exercise3/README.md)
-* [Exercise 4](./exercise4/README.md)
-* [Exercise 5](./exercise5/README.md)
+* [Exercise 1](./exercise-1/README.md)
+* [Exercise 2](./exercise-2/README.md)
+* [Exercise 3](./exercise-3/README.md)
+* [Exercise 4](./exercise-4/README.md)
+* [Exercise 5](./exercise-5/README.md)
 
 ## Helpful resources
 
