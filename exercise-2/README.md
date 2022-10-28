@@ -125,7 +125,7 @@ In order to check if our new API operation is working, we need make some changes
 
 :pencil2: Open up `main.js`. This file is the main entrypoint for the JavaScript code that runs in the browser.
 
-Notice that `main.js` has some code in it already that fetches data from the server:
+Notice that `main.js` has some code in it already that uses the [fetch]() browser api to retreive data from the server:
 
 ```javascript
 const helloWorldApiResponse = await fetch('/helloworld');
@@ -138,7 +138,7 @@ const { message } = helloWorldData;
 
 :pencil2: To view the output, open Chrome Dev Tools and click the _Console_ tab.
 
-New to Chrome Dev Tools? See [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more.
+New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is useful as well.
 
 :pencil2: You should now see the mock data you returned from the backend displayed in the console.
 
