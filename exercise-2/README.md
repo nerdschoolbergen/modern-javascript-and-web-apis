@@ -17,6 +17,7 @@ We want the API to describe the following movie details:
 - Release date ("1927-03-14")
 - Overview ("Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.")
 - Vote average (from 0.0 to 10.0, eg. 8.7)
+- Vote count (number of votes)
 - Movie poster (image)
 
 In web API semantics we call different kinds of data _resources_. _Movie_ is a resource our API will expoose.
@@ -44,6 +45,7 @@ A JSON representation of a single movie can look something like this:
   "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
   "title": "The Godfather",
   "voteAverage": 8.7,
+  "voteCount": 12345,
   "posterUrl": "/posters/1.jpg"
 }
 ```
@@ -57,6 +59,7 @@ let movie = {
   overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
   title: "The Godfather",
   voteAverage: 8.7,
+  voteCount: 534533,
   posterUrl: "/posters/1.jpg"
 }
 ```
@@ -75,6 +78,7 @@ A list of movies will look something like this in JSON:
       "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
       "title": "The Godfather",
       "voteAverage": 8.7,
+      "voteCount": 12345,
       "posterUrl": "/posters/1.jpg"
     },
     {
@@ -84,6 +88,7 @@ A list of movies will look something like this in JSON:
       "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
       "title": "The Godfather",
       "voteAverage": 8.6,
+      "voteCount": 534533,
       "posterUrl": "/posters/2.jpg"
     }
   ]
@@ -140,6 +145,12 @@ const { message } = helloWorldData;
 
 New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is useful as well.
 
-:pencil2: You should now see the mock data you returned from the backend displayed in the console.
+:pencil2: You should now see the data you returned from the backend displayed in the console.
+
+## 2.2 Replacing mock movie data with real data
+
+Now that we have succefully returned some data from the serverside API to the browser, we want to make it a bit more realistic.
+
+:pencil2: Open up 
 
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)
