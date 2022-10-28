@@ -52,8 +52,8 @@ let norway = {
             name: 'Vestland',
             population: 638821,
             counties: [
-                { name: 'Høyanger' },
-                { name: 'Førde' }
+                { name: 'Bergen' },
+                { name: 'Dale' }
             ]
         },
         {
@@ -66,8 +66,8 @@ let norway = {
         }
     ]
 };
-let førde = norway.regions[0].counties[1].name;
-let bergen = norway.regions[1].counties[0].name;
+let dale = norway.regions[0].counties[1].name;
+let stavanger = norway.regions[1].counties[0].name;
 
 //
 // === Destructuring ===
