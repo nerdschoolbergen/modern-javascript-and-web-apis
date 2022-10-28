@@ -101,8 +101,8 @@ let norway2 = {
             name: 'Vestland',
             population: 638821,
             counties: [
-                { name: 'Høyanger' },
-                { name: 'Førde' }
+                { name: 'Bergen' },
+                { name: 'Dale' }
             ]
         },
         {
