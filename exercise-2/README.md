@@ -151,6 +151,34 @@ New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https:
 
 Now that we have succefully returned some data from the serverside API to the browser, we want to make it a bit more realistic.
 
-:pencil2: Open up 
+:pencil2: Open up `movies.json` inside the `src/backend/data` folder.
+
+This is file contains a list of movies from https://www.themoviedb.org/ using the data model we defined above.
+
+We want our application to read this data from disk and return it via the list movies API operation we have created.
+
+:pencil2: Create a new file called `database.js` inside `src/backend/data` will the following contents:
+
+```javascript
+import fs from "fs/promises";
+
+const dataFilePath = "./backend/data/movies.json";
+
+export const getMovies = async () => {
+  const file = await fs.readFile(dataFilePath);
+  return JSON.parse(file);
+}
+```
+
+- `export` means "expose this function outside the module"
+- `getMovies` is assigned to an function that returns the contents of `movies.json`
+- Data is read from disk using the Node.js API `fs.readFile`
+- The JSON data is converted to an JavaScript object using `JSON.parse` and returned
+
+:pencil2: Open `routes.js` and insert the following code at the top of the file to import the `getMovies` function we created from `database.js`:
+
+```javascript
+import { getMovies } from "./data/database.js"
+```
 
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)
