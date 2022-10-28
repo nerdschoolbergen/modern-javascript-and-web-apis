@@ -1,65 +1,79 @@
 # Exercise 1 - Up and running
 
-{Summary and goal of this exercise}
+In this exercise you will set up the local development environment required for the next exercises.
 
 You will learn to:
 
-- Bla bla
-- Bla bla
-- Bla bla
+- Install the required software
+- Set up and run the starter project
 
-## Required software and tools for this exercise
+## Before you start
 
-- Tech
-- Tech
-- Tech
+- :pencil2: Start by cloning this repository into a folder on your computer if you haven't done so already. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
+- Although you have this `README.md` file on your computer, it's easier to read it on GitHub with formatting. We therefore recommend you keep a web browser tab open with the exercise tasks.
 
-## 1.1 {Exersice section}
+## 1.1 Installing software
 
-:book: Use `:book:` to indicate a section with text to read (no tasks, just theory). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+### 1.1.1 Node.js
 
-> :exclamation: Use `> :exclamation:` to indicate something important. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+Node.js is the platform/runtime that's going to run our web server. You can test if you already have Node.js installed by opening a terminal and entering `node -v` which should return a version number if it's installed.
 
-> :question: Use `> :question:` for open-ended questions to the reader ("What do you think would happen if..."). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+If you don't have Node.js installed, you can [download the latest LTS release here](https://nodejs.org/en/).
 
-> :poop: Use `> :poop:` to indicate a bad practice (don't-do-this). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+:exclamation: If you have Node installed with a version less than the latest LTS version, please upgrade to the latest LTS version before continuing.
 
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.<br/>
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
+### 1.1.2 Chrome
 
-(Note: Use two spaces at the end of a line or `<br/>` to force a new line without using lists/bulletpoints)
+:pencil2: [Install Google Chrome if you don't have it](https://www.google.com/chrome/browser/desktop/)
 
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
+## 1.2 Starter project
 
-## 1.2 {Exersice section}
+In order to kickstart the exercises we have created a starter project for you.
 
-Any reference to something in code should be wrapped in either a `inline code` section or a
-```
-code block
+:pencil2: Open a terminal and change directories to the `src` folder.
+
+:pencil2: Install all [npm](https://npmjs.com) dependencies by running the following command:
+```bash
+$ npm install
 ```
 
-Always highlight with the programming language if possible:
+:pencil2: Run the following commands to start the web app:
 
-```javascript
-function code() {
-  return 'awesome';
-}
+```bash
+$ npm start
 ```
 
-Use the `diff` code block to indicate changes in code
+:pencil2: Open [http://localhost:3000](http://localhost:3000) in Chrome
 
-```diff
-- foo
-+ bar
+You should now see the text "Hello Nerdschool!" displayed on the screen.
+
+:pencil2: To stop the application, press <kbd>CTRL</kbd>+<kbd>C</kbd> while inside the terminal window you started the application in.
+
+### 1.2.2 Starter project structure
+
+```terminal
+src
+├── app.js
+├── backend
+├── frontend
+├── package-lock.json
+└── package.json
 ```
 
-Use the `<kbd>` HTML tag to indicate keyboard keys:
+#### `app.js`
 
-<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
+This is the main entry point for the web app. It is responsible for starting up a web server using the [Express](https://expressjs.com/) web app framework.
 
-`<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>`
+#### `backend` (folder)
+
+This folder contains backend-related code that runs on the web server via Express.
+
+#### `frontend` (folder)
+
+This folder contains frontend-related code that runs in the browser.
+
+#### `package.json` and `package-lock.json`
+
+`package.json` is the project mainfest file where all npm package dependencies are declared (for instance Express). `package-lock.json` is automatically generated by npm itself, no need to edit this.
 
 ### [Go to exercise 2 :arrow_right:](../exercise-2/README.md)
