@@ -34,7 +34,7 @@ This repository contains a set of exercises organized in folders. Each folder co
 
 > **Note:** Avoid W3Schools.com. It's often outdated by todays web specifications. Use MDN instead.
 
-* `letVsVarExample.js` - A file located at the root of this repository, containing a comparison between `var` and `let` in JavaScript.
+* `cheatsheet.js` - A file located at the root of this repository, containing a JavaScript cheat sheet
 * [MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 * [Chrome Dev Tools documentation](https://developers.google.com/web/tools/chrome-devtools/)
 
