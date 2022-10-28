@@ -1,0 +1,40 @@
+body {
+    background-color: #cde8d7;
+    font-family: sans-serif;
+}
+
+.movie-card {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 3px;
+}
+
+.movie-card h2 {
+    font-weight: normal;
+    color: #45B788;
+    margin: 0;
+}
+
+.movie-card p {
+    margin: 0;
+    color: #1f714f;
+}
+
+.btn-submit {
+    background-color: #45B788;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+}
+
+.input-container label {
+    color: #1f714f;
+    display: block;
+}
+
+.input-container input, textarea {
+    padding: 0.5rem;
+}
