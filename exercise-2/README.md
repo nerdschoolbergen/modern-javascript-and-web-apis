@@ -148,12 +148,35 @@ const helloWorldData = await helloWorldApiResponse.json();
 - body.appendChild(paragraph);
 ```
 
-
 :pencil2: To view the output, open Chrome Dev Tools and click the _Console_ tab.
 
 :bulb: New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is very useful as well.
 
 :pencil2: You should now see the data you returned from the backend displayed in the console.
+
+#### Refactoring the fetch code
+
+:book: In order to structure the code a bit better, we want to move the fetch-related frontend code into a separate module.
+
+:pencil2: Create a new file called `api.js` inside the `/frontend` folder.
+
+:pencil2: Add the following code to `api.js`:
+
+```javascript
+export const getMoviesFromApi = async () => {
+  // Fetch code here
+}
+```
+
+:pencil2: Add the fetch-related code from `main.js` to the function. Make sure to return the movie data from the function.
+
+:pencil2: In `main.js`, import the function at the top:
+
+```javascript
+import { getMoviesFromApi } from "./api.js";
+```
+
+:pencil2: Call the `getMoviesFromApi` method and console.log the output
 
 ## 2.2 Replacing example movie data with real data
 

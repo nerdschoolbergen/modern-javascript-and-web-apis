@@ -139,7 +139,12 @@ Relevant API documentation:
 - [Node.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) on MDN
 - [HTMLElement.innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) on MDN
 
-:pencil2: Open `main.js` from the `/src/frontend` folder
+:pencil2: Open `main.js` from the `/src/frontend` folder and add the following code:
+
+```javascript
+const body = document.querySelector("body");
+var p
+```
 
 ## 3.2 Create a grid of movie tiles
 

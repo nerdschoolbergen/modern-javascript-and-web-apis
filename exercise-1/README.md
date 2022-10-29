@@ -81,6 +81,6 @@ src
 
 ___
 
-Now that we're all set-up, let's add some features to our web app!
+Now that we're all set-up, let's add some features to our web!
 
 ### [Go to exercise 2 :arrow_right:](../exercise-2/README.md)
