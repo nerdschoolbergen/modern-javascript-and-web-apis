@@ -157,7 +157,7 @@ Now that we have succefully returned some data from the serverside API to the br
 
 :book: We want our application to read this data from disk and return it via the list movies API operation we have created.
 
-:pencil2: Create a new file called `database.js` inside `src/backend/data` will the following contents:
+:pencil2: Create a new JavaScript module by creating a new file called `database.js` inside `src/backend/data` with the following contents:
 
 ```javascript
 import fs from "fs/promises";
@@ -175,10 +175,10 @@ export const getMovies = async () => {
 - Data is read from disk using the Node.js API `fs.readFile`
 - The JSON data is converted to an JavaScript object using `JSON.parse` and returned
 
-:pencil2: Open `routes.js` and insert the following code at the top of the file to import the `getMovies` function we created from `database.js`:
+:pencil2: Open `routes.js` and insert the following code at the top of the file to import the `getMovies` function we created from the `database.js` module:
 
 ```javascript
-import { getMovies } from "./data/database.js"
+import { getMovies } from "./data/database.js";
 ```
 
 :pencil2: Replace your example data returned from the `/movie` API endpoint:
@@ -190,7 +190,7 @@ router.get('/helloworld', async (req, res) => {
 });
 ```
 
-:pencil2: Open up the console in Chrome and verify that the new movie data is being outputted.
+:pencil2: Open up the console in Chrome and verify that the new movie data is being logged.
 
 We have a working movie API! Now we need to do something interesting with it.
 

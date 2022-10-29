@@ -61,10 +61,46 @@ const movieData = await getMoviesApiResponse.json();
 const { movies } = movieData; // movies contains an array of movie objects
 ```
 
-:book: Now we need to create some code that renders the data into HTML.
+:book: Now we need to create some code that renders the data into HTML using the _DOM_ API.
 
-##### The DOM API
+##### What is the DOM?
 
+:book: The Document Object Model (DOM) is the data representation of the structure and content of a document on the web.
+
+:book: The DOM represents an HTML document in browser memory, and we can use the DOM API in the browser to manipulate the document.
+
+
+
+:book: Consider the following HTML document:
+
+```html
+<html>
+  <body>
+    <h1>Hello Nerdschool!</h1>
+  </body>
+</html>
+```
+
+:book: In the DOM, this document would be represented as a _tree structure_ of _nodes_, where `<html>` element would be the _root node_ and the `<body>` element would be a _child node_ of `<html>`.
+
+:book: For example, to locate the `<h1>` element in the DOM, we can use the `queryselectorAll` DOM method on the `document` object:
+
+```javascript
+const h1 = document.querySelector('h1'); // Returns an DOM Element
+console.log(h1.innerText); // innerText is a Element property containing the text of the node: 'Hello Nerdschool!'
+```
+
+:book: Common DOM API uses:
+
+- Create new element
+- Append element as child of existing element in document
+- Remove elements
+- Change existing element's contents
+- Traverse elements
+
+:bulb: Se [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction) on MDN for more info.
+
+#### Accessing the DOM in our web app
 
 ```javascript
 export const createMovieList = (movies) => {

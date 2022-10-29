@@ -71,7 +71,7 @@ nothing.toUpperCase(;
 
 This will throw a TypeError as well:
 
-```
+```javascript
 TypeError: Cannot read properties of undefined (reading 'toUpperCase')
 ```
 
@@ -87,4 +87,3 @@ This will throw a TypeError:
 ```javascript
 TypeError: Assignment to constant variable
 ```
-

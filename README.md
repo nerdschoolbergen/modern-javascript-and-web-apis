@@ -37,7 +37,8 @@ This repository contains a set of exercises organized in folders. Each folder co
 
 > **Note:** Avoid W3Schools.com. It's often outdated by todays web specifications. Use MDN instead.
 
-* [`cheatsheet.js`](./cheatsheet.js) - A file located at the root of this repository, containing a JavaScript cheat sheet
+* [`cheatsheet.js`](./cheatsheet.js) - JavaScript cheat sheet
+* [Troubleshooting](./troubleshooting.md) - Some JavaScript troubleshooting tips
 * [MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 * [Chrome Dev Tools documentation](https://developers.google.com/web/tools/chrome-devtools/)
 
