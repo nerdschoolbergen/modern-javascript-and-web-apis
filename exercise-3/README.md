@@ -139,11 +139,18 @@ Relevant API documentation:
 - [Node.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) on MDN
 - [HTMLElement.innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) on MDN
 
-:pencil2: Open `main.js` from the `/src/frontend` folder and add the following code:
+:pencil2: Open `main.js` from the `/src/frontend` folder and add the following code to the top to import `createMovieList` from `dom.js`:
 
 ```javascript
-const body = document.querySelector("body");
-var p
+import { createMovieList } from "./dom.js";
+```
+
+:pencil2: Add the following code after the `getMoviesFromApi` function call:
+
+```javascript
+const movieListContainer = document.getElementById("movie-list");
+const moviesList = createMovieList(movies);
+movieListContainer.appendChild(moviesList);
 ```
 
 ## 3.2 Create a grid of movie tiles
