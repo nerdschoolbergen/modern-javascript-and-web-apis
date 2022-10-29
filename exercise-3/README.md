@@ -8,7 +8,7 @@ You will learn to:
 - Create a grid of tiles to display movie data
 - Display movie posters in the tiles
 
-## 1.1 A simple list of movie titles
+## 3.1 A simple list of movie titles
 
 :book: In order to display a list of movie titles, we need some HTML. Bullet lists in HTML looks like this:
 
@@ -28,7 +28,7 @@ Visually it should look something like this in the browser:
 - List item 2
 - List item 3
 
-### 1.1.1 Static vs. dynamic HTML
+### 3.1.1 Static vs. dynamic HTML
 
 #### Static HTML
 

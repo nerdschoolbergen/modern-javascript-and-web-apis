@@ -139,7 +139,7 @@ const helloWorldData = await helloWorldApiResponse.json();
 const { message } = helloWorldData;
 ```
 
-:pencil2: Try changing this code to instead fetch data from our new API endpoint `/tvshow`. Display the output in the browser dev tools console using `console.log()`.
+:pencil2: Change this code to instead fetch data from our new API endpoint `/movie`. Display the output in the browser dev tools console using `console.log()`.
 
 :pencil2: To view the output, open Chrome Dev Tools and click the _Console_ tab.
 
@@ -184,7 +184,7 @@ import { getMovies } from "./data/database.js";
 :pencil2: Replace your example data returned from the `/movie` API endpoint:
 
 ```javascript
-router.get('/helloworld', async (req, res) => {
+router.get('/movie', async (req, res) => {
   const movies = getMovies();
   res.send(movies);
 });
