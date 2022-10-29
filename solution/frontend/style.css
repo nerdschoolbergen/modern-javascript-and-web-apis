@@ -3,12 +3,19 @@ body {
     font-family: sans-serif;
 }
 
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
 .movie-card {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 3px;
+    display: flex;
+    gap: 1rem;
 }
 
 .movie-card h2 {
@@ -20,6 +27,18 @@ body {
 .movie-card p {
     margin: 0;
     color: #1f714f;
+}
+
+.movie-card img {
+    height: 120px;
+}
+
+.movie-card .image-container {
+    flex-shrink: 1;
+}
+
+.movie-card .content {
+    flex: 1;
 }
 
 .btn-submit {

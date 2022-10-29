@@ -5,25 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer type="module" src="main.js"></script>
     <title>Nerdschool movies app</title>
 </head>
 <body>
-    <div id="movie-list"></div>
-    <hr />
-    <div id="movie-cards"></div>
-    <script type="module" src="main.js"></script>
-    <hr />
+    <div class="container">
+        <h1>Nerdschool movie app</h1>
 
-    <form id="create-movie-form">
-        <div class="input-container">
-            <label for="movie-name">Name</label>
-            <input type="text" name="movie-name" />
-        </div>
-        <div class="input-container">
-            <label for="movie-description">Description</label>
-            <textarea type="text" name="movie-description"></textarea>
-        </div>
-        <input type="submit" value="Save" class="btn-submit" />
-    </form>
+        <div id="movie-cards"></div>
+    
+        <form id="create-movie-form">
+            <div class="input-container">
+                <label for="movie-name">Name</label>
+                <input type="text" name="movie-name" />
+            </div>
+            <div class="input-container">
+                <label for="movie-description">Description</label>
+                <textarea type="text" name="movie-description"></textarea>
+            </div>
+            <input type="submit" value="Save" class="btn-submit" />
+        </form>
+    </div>
+
+    <div id="movie-list"></div>
+
 </body>
 </html>

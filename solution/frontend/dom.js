@@ -1,17 +1,42 @@
 const createMovieCard = (movie) => {
-  const wrapper = document.createElement("div");
+  const movieCard = document.createElement("div");
+  movieCard.id = movie.id;
+  movieCard.className = "movie-card";
+
+  // Create a div container containing a header and a 
+  // paragraph for the title and overview of a movie. 
+
+  const contentContainer = document.createElement("div");
+  contentContainer.class = "content";
+
   const movieHeader = document.createElement("h2");
-  movieHeader.innerText = movie.name;
+  movieHeader.innerText = movie.title;
 
-  const movieDescription = document.createElement("p");
-  movieDescription.innerText = movie.description;
+  const movieOverview = document.createElement("p");
+  movieOverview.innerText = movie.overview;
 
-  wrapper.id = movie.id;
-  wrapper.className = "movie-card";
-  wrapper.appendChild(movieHeader);
-  wrapper.appendChild(movieDescription);
+  contentContainer.appendChild(movieHeader);
+  contentContainer.appendChild(movieOverview);
 
-  return wrapper;
+  // Create a div container and a image element
+  // to position and show the image.
+
+  const movieImage = document.createElement("img");
+  movieImage.src = movie.posterUrl;
+
+  const imageContainer = document.createElement("div");
+  imageContainer.className = "image-container";
+
+  imageContainer.appendChild(movieImage);
+
+
+  // Add the containers containing the image 
+  // and text content to the card
+
+  movieCard.appendChild(imageContainer);
+  movieCard.appendChild(contentContainer);
+
+  return movieCard;
 }
 
 export const createMovieCards = (movies) => {
@@ -30,7 +55,7 @@ export const createMovieList = (movies) => {
 
   for (const movie of movies) {
     const movieListEntry = document.createElement("li");
-    movieListEntry.innerText = movie.name;
+    movieListEntry.innerText = movie.title;
     moviesList.appendChild(movieListEntry);
   }
 
