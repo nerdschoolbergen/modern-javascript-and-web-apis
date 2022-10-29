@@ -1,17 +1,20 @@
 # Modern JavaScript and Web APIs
 
-This workshop focuses on the new language constructs in the latest version of JavaScript known as ECMAScript2015 (ES2015) or ECMAScript 6 (ES6). We'll look at what problems these things solve, and also build a JavaScript-based web application against a server-side web API.
+This workshop focuses on language constructs in modern JavaScript versions known as ECMAScript2015 (ES2015) or ECMAScript 6 (ES6). We'll look at features in modern JavaScript and use these features to build a JavaScript-based web application against a server-side web API.
 
-This workshop also covers more of working with web development in a browser development console.
-
-This repository contains a link to a Google Presentation and three exercises.
+This repository contains a link to a Google Presentation, exercises and a starter project.
 
 ## [Open presentation slides](https://docs.google.com/presentation/d/1ZUS6HK2MxgwwHm1B1125DoPfZHtXPZ4-0Gse6-KY6zA/)
 
 ## What you need
 
-* A browser: [Chrome](https://www.google.com/chrome)
-* A code editor: [Visual Studio Code](https://code.visualstudio.com)
+* [Chrome](https://www.google.com/chrome)
+* [Visual Studio Code](https://code.visualstudio.com)
+
+## Prerequisites
+
+* A basic understanding of JavaScript
+* Some knowledge about basic web technologies like HTML and HTTP is helpful
 
 ## How to get started
 

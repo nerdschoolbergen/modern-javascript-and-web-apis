@@ -4,45 +4,45 @@ In this exercise you will create an API to list movie data as JSON. Next you wil
 
 You will learn to:
 
-- Make an API endpoint that returns JSON data describing movies
-- Output the data to the console
+- Create an serverside API endpoint that returns JSON data describing movies
+- Output the data to the console in the frontend
 
 ## 2.1 Creating an API endpoint for getting all movies
 
-Before we start coding we need to plan out the data model for movies.
+:book: Before we start coding we need to plan out the data model for movies.
 
-We want the API to describe the following movie details:
+:book: We want the API to describe the following movie details:
 
-- Title ("The Godfather")
-- Release date ("1927-03-14")
-- Overview ("Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.")
-- Vote average (from 0.0 to 10.0, eg. 8.7)
-- Vote count (number of votes)
-- Movie poster (image)
+- **Title** ("The Godfather")
+- **Release date** ("1927-03-14")
+- **Overview** ("Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.")
+- **Vote average** (from 0.0 to 10.0, eg. 8.7)
+- **Vote count** (number of votes)
+- **Movie poster** (image)
 
-In web API semantics we call different kinds of data _resources_. _Movie_ is a resource our API will expoose.
+:book: In web API semantics we call different kinds of data _resources_. _Movie_ is a resource our API will expoose.
 
-We use URLs to organize different resources in the API. We use _http metods_ like GET, POST, DELETE and PUT combined with the URL to describe different API operations:
+:book: We use URLs to organize different resources in the API. We use _HTTP metods_ like `GET`, `POST`, `DELETE` and `PUT` combined with the URL to describe different API operations:
 
 - _Get all_ movies: `GET http://localhost:3000/movie/`
-- _Get single_ movie: `GET http://localhost:3000/movie/{id}/`
+- _Get single_ movie: `GET http://localhost:3000/movie/{id}/` (where `{id}` can be `1`, for instance)
 - _Insert_ a movie: `POST http://localhost:3000/movie/` (The movie data we will insert is in the request's _body_)
 - _Delete_ a movie: `DELETE http://localhost:3000/movie/{id}/`
 - _Update_ a movie: `PUT http://localhost:3000/movie/{id}/` (The movie data we will insert is in the request's _body_)
 
-In this exercise we are going to concentrate on implementing the first API operation, _get all_ movies.
+:book: In this exercise we are going to concentrate on implementing the first API operation, _get all_ movies.
 
 ## 2.1.1 JSON data model for movies
 
-[JavaScript Object Notation (JSON)](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
+:book: [JavaScript Object Notation (JSON)](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON) is a standard text-based format for representing structured data based on JavaScript object syntax. It is commonly used for transmitting data in web applications (e.g., sending some data from the server to the client, so it can be displayed on a web page, or vice versa).
 
-A JSON representation of a single movie can look something like this:
+:book: A JSON representation of a single movie can look something like this:
 
 ```json
 {
   "id": 1,
   "releaseDate": "1972-03-14",
-  "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
+  "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.",
   "title": "The Godfather",
   "voteAverage": 8.7,
   "voteCount": 12345,
@@ -56,7 +56,7 @@ In JavaScript code a movie would look like:
 let movie = {
   id: 1,
   releaseDate: "1972-03-14",
-  overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
+  overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family.",
   title: "The Godfather",
   voteAverage: 8.7,
   voteCount: 534533,
@@ -64,9 +64,9 @@ let movie = {
 }
 ```
 
-Very similar to JSON as you can see.
+:book: Very similar to JSON as you can see.
 
-A list of movies will look something like this in JSON:
+:book: A list of movies will look something like this in JSON:
 
 ```json
 {
@@ -95,15 +95,15 @@ A list of movies will look something like this in JSON:
 }
 ```
 
-We now know what the data model we want to implement looks like.
+:book: We now know what the data model we want to implement looks like. Let's code!
 
-### 2.1.2 Creating a route
+### 2.1.2 Creating an API route
 
-In order to map URLS in our API (eg. `/movie`) to a piece of code we need to define a _route_. A _route_ in Express consists of a method (`GET`, `POST`, etc.) and a URL (eg. `/movie`) and a function that handles a request and a response parameter. 
+:book: In order to map URLs in our API (eg. `/movie`) to a piece of code we need to define a _route_. A _route_ in Express consists of a method (`GET`, `POST`, etc.) and a URL (eg. `/movie`) and a function that handles a request and a response parameter.
 
 :pencil2: Open up `routes.js` inside the `/src/backend` folder.
 
-Notice that we already have a route defined:
+:bulb: Notice that we already have a route defined:
 
 ```javascript
 router.get('/helloworld', async (req, res) => {
@@ -116,21 +116,21 @@ router.get('/helloworld', async (req, res) => {
 ```
 
 - `router.get` will define a route that responds to `GET` requests
-- The first parameter '/helloworld' defines what URL the route will respond to
-- the `async (req, res) => {}` handles the HTTP request (`req`) and the HTTP response (`res`). 
+- The first parameter `'/helloworld'` defines what URL the route will respond to
+- the arrow function `async (req, res) => {}` handles the HTTP request (`req`) and the HTTP response (`res`).
 - `res.send(someObject)` will convert an object to JSON and return it in the HTTP response to the browser.
 
 :pencil2: Create a new route using the example above that responds to `GET` requests on the URL `/movie`.
 
-:pencil2: Use `res.send()` to return some example movie data of your own choice.
+:pencil2: Use `res.send()` to return some movie data of your own choice.
 
 ### 2.1.3 Get data from the API into the browser
 
-In order to check if our new API operation is working, we need make some changes the frontend code located inside the `src/frontend` folder.
+:book: In order to verify that our new API operation is working, we need make some changes the frontend code located inside the `src/frontend` folder.
 
 :pencil2: Open up `main.js`. This file is the main entrypoint for the JavaScript code that runs in the browser.
 
-Notice that `main.js` has some code in it already that uses the [fetch]() browser api to retreive data from the server:
+:bulb: Notice that `main.js` has some code in it already that uses the [fetch]() browser api to retreive data from the server:
 
 ```javascript
 const helloWorldApiResponse = await fetch('/helloworld');
@@ -143,19 +143,19 @@ const { message } = helloWorldData;
 
 :pencil2: To view the output, open Chrome Dev Tools and click the _Console_ tab.
 
-New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is useful as well.
+:bulb: New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is useful as well.
 
 :pencil2: You should now see the data you returned from the backend displayed in the console.
 
-## 2.2 Replacing mock movie data with real data
+## 2.2 Replacing example movie data with real data
 
 Now that we have succefully returned some data from the serverside API to the browser, we want to make it a bit more realistic.
 
 :pencil2: Open up `movies.json` inside the `src/backend/data` folder.
 
-This is file contains a list of movies from https://www.themoviedb.org/ using the data model we defined above.
+:book: This is file contains a list of movies from [themoviedb.org](https://www.themoviedb.org/) using the data model we defined above.
 
-We want our application to read this data from disk and return it via the list movies API operation we have created.
+:book: We want our application to read this data from disk and return it via the list movies API operation we have created.
 
 :pencil2: Create a new file called `database.js` inside `src/backend/data` will the following contents:
 
@@ -180,5 +180,18 @@ export const getMovies = async () => {
 ```javascript
 import { getMovies } from "./data/database.js"
 ```
+
+:pencil2: Replace your example data returned from the `/movie` API endpoint:
+
+```javascript
+router.get('/helloworld', async (req, res) => {
+  const movies = getMovies();
+  res.send(movies);
+});
+```
+
+:pencil2: Open up the console in Chrome and verify that the new movie data is being outputted.
+
+We have a working movie API! Now we need to do something interesting with it.
 
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)

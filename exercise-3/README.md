@@ -30,13 +30,19 @@ Visually it should look something like this in the browser:
 
 ### 1.1.1 Static vs. dynamic HTML
 
+#### Static HTML
+
 :book: Now we know what HTML we want to use to display the movie titles. But how do we actually insert the markup into the web page?
 
 :pencil2: Open `index.html` and try creating a list like the one above. Place the markup inside the `<body>` tag.
 
-:pencil2: Verify that the bullet list you created works by opening up the web app in Chrome
+:pencil2: Verify that the bullet list you created works by opening up the web app in Chrome.
 
 :book: We could write a list of movie titles by hand and insert it into `index.html` like we just did, but since `index.html` is a static file the list would not stay updated if the data changes.
+
+:pencil2: Remove the list you just inserted to get ready for the next part.
+
+#### Dynamic HTML
 
 :book: We want the movie list to change dynamically when the backend movie data changes. In order to do this, we need to _render_ the data into HTML dynamically in the frontend.
 
@@ -53,6 +59,25 @@ const getMoviesApiResponse = await fetch('/movie');
 const movieData = await getMoviesApiResponse.json();
 
 const { movies } = movieData; // movies contains an array of movie objects
+```
+
+:book: Now we need to create some code that renders the data into HTML.
+
+##### The DOM API
+
+
+```javascript
+export const createMovieList = (movies) => {
+  const moviesList = document.createElement("ul");
+
+  for (const movie of movies) {
+    const movieListEntry = document.createElement("li");
+    movieListEntry.innerText = movie.name;
+    moviesList.appendChild(movieListEntry);
+  }
+
+  return moviesList;
+}
 ```
 
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
