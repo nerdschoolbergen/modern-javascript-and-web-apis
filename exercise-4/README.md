@@ -1,12 +1,11 @@
-# Exercise {Number} - {Title}
+# Exercise 4 - {Title}
 
 {Summary and goal of this exercise}
 
 You will learn to:
 
-- Bla bla
-- Bla bla
-- Bla bla
+- Backend: Endepunkt for å legge til film. Ta inn tittel og bilde-url. 
+- Frontend: Skjema for å legge til tittel og bilde (themoviedb.org mockdata )
 
 ## Required software and tools for this exercise
 

@@ -1,65 +1,58 @@
-# Exercise {Number} - {Title}
+# Exercise 3 - First user interface
 
-{Summary and goal of this exercise}
+This exercise is focused on creating a nice user interface in order to display the movie data to the user. Since we prepared the serverside part in the last exercise, this exercise will focus on frontend code.
 
 You will learn to:
 
-- Bla bla
-- Bla bla
-- Bla bla
+- Create a list that displays the movie titles
+- Create a grid of tiles to display movie data
+- Display movie posters in the tiles
 
-## Required software and tools for this exercise
+## 1.1 A simple list of movie titles
 
-- Tech
-- Tech
-- Tech
+:book: In order to display a list of movie titles, we need some HTML. Bullet lists in HTML looks like this:
 
-## 1.1 {Exersice section}
-
-:book: Use `:book:` to indicate a section with text to read (no tasks, just theory). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
-
-> :exclamation: Use `> :exclamation:` to indicate something important. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
-
-> :question: Use `> :question:` for open-ended questions to the reader ("What do you think would happen if..."). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
-
-> :poop: Use `> :poop:` to indicate a bad practice (don't-do-this). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
-
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.<br/>
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-
-(Note: Use two spaces at the end of a line or `<br/>` to force a new line without using lists/bulletpoints)
-
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-
-## 1.2 {Exersice section}
-
-Any reference to something in code should be wrapped in either a `inline code` section or a
-```
-code block
+```html
+<ul>
+  <li>List item 1</li>
+  <li>List item 2</li>
+  <li>List item 3</li>
+</ul>
 ```
 
-Always highlight with the programming language if possible:
+:book: Each `<li>` tag inside a `<ul>` represents a list item.
+
+Visually it should look something like this in the browser:
+
+- List item 1
+- List item 2
+- List item 3
+
+### 1.1.1 Static vs. dynamic HTML
+
+:book: Now we know what HTML we want to use to display the movie titles. But how do we actually insert the markup into the web page?
+
+:pencil2: Open `index.html` and try creating a list like the one above. Place the markup inside the `<body>` tag.
+
+:pencil2: Verify that the bullet list you created works by opening up the web app in Chrome
+
+:book: We could write a list of movie titles by hand and insert it into `index.html` like we just did, but since `index.html` is a static file the list would not stay updated if the data changes.
+
+:book: We want the movie list to change dynamically when the backend movie data changes. In order to do this, we need to _render_ the data into HTML dynamically in the frontend.
+
+:book: Here is an overview of the steps required:
+
+1. Frontend JavaScript code uses the `fetch` browser API to get JSON movie data from the backend API
+1. Frontend JavaScript code converts JSON movie data to JavaScript objects representing movies
+1. Frontend JavaScript code dynamically creates and inserts HTML with movie titles into the page
+
+:book: We solved the first step and second step in the last exercise. The code should look something like this:
 
 ```javascript
-function code() {
-  return 'awesome';
-}
+const getMoviesApiResponse = await fetch('/movie');
+const movieData = await getMoviesApiResponse.json();
+
+const { movies } = movieData; // movies contains an array of movie objects
 ```
-
-Use the `diff` code block to indicate changes in code
-
-```diff
-- foo
-+ bar
-```
-
-Use the `<kbd>` HTML tag to indicate keyboard keys:
-
-<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
-
-`<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>`
 
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)

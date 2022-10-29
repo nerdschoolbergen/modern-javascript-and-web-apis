@@ -1,12 +1,12 @@
-# Exercise {Number} - {Title}
+# Exercise 5 - {Title}
 
 {Summary and goal of this exercise}
 
 You will learn to:
 
-- Bla bla
-- Bla bla
-- Bla bla
+- Frontend: Legg til delete-knapp for å slette en film
+- Backend: Legg til endepunkt for å fjerne film 
+- Bonus: Lett til alert med confirm 
 
 ## Required software and tools for this exercise
 
@@ -61,3 +61,7 @@ Use the `<kbd>` HTML tag to indicate keyboard keys:
 <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
 
 `<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>`
+
+## Bonus 
+
+:star: Bonus task:  Legg til funksjonalitet for å endre en movie
