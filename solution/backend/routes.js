@@ -6,12 +6,10 @@ router.use(express.json());
 
 router.get("/api/movies", async (req, res) => {
   const movies = await getMovies();
-  console.log(movies);
   res.send(movies);
 });
 
 router.post("/api/movies", async(req, res) => {
-  console.log(req.body)
   try {
     await insertMovie(req.body)
     const movies = await getMovies();

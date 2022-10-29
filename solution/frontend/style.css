@@ -56,4 +56,13 @@ body {
 
 .input-container input, textarea {
     padding: 0.5rem;
+    flex: 1;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+}
+
+.flex  {
+    display: flex;
 }

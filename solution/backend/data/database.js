@@ -9,6 +9,10 @@ export const getMovies = async () => {
 
 export const insertMovie = async (movie) => {
   const movies = await getMovies();
-  const updatedMovies = [...movies, movie];
+  const id = movies.length
+  const posterUrl = "/movie-posters/default.jpg"
+
+  const updatedMovies = [...movies, {id, posterUrl, ...movie}];
   await fs.writeFile(dataFilePath, JSON.stringify(updatedMovies, null, 2))
 }
+
