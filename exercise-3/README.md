@@ -102,18 +102,47 @@ console.log(h1.innerText); // innerText is a Element property containing the tex
 
 #### Accessing the DOM in our web app
 
+:book: To create a bullet list we need to use the DOM API to:
+
+1. Create a `<ul>` element to contain the movie list
+1. Create `<li>` elements containing the movie titles we want to display
+1. Append the `<li>` as children of the `<ul>` element
+
+:pencil2: Create a new file called `dom.js` inside the `src/frontend/` foldert and insert the following function:
+
 ```javascript
 export const createMovieList = (movies) => {
   const moviesList = document.createElement("ul");
 
   for (const movie of movies) {
     const movieListEntry = document.createElement("li");
-    movieListEntry.innerText = movie.name;
+    const { title } = movie;
+    movieListEntry.innerText = title;
     moviesList.appendChild(movieListEntry);
   }
 
   return moviesList;
 }
 ```
+
+:book: Let's take a look at what this function does:
+
+- It takes an array of `movies` as a parameter and returns an DOM Element (_renders_ data into HTML)
+- It creates a `<ul>` DOM Element using the `createElement` DOM API method
+- It iterates over the `movies` array and creates a  `<li>` Element for each movie
+- The movie title for each movie is set as the `inneText` property value for each `<li>` Element
+- Each `<li>` Element is appended as a child Element of the `<ul>` Element
+
+Relevant API documentation:
+
+- [document.createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement) on MDN
+- [Node.appendChild](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) on MDN
+- [HTMLElement.innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) on MDN
+
+:pencil2: Open `main.js` from the `/src/frontend` folder
+
+## 3.2 Create a grid of movie tiles
+
+## 3.3 Displaying movie posters
 
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)

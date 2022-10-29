@@ -130,20 +130,28 @@ router.get('/helloworld', async (req, res) => {
 
 :pencil2: Open up `main.js`. This file is the main entrypoint for the JavaScript code that runs in the browser.
 
-:bulb: Notice that `main.js` has some code in it already that uses the [fetch]() browser api to retreive data from the server:
+:bulb: Notice that `main.js` has some code in it already that uses the [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) browser api to retreive data from the server:
 
 ```javascript
 const helloWorldApiResponse = await fetch('/helloworld');
 const helloWorldData = await helloWorldApiResponse.json();
-
-const { message } = helloWorldData;
 ```
 
 :pencil2: Change this code to instead fetch data from our new API endpoint `/movie`. Display the output in the browser dev tools console using `console.log()`.
 
+:exclamation: **Make sure to also remove the following code below, or the code will throw an error:**
+
+```diff
+- const body = document.querySelector("body");
+- var paragraph = document.createElement('p');
+- paragraph.innerText = `Message from API: '${message}'`;
+- body.appendChild(paragraph);
+```
+
+
 :pencil2: To view the output, open Chrome Dev Tools and click the _Console_ tab.
 
-:bulb: New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is useful as well.
+:bulb: New to Chrome Dev Tools? See official Chrome docs [Open Chrome Dev Tools](https://developer.chrome.com/docs/devtools/open/) and [Console overview](https://developer.chrome.com/docs/devtools/console/) to learn more. [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is very useful as well.
 
 :pencil2: You should now see the data you returned from the backend displayed in the console.
 
