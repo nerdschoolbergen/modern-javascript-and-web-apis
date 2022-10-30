@@ -100,6 +100,8 @@ In our `main.js` file, query for a reference for our form DOM element. Add an ev
 - Add new movie to the movies array
 - Write the updated array to the file
 
+:bulb: We have added a default image that you can use for new movies that you add to the json file. The URL of the image is `/movie-posters/default.jpg`.
+
 <details>
   <summary>Show suggested solution</summary>
 
@@ -122,5 +124,9 @@ In our `main.js` file, query for a reference for our form DOM element. Add an ev
 ## 4.4 - Updating the UI 
 
 After we update the UI, want to update the UI, so that it is in sync with the server side state. 
+
+:pencil2: In the API endpoint for creating a movie, return a updated list of movies in the response body. Use this data to repopulate the data in the view. 
+
+:star: Optional: Can you update the UI without returning the data from the API? 
 
 ### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
