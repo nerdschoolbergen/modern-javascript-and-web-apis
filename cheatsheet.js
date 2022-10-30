@@ -136,8 +136,15 @@ const arr2 = [3, 4, 5];
 const arr3 = [...arr1, ...arr2]; // [0, 1, 2, 3, 4, 5]
 
 // Object spread
-const person = { firstName: 'Ola', lastName: 'Nordmann' };
-const newPerson = { age: 20, ...person }; // { age:20, firstName: 'Ola', lastName: 'Nordmann' }
+const person = {
+    firstName: 'Ola',
+    lastName: 'Nordmann'
+}
+;
+const newPerson = {
+    ...person,
+    age: 20, 
+}; // { firstName: 'Ola', lastName: 'Nordmann', age:20 }
 
 //
 // === Functions ===

@@ -1,6 +1,6 @@
-import fs from "fs/promises";
+import fs from 'fs/promises';
 
-const dataFilePath = "./backend/data/movies.json";
+const dataFilePath = './backend/data/movies.json';
 
 export const getMovies = async () => {
   const file = await fs.readFile(dataFilePath);
@@ -10,7 +10,7 @@ export const getMovies = async () => {
 export const insertMovie = async (movie) => {
   const { movies } = await getMovies();
   const id = movies.length
-  const posterUrl = "/movie-posters/default.jpg"
+  const posterUrl = '/movie-posters/default.jpg'
 
   const newMovie = { id, posterUrl, ...movie }
 
