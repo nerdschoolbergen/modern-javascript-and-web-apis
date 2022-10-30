@@ -40,11 +40,10 @@ const createMovieCard = (movie) => {
 }
 
 export const createMovieCards = (movies) => {
-  const movieCards = document.createElement("div");
-
+  const movieCards = [];
   for (const movie of movies) {
     const movieCard = createMovieCard(movie);
-    movieCards.appendChild(movieCard);
+    movieCards.push(movieCard);
   }
 
   return movieCards;

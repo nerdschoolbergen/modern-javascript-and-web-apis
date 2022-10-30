@@ -167,9 +167,9 @@ Let's break this code down:
 
 :pencil2: Open up the web app in Chrome. You should now see a list of movies:
 
-- Movie 1
-- Movie 2
-- Movie 3
+- The Godfather
+- The Shawshank Redemption
+- The Godfather Part II
 - ...
 
 :pencil2: Now that we have the basic pattern established, time to make the GUI a bit more interesting!

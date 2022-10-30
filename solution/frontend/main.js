@@ -13,7 +13,9 @@ const createMovieForm = document.getElementById("create-movie-form");
   movieListContainer.appendChild(moviesList);
 
   const movieCards = createMovieCards(movies);
-  movieCardsContainer.appendChild(movieCards);
+  for(const movieCard of movieCards) {
+    movieCardsContainer.appendChild(movieCard);
+  }
 })();
 
 createMovieForm.addEventListener("submit", async (e) => {
@@ -27,7 +29,9 @@ createMovieForm.addEventListener("submit", async (e) => {
   removeAllChildNodes(movieCardsContainer);
 
   const movieCards = createMovieCards(updatedMovies)
-  movieCardsContainer.appendChild(movieCards);
+  for(const movieCard of movieCards) {
+    movieCardsContainer.appendChild(movieCard);
+  }
 
   e.target.reset();
 })
