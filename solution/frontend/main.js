@@ -1,9 +1,17 @@
-import { getMoviesFromApi, postMovieToApi } from './api.js';
-import { createMovieCards, createMovieList, removeAllChildNodes } from './dom.js';
+import { deleteMovieToApi, getMoviesFromApi, postMovieToApi } from './api.js';
+import { createMovieCard, createMovieList, removeAllChildNodes } from './dom.js';
 
 const movieListContainer = document.getElementById('movie-list');
 const movieCardsContainer = document.getElementById('movie-cards');
 const createMovieForm = document.getElementById('create-movie-form');
+
+const setupMovieCard = (movies) => {
+  for (const movie of movies) {
+    const onMovieDeleted = async () => await deleteMovieToApi(movie.id);
+    const movieCard = createMovieCard(movie, onMovieDeleted);
+    movieCardsContainer.appendChild(movieCard);
+  }
+}
 
 (async () => {
   const moviesApiResult = await getMoviesFromApi();
@@ -11,11 +19,8 @@ const createMovieForm = document.getElementById('create-movie-form');
   
   const moviesList = createMovieList(movies);
   movieListContainer.appendChild(moviesList);
+  setupMovieCard(movies);
 
-  const movieCards = createMovieCards(movies);
-  for(const movieCard of movieCards) {
-    movieCardsContainer.appendChild(movieCard);
-  }
 })();
 
 createMovieForm.addEventListener('submit', async (e) => {
@@ -29,11 +34,7 @@ createMovieForm.addEventListener('submit', async (e) => {
   const { movies } = moviesApiResult;
 
   removeAllChildNodes(movieCardsContainer);
-
-  const movieCards = createMovieCards(movies)
-  for(const movieCard of movieCards) {
-    movieCardsContainer.appendChild(movieCard);
-  }
+  setupMovieCard(movies);
 
   e.target.reset();
 })

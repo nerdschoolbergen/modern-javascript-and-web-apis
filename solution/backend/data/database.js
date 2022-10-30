@@ -20,3 +20,11 @@ export const insertMovie = async (movie) => {
 
   await fs.writeFile(dataFilePath, JSON.stringify(updatedData, null, 2))
 }
+
+export const deleteMovie = async (movieId) => {
+  const { movies } = await getMovies();
+
+  const updatedMovies = movies.filter(({ id }) => parseInt(movieId) !== id);
+  const updatedData = { movies: updatedMovies }
+  await fs.writeFile(dataFilePath, JSON.stringify(updatedData, null, 2))
+}

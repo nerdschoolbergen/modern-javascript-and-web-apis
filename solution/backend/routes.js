@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { getMovies, insertMovie } from './data/database.js'
+import { deleteMovie, getMovies, insertMovie } from './data/database.js'
 
 const router = Router();
 router.use(express.json());
@@ -14,5 +14,10 @@ router.post('/movie', async (req, res) => {
   const movies = await getMovies();
   res.status(201).send(movies);
 });
+
+router.delete('/movie/:id', async (req, res) => {
+  deleteMovie(req.params.id);
+  res.status(200)
+})
 
 export default router;

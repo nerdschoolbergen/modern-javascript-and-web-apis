@@ -13,3 +13,9 @@ export const postMovieToApi = async (movie) => {
   });
   return await response.json();
 }
+
+export const deleteMovieToApi = async (movieId) => {
+  await fetch(`/movie/${movieId}`, {
+    method: 'DELETE',
+  });
+}

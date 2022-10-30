@@ -1,4 +1,6 @@
-const createMovieCard = (movie) => {
+import { deleteMovieToApi } from "./api.js";
+
+export const createMovieCard = (movie, onMovieDeleted) => {
   const movieCard = document.createElement('div');
   movieCard.id = movie.id;
   movieCard.className = 'movie-card';
@@ -22,31 +24,34 @@ const createMovieCard = (movie) => {
   // to position and show the image.
 
   const movieImage = document.createElement('img');
-  movieImage.src = movie.posterUrl;
-
   const imageContainer = document.createElement('div');
+  movieImage.src = movie.posterUrl;
   imageContainer.className = 'image-container';
 
   imageContainer.appendChild(movieImage);
 
+  // Create delete button
+
+  const deleteButtonContainer = document.createElement("div");
+  const deleteButton = document.createElement("button");
+  deleteButton.innerText = "Delete";
+  deleteButton.className = "btn-delete";
+
+  deleteButton.addEventListener('click', () => {
+    onMovieDeleted();
+    movieCard.remove();
+  });
+
+  deleteButtonContainer.appendChild(deleteButton);
 
   // Add the containers containing the image 
   // and text content to the card
 
   movieCard.appendChild(imageContainer);
   movieCard.appendChild(contentContainer);
+  movieCard.appendChild(deleteButtonContainer);
 
   return movieCard;
-}
-
-export const createMovieCards = (movies) => {
-  const movieCards = [];
-  for (const movie of movies) {
-    const movieCard = createMovieCard(movie);
-    movieCards.push(movieCard);
-  }
-
-  return movieCards;
 }
 
 export const createMovieList = (movies) => {

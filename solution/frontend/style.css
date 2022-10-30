@@ -53,6 +53,14 @@ body {
     border: none;
 }
 
+.btn-delete {
+    background-color: red;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+}
+
 .input-container label {
     color: #1f714f;
     display: block;
