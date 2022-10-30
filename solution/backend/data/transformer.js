@@ -11,7 +11,10 @@ const mappedMovies = fileJson["results"].map((movie) => ({
     voteAverage: movie.vote_average,
     voteCount: movie.vote_count,
     posterUrl: `/movie-posters/${movie.id}.jpg`
-}))
+}));
 
-fs.writeFile("./data.json", JSON.stringify(mappedMovies, null, 2));
+const output = {
+  'movies': mappedMovies,
+};
 
+fs.writeFile("./movies.json", JSON.stringify(output, null, 2));

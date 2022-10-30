@@ -32,7 +32,7 @@ This is the most common error we encounter. This error occurs when we type code 
 For example:
 
 ```javascript
-let cat h = "cat"
+let cat h = 'cat'
 ```
 
 This code will throw an SyntaxError telling you where the error occured:
@@ -41,7 +41,7 @@ This code will throw an SyntaxError telling you where the error occured:
 SyntaxError: Unexpected identifier 'h'
 ```
 
-What is with the lone "h"? The “h” being there breaks the code.
+What is with the lone `h`? The `h` being there breaks the code.
 
 ## TypeError
 
@@ -86,4 +86,19 @@ This will throw a TypeError:
 
 ```javascript
 TypeError: Assignment to constant variable
+```
+
+If you try to iterate over a value that is non-iterable, like an object:
+
+```javascript
+const a = { b: 1, c: 2 }; // Object (non-iterable)
+for (const x of a) {
+  // do stuff
+}
+```
+
+This will throw a TypeError:
+
+```javascript
+TypeError: a is not iterable
 ```

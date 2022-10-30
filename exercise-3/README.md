@@ -156,16 +156,33 @@ movieListContainer.appendChild(moviesList);
 Let's break this code down:
 
 - First we use `document.getElementById` to get a reference to an existing element with the id `movie-list`. Take a look at `frontend/index.html`, and you will notice an empty div:
-```html
-<div id="movie-list"></div>
-```
-- We are going to append our movie list as a child of this div
+  
+  ```html
+  <div id="movie-list"></div>
+  ```
+  
+- We are going to append our movie list as a child of this div element.
 - Next we call `createMovieList` using the result from `getMoviesFromApi`
 - Lastly we call the `appendChild` method on our movie list div element using the result from `createMovieList`
 
-:pencil2: 
+:pencil2: Open up the web app in Chrome. You should now see a list of movies:
+
+- Movie 1
+- Movie 2
+- Movie 3
+- ...
+
+:pencil2: Now that we have the basic pattern established, time to make the GUI a bit more interesting!
 
 ## 3.2 Create a grid of movie tiles
+
+In order to display our movie data we want to create a grid of movie tiles, where each tile displays the movie title.
+
+To make this a bit easier we have prepared some CSS and a markup structure:
+
+```html
+
+```
 
 ## 3.3 Displaying movie posters
 
