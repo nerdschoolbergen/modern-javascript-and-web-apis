@@ -32,12 +32,13 @@ body {
 }
 
 .movie-card img {
-    height: 120px;
+    height: 100%;
     border-radius: 5px;
 }
 
 .movie-card .image-container {
     flex-shrink: 1;
+    height: 120px;
 }
 
 .movie-card .content {
