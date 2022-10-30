@@ -233,6 +233,8 @@ router.get('/movie', async (req, res) => {
 
 :pencil2: Open up the console in Chrome and verify that the new movie data is being logged.
 
+:exclamation: Note: In a "real" application we would use a proper database instead of files on disk, for instance [PostgreSQL](https://www.postgresql.org/) or [MongoDB](https://www.mongodb.com/).
+
 We have a working movie API! Now we need to do something interesting with it.
 
 ### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)
