@@ -87,7 +87,13 @@ src
 - How the console works: [Console overview](https://developer.chrome.com/docs/devtools/console/)
 - [Inspect network activity](https://developer.chrome.com/docs/devtools/network/) is very useful as well
 
-:book: Errors in the backend JavaScript code will display in the terminal window where you started the web app. Debugging tools for Node.js is out of scope for this workshop.
+:book: Errors in the backend JavaScript code will display in the terminal window where you started the web app. Debugging tools for Node.js is out of scope for this workshop. Unhandled errors will crash the app, resulting in the following message in the terminal
+
+```text
+[nodemon] app crashed - waiting for file changes before starting...
+```
+
+:book: To restart the backend app after a crash, change a backend file and save it. The app will automatically restart itself.
 
 :book: See [troubleshooting.md](./../troubleshooting.md) for an overview of the most common JavaScript errors.
 
