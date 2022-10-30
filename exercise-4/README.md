@@ -22,6 +22,8 @@ Here is a simple example of how to create a POST route to get your started. The 
   ```
 </details>
 
+See the Express.js API reference on the [Request object](https://expressjs.com/en/4x/api.html#req) for more documentation.
+
 ## 4.2 - Capturing user input
 
 :pencil2: In our frontend code, we want to create a new form to capture the users input for adding a new movie. 
