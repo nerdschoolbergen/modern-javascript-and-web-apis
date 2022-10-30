@@ -1,64 +1,124 @@
-# Exercise 4 - {Title}
+# Exercise 4 - Creating movies
 
-{Summary and goal of this exercise}
+In this exercise, you will create a form where the user can supply a information about a new movie and store that movie into our data store. 
 
 You will learn to:
+- Create a POST endpoint for storing a movie 
+- Create a form and submit the form using javascript
 
-- Backend: Endepunkt for å legge til film. Ta inn tittel og bilde-url. 
-- Frontend: Skjema for å legge til tittel og bilde (themoviedb.org mockdata )
+## 4.1 - Creating a new endpoint
 
-## Required software and tools for this exercise
+:pencil2: In the `routes.js` file, create a new POST route.
 
-- Tech
-- Tech
-- Tech
+Here is a simple example of how to create a POST route to get your started. The request body can be accessed using the `body` parameter on the `req` (Request) object. For now, it is enough to simply print out the request body to display its content as a new request is routed to this endpoint.
 
-## 1.1 {Exersice section}
+<details>
+  <summary>Show suggested solution</summary>
 
-:book: Use `:book:` to indicate a section with text to read (no tasks, just theory). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+  ```javascript
+  router.post("/movies", async (req, res) => {
+    console.log("Request body is: ", req.body);
+  });
+  ```
+</details>
 
-> :exclamation: Use `> :exclamation:` to indicate something important. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+## 4.2 - Capturing user input
 
-> :question: Use `> :question:` for open-ended questions to the reader ("What do you think would happen if..."). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+:pencil2: In our frontend code, we want to create a new form to capture the users input for adding a new movie. 
+In our `index.html` file, create a form with two text input fields; one for the movie `title` and one for the movie `overview`. 
 
-> :poop: Use `> :poop:` to indicate a bad practice (don't-do-this). Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam viverra in ex quis efficitur. Morbi dapibus aliquet cursus. Suspendisse potenti. Nam aliquet dolor odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare libero convallis, posuere lectus id, porta libero. Duis non tellus sapien.
+You should:
+- Give the form a unique ID. We will use this ID to retrieve the form values in our javascript code as the user submits the form.
+- Give the inputs descriptive name values (e.g. `movie-title` or `title` and `movie-overview` or `overview`) 
+- Create descriptive labels for the inputs, correlating them using the `for` attribute for the label and `name` field for the input. 
+- Create a submit button which submits the form 
 
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.<br/>
-:pencil2: Use `:pencil2:` to indicate a task (do-this-now). This replaces bulletpoints.  
+<details>
+  <summary>Show suggested solution</summary>
 
-(Note: Use two spaces at the end of a line or `<br/>` to force a new line without using lists/bulletpoints)
+  ```html
+    <form id="create-movie-form">
+      <div class="input-container">
+          <label for="movie-title">Title</label>
+          <div class="flex">
+              <input type="text" name="movie-title" />
+          </div>
+      </div>
+      <div class="input-container">
+          <label for="movie-overview">Overview</label>
+          <div class="flex">
+              <textarea type="text" name="movie-overview"></textarea>
+          </div>
+      </div>
+      <input type="submit" value="Save" class="btn-submit" />
+    </form>
+  ```
+</details>
 
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
-:star: Use `:star:` to indicate a bonus task. This replaces bulletpoints.<br/>
+We want to override the default html form mechanics for submitting the form, as we want to capture the data of the form and submit the data ourselves as JSON to our web api.
 
-## 1.2 {Exersice section}
-
-Any reference to something in code should be wrapped in either a `inline code` section or a
-```
-code block
-```
-
-Always highlight with the programming language if possible:
+In order to capture the data from the form, we must add an event listener to the form DOM element. 
+We have supplied a simple skeleton for this event listener.
 
 ```javascript
-function code() {
-  return 'awesome';
-}
+
+// We get a reference to the form DOM element
+const createMovieForm = document.getElementById("create-movie-form");
+
+// Add an event listener to the submit action, so that we can
+// capture its data as it is submitted
+createMovieForm.addEventListener("submit", async (e) => {
+
+  // We prevent the default submit action to be executed, since
+  // we want to handle the data submitting ourselves.
+  e.preventDefault();
+
+  const formData = new FormData(e.target)
+  const title = formData.get("movie-title");
+  const overview = formData.get("movie-overview");
+
+  // Create a new movie object from the form inputs and submit 
+  // it to our web api using fetch
+
+  e.target.reset();
+})
 ```
 
-Use the `diff` code block to indicate changes in code
+:pencil2: After you have completed the frontend code, check that you are able to submit new movies and that they are printed to the console running our web application. 
 
-```diff
-- foo
-+ bar
-```
+## 4.3 - Storing the data
 
-Use the `<kbd>` HTML tag to indicate keyboard keys:
+:pencil2: Create a function to retrieve the form values as the user submits the form. 
+In our `main.js` file, query for a reference for our form DOM element. Add an event listener called `submit` to the form and override
 
-<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>
+:pencil2: Create a new function in `database.js` to store the new movie into our json file. 
 
-`<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>C</kbd>`
+:bulb: The psuedo code for this operation might look something like this: 
+- Get array of existing movies from json file
+- Add new movie to the movies array
+- Write the updated array to the file
+
+<details>
+  <summary>Show suggested solution</summary>
+
+  ```javascript
+  export const insertMovie = async (movie) => {
+    const movies = await getMovies();
+    const id = movies.length
+    const posterUrl = "/movie-posters/default.jpg"
+
+    const updatedMovies = [...movies, {id, posterUrl, ...movie}];
+    await fs.writeFile(dataFilePath, JSON.stringify(updatedMovies, null, 2))
+  }
+  ```
+</details>
+
+:pencil2: Import the new function to your `routes.js` file and use the function to store a new movie from the request body. 
+
+:bulb: The correct HTTP status to return after creating a new resource is `HTTP 201 - Created`. 
+
+## 4.4 - Updating the UI 
+
+After we update the UI, want to update the UI, so that it is in sync with the server side state. 
 
 ### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
