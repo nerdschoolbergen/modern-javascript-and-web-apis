@@ -8,19 +8,15 @@ You will learn to:
 
 ## 4.1 - Creating a new endpoint
 
-:pencil2: In the `routes.js` file, create a new POST route.
+:pencil2: In the `routes.js` file, create a new POST route under `/movie`.
 
 Here is a simple example of how to create a POST route to get your started. The request body can be accessed using the `body` parameter on the `req` (Request) object. For now, it is enough to simply print out the request body to display its content as a new request is routed to this endpoint.
-
-<details>
-  <summary>Show suggested solution</summary>
-
-  ```javascript
-  router.post("/movies", async (req, res) => {
-    console.log("Request body is: ", req.body);
-  });
-  ```
-</details>
+  
+```javascript
+router.post("/movie", async (req, res) => {
+  console.log("Request body is: ", req.body);
+});
+```
 
 See the Express.js API reference on the [Request object](https://expressjs.com/en/4x/api.html#req) for more documentation.
 
