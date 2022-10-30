@@ -176,7 +176,17 @@ export const getMoviesFromApi = async () => {
 import { getMoviesFromApi } from "./api.js";
 ```
 
-:pencil2: Call the `getMoviesFromApi` method and console.log the output
+:pencil2: Call the `getMoviesFromApi` method and assign the result to a variable called `getMoviesFromApiResult`.
+
+:exclamation: Remember that the get movies API response has the following format:
+
+```javascript
+{
+  movies: [ // array of movies ]
+}
+```
+
+:pencil2: Use destructuring (see `cheatsheet.js`) or dot notation (`getMoviesFromApiResult.movies`) to create a new variable called `movies` containing the array of movies from the `getMoviesFromApiResult` object. Use `console.log` to log the output to verify the data is correct.
 
 ## 2.2 Replacing example movie data with real data
 

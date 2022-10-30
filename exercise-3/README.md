@@ -153,6 +153,18 @@ const moviesList = createMovieList(movies);
 movieListContainer.appendChild(moviesList);
 ```
 
+Let's break this code down:
+
+- First we use `document.getElementById` to get a reference to an existing element with the id `movie-list`. Take a look at `frontend/index.html`, and you will notice an empty div:
+```html
+<div id="movie-list"></div>
+```
+- We are going to append our movie list as a child of this div
+- Next we call `createMovieList` using the result from `getMoviesFromApi`
+- Lastly we call the `appendChild` method on our movie list div element using the result from `createMovieList`
+
+:pencil2: 
+
 ## 3.2 Create a grid of movie tiles
 
 ## 3.3 Displaying movie posters

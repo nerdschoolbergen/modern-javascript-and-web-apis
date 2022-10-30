@@ -6,7 +6,8 @@ const movieCardsContainer = document.getElementById("movie-cards");
 const createMovieForm = document.getElementById("create-movie-form");
 
 (async () => {
-  const movies = await getMoviesFromApi();
+  const moviesApiResult = await getMoviesFromApi();
+  const { movies } = moviesApiResult;
   
   const moviesList = createMovieList(movies);
   movieListContainer.appendChild(moviesList);
