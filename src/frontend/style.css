@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
 body {
     background-color: #cde8d7;
-    font-family: sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
-
 .movie-card {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
