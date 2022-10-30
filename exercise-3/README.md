@@ -270,19 +270,19 @@ contentContainer.appendChild(movieOverview);
 // Create a div container and a image element
 // to position and show the image.
 
-+const movieImage = document.createElement("img");
-+movieImage.src = movie.posterUrl;
++ const movieImage = document.createElement("img");
++ movieImage.src = movie.posterUrl;
 
-+const imageContainer = document.createElement("div");
-+imageContainer.className = "image-container";
++ const imageContainer = document.createElement("div");
++ imageContainer.className = "image-container";
 
-+imageContainer.appendChild(movieImage);
++ imageContainer.appendChild(movieImage);
 
 
 // Add the containers containing the image 
 // and text content to the card
 
-+movieCard.appendChild(imageContainer);
++ movieCard.appendChild(imageContainer);
 movieCard.appendChild(contentContainer);
 
 return movieCard;
