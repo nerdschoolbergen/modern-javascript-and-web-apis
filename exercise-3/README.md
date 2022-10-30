@@ -112,10 +112,10 @@ console.log(h1.innerText); // innerText is a Element property containing the tex
 
 ```javascript
 export const createMovieList = (movies) => {
-  const moviesList = document.createElement("ul");
+  const moviesList = document.createElement('ul');
 
   for (const movie of movies) {
-    const movieListEntry = document.createElement("li");
+    const movieListEntry = document.createElement('li');
     const { title } = movie;
     movieListEntry.innerText = title;
     moviesList.appendChild(movieListEntry);
@@ -142,13 +142,13 @@ Relevant API documentation:
 :pencil2: Open `main.js` from the `/src/frontend` folder and add the following code to the top to import `createMovieList` from `dom.js`:
 
 ```javascript
-import { createMovieList } from "./dom.js";
+import { createMovieList } from './dom.js';
 ```
 
 :pencil2: Add the following code after the `getMoviesFromApi` function call:
 
 ```javascript
-const movieListContainer = document.getElementById("movie-list");
+const movieListContainer = document.getElementById('movie-list');
 const moviesList = createMovieList(movies);
 movieListContainer.appendChild(moviesList);
 ```
@@ -193,20 +193,20 @@ In order to display our movie data we want to create a grid of movie cards, wher
 
 ```javascript
 const createMovieCard = (movie) => {
-  const movieCard = document.createElement("div");
+  const movieCard = document.createElement('div');
   movieCard.id = movie.id;
-  movieCard.className = "movie-card";
+  movieCard.className = 'movie-card';
 
   // Create a div container containing a header and a 
   // paragraph for the title and overview of a movie. 
 
-  const contentContainer = document.createElement("div");
-  contentContainer.className = "content";
+  const contentContainer = document.createElement('div');
+  contentContainer.className = 'content';
 
-  const movieHeader = document.createElement("h2");
+  const movieHeader = document.createElement('h2');
   movieHeader.innerText = movie.title;
 
-  const movieOverview = document.createElement("p");
+  const movieOverview = document.createElement('p');
   movieOverview.innerText = movie.overview;
 
   contentContainer.appendChild(movieHeader);
@@ -241,7 +241,7 @@ import { createMovieList, createMovieCards } from './dom.js';
 :pencil2: At the bottom of the file, add the following code:
 
 ```javascript
-const movieCardsContainer = document.getElementById("movie-cards");
+const movieCardsContainer = document.getElementById('movie-cards');
 const movieCards = createMovieCards(movies);
 for(const movieCard of movieCards) {
   movieCardsContainer.appendChild(movieCard);
@@ -270,11 +270,11 @@ contentContainer.appendChild(movieOverview);
 // Create a div container and a image element
 // to position and show the image.
 
-+ const movieImage = document.createElement("img");
++ const movieImage = document.createElement('img');
 + movieImage.src = movie.posterUrl;
 
-+ const imageContainer = document.createElement("div");
-+ imageContainer.className = "image-container";
++ const imageContainer = document.createElement('div');
++ imageContainer.className = 'image-container';
 
 + imageContainer.appendChild(movieImage);
 

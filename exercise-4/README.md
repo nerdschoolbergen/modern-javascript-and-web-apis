@@ -13,8 +13,8 @@ You will learn to:
 Here is a simple example of how to create a POST route to get your started. The request body can be accessed using the `body` parameter on the `req` (Request) object. For now, it is enough to simply print out the request body to display its content as a new request is routed to this endpoint.
   
 ```javascript
-router.post("/movie", async (req, res) => {
-  console.log("Request body is: ", req.body);
+router.post('/movie', async (req, res) => {
+  console.log('Request body is: ', req.body);
 });
 ```
 
@@ -61,19 +61,19 @@ We have supplied a simple skeleton for this event listener.
 ```javascript
 
 // We get a reference to the form DOM element
-const createMovieForm = document.getElementById("create-movie-form");
+const createMovieForm = document.getElementById('create-movie-form');
 
 // Add an event listener to the submit action, so that we can
 // capture its data as it is submitted
-createMovieForm.addEventListener("submit", async (e) => {
+createMovieForm.addEventListener('submit', async (e) => {
 
   // We prevent the default submit action to be executed, since
   // we want to handle the data submitting ourselves.
   e.preventDefault();
 
   const formData = new FormData(e.target)
-  const title = formData.get("movie-title");
-  const overview = formData.get("movie-overview");
+  const title = formData.get('movie-title');
+  const overview = formData.get('movie-overview');
 
   // Create a new movie object from the form inputs and submit 
   // it to our web api using fetch
@@ -104,11 +104,11 @@ In our `main.js` file, query for a reference for our form DOM element. Add an ev
   ```javascript
   export const insertMovie = async (movie) => {
     const movies = await getMovies();
-    const id = movies.length
-    const posterUrl = "/movie-posters/default.jpg"
+    const id = movies.length;
+    const posterUrl = '/movie-posters/default.jpg';
 
     const updatedMovies = [...movies, {id, posterUrl, ...movie}];
-    await fs.writeFile(dataFilePath, JSON.stringify(updatedMovies, null, 2))
+    await fs.writeFile(dataFilePath, JSON.stringify(updatedMovies, null, 2));
   }
   ```
 </details>
