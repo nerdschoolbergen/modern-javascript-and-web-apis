@@ -25,10 +25,12 @@ createMovieForm.addEventListener("submit", async (e) => {
   const title = formData.get("movie-title");
   const overview = formData.get("movie-overview");
 
-  const updatedMovies = await postMovieToApi({ title, overview });
+  const moviesApiResult = await postMovieToApi({ title, overview });
+  const { movies } = moviesApiResult;
+
   removeAllChildNodes(movieCardsContainer);
 
-  const movieCards = createMovieCards(updatedMovies)
+  const movieCards = createMovieCards(movies)
   for(const movieCard of movieCards) {
     movieCardsContainer.appendChild(movieCard);
   }

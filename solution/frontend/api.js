@@ -1,10 +1,10 @@
 export const getMoviesFromApi = async () => {
-  const response = await fetch("/api/movies");
+  const response = await fetch("/movie");
   return await response.json();
 }
 
 export const postMovieToApi = async (movie) => {
-  const response = await fetch("/api/movies", {
+  const response = await fetch("/movie", {
     method: "POST",
     body: JSON.stringify(movie),
     headers: {
