@@ -16,8 +16,8 @@ router.post('/movie', async (req, res) => {
 });
 
 router.delete('/movie/:id', async (req, res) => {
-  deleteMovie(req.params.id);
-  res.status(200)
+  await deleteMovie(req.params.id);
+  res.sendStatus(200);
 })
 
 export default router;

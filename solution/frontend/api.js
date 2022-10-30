@@ -15,7 +15,7 @@ export const postMovieToApi = async (movie) => {
 }
 
 export const deleteMovieToApi = async (movieId) => {
-  await fetch(`/movie/${movieId}`, {
+  return await fetch(`/movie/${movieId}`, {
     method: 'DELETE',
   });
 }

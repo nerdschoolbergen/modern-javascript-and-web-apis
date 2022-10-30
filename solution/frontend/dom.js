@@ -1,4 +1,3 @@
-import { deleteMovieToApi } from "./api.js";
 
 export const createMovieCard = (movie, onMovieDeleted) => {
   const movieCard = document.createElement('div');
@@ -37,8 +36,8 @@ export const createMovieCard = (movie, onMovieDeleted) => {
   deleteButton.innerText = "Delete";
   deleteButton.className = "btn-delete";
 
-  deleteButton.addEventListener('click', () => {
-    onMovieDeleted();
+  deleteButton.addEventListener('click', async () => {
+    await onMovieDeleted();
     movieCard.remove();
   });
 
@@ -69,6 +68,6 @@ export const createMovieList = (movies) => {
 
 export const removeAllChildNodes = (parent) => {
   while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+    parent.removeChild(parent.firstChild);
   }
 }
