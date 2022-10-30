@@ -7,7 +7,7 @@ const createMovieCard = (movie) => {
   // paragraph for the title and overview of a movie. 
 
   const contentContainer = document.createElement("div");
-  contentContainer.class = "content";
+  contentContainer.className = "content";
 
   const movieHeader = document.createElement("h2");
   movieHeader.innerText = movie.title;

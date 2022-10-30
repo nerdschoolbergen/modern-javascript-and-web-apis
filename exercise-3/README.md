@@ -5,8 +5,8 @@ This exercise is focused on creating a nice user interface in order to display t
 You will learn to:
 
 - Create a list that displays the movie titles
-- Create a grid of tiles to display movie data
-- Display movie posters in the tiles
+- Create a grid of cards to display movie data
+- Display movie posters in the cards
 
 ## 3.1 A simple list of movie titles
 
@@ -174,16 +174,136 @@ Let's break this code down:
 
 :pencil2: Now that we have the basic pattern established, time to make the GUI a bit more interesting!
 
-## 3.2 Create a grid of movie tiles
+## 3.2 Create a grid of movie cards
 
-In order to display our movie data we want to create a grid of movie tiles, where each tile displays the movie title.
+In order to display our movie data we want to create a grid of movie cards, where each card displays the movie title and overview.
 
-To make this a bit easier we have prepared some CSS and a markup structure:
+:book: To make this a bit easier we have prepared some CSS and a markup structure:
 
 ```html
-
+<div id="{movie-id}" class="movie-card">
+    <div class="content">
+      <h2>Movie title</h2>
+      <p>Movie overview</p>
+    </div>
+</div>
 ```
 
+:pencil2: First we need some code to create movie card elements. Add the following code to `dom.js`:
+
+```javascript
+const createMovieCard = (movie) => {
+  const movieCard = document.createElement("div");
+  movieCard.id = movie.id;
+  movieCard.className = "movie-card";
+
+  // Create a div container containing a header and a 
+  // paragraph for the title and overview of a movie. 
+
+  const contentContainer = document.createElement("div");
+  contentContainer.className = "content";
+
+  const movieHeader = document.createElement("h2");
+  movieHeader.innerText = movie.title;
+
+  const movieOverview = document.createElement("p");
+  movieOverview.innerText = movie.overview;
+
+  contentContainer.appendChild(movieHeader);
+  contentContainer.appendChild(movieOverview);
+
+  movieCard.appendChild(contentContainer);
+
+  return movieCard;
+}
+
+export const createMovieCards = (movies) => {
+  const movieCards = [];
+  for (const movie of movies) {
+    const movieCard = createMovieCard(movie);
+    movieCards.push(movieCard);
+  }
+
+  return movieCards;
+}
+```
+
+:book: `createMovieCard` is a function that takes a movie object as parameter and returns an HTML element with the structure previously described.
+
+:book: `createMovieCards` is a function that takes an array of movie objects as parameter and returns an array of HTML elements.
+
+:pencil2: Open `main.js` and add `createMovieCards` to the `dom.js` import statement at the top of the file:
+
+```javascript
+import { createMovieList, createMovieCards } from './dom.js';
+```
+
+:pencil2: At the bottom of the file, add the following code:
+
+```javascript
+const movieCardsContainer = document.getElementById("movie-cards");
+const movieCards = createMovieCards(movies);
+for(const movieCard of movieCards) {
+  movieCardsContainer.appendChild(movieCard);
+}
+```
+
+:book: This code calls `createMovieCards` with a list of movies from the API to create an array of HTML elements.
+
+:book: It then iterates over the array and appends each element to a existing div element defined in `index.html` with the id `movie-cards`.
+
+:pencil2: Open the web app in Chrome and verify that everything is working.
+
+:pencil2: Notice that we still are rendering the bullet list. We don´t need that list anymore, so go ahead and remove the bullet list-related code from `main.js` to remove it from the GUI.
+
 ## 3.3 Displaying movie posters
+
+In order to make the GUI even more fun, we are going to add movie posters to each movie card.
+
+:pencil2: Open `dom.js` and add the following code marked in green (without the `+`) to `createMovieCard`:
+
+```diff
+...
+contentContainer.appendChild(movieHeader);
+contentContainer.appendChild(movieOverview);
+
+// Create a div container and a image element
+// to position and show the image.
+
++const movieImage = document.createElement("img");
++movieImage.src = movie.posterUrl;
+
++const imageContainer = document.createElement("div");
++imageContainer.className = "image-container";
+
++imageContainer.appendChild(movieImage);
+
+
+// Add the containers containing the image 
+// and text content to the card
+
++movieCard.appendChild(imageContainer);
+movieCard.appendChild(contentContainer);
+
+return movieCard;
+```
+
+:book: This change will result in the HTML code for a movie card looking like this:
+
+```html
+<div id="{movie-id}" class="movie-card">
+    <div class="image-container">
+      <img src="{movie-poster-url}" />
+    </div>
+    <div class="content">
+      <h2>Movie title</h2>
+      <p>Movie overview</p>
+    </div>
+</div>
+```
+
+:book: Notice the new `image-container` div element with ang `img` element in it.
+
+:pencil2: Open the web app in Chrome. You should now see movie posters for each movie displayed in each card.
 
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
