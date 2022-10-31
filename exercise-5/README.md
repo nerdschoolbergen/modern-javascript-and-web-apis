@@ -23,7 +23,7 @@ router.delete('/movie/:id', async (req, res) => {
 The resulting UI might look something like this
 
 
-![Delete example](./img/delete_ex.png)
+![Delete example](./img/delete_example.png)
 
 
 ## 5.3 Implement business logic for deleting a movie and update UI
