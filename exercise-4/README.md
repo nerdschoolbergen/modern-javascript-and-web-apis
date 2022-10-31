@@ -82,6 +82,8 @@ createMovieForm.addEventListener('submit', async (e) => {
 })
 ```
 
+:book: For more information on how to use the Fetch API to send JSON data to the API, see [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data) on MDN.
+
 :pencil2: After you have completed the frontend code, check that you are able to submit new movies and that they are printed to the console running our web application. 
 
 ## 4.3 - Storing the data
