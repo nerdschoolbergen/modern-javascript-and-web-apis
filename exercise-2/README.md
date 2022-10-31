@@ -212,7 +212,7 @@ export const getMovies = async () => {
 ```
 
 - `export` means "expose this function outside the module"
-- `getMovies` is assigned to an function that returns the contents of `movies.json`
+- `getMovies` is assigned to a function that returns the contents of `movies.json`
 - Data is read from disk using the Node.js API `fs.readFile`
 - The JSON data is converted to an JavaScript object using `JSON.parse` and returned
 
