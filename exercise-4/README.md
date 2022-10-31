@@ -121,9 +121,9 @@ In our `main.js` file, query for a reference for our form DOM element. Add an ev
 
 ## 4.4 - Updating the UI 
 
-After we update the UI, want to update the UI, so that it is in sync with the server side state. 
+After we have created a new movie resource, want to update the UI so that it is in sync with the server side state. 
 
-:pencil2: In the API endpoint for creating a movie, return a updated list of movies in the response body. Use this data to repopulate the data in the view. 
+:pencil2: In the API endpoint for creating a movie, return a updated list of movies in the response body. Use this data to repopulate the data in the view. (Hint: You should remove the existing DOM elements before updating the DOM with new elements from the updated movies list)
 
 :star: Optional: Can you update the UI without returning the data from the API? 
 
