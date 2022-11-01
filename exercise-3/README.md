@@ -130,7 +130,7 @@ export const createMovieList = (movies) => {
 - It takes an array of `movies` as a parameter and returns an DOM Element (_renders_ data into HTML)
 - It creates a `<ul>` DOM Element using the `createElement` DOM API method
 - It iterates over the `movies` array and creates a  `<li>` Element for each movie
-- The movie title for each movie is set as the `inneText` property value for each `<li>` Element
+- The movie title for each movie is set as the `innerText` property value for each `<li>` Element
 - Each `<li>` Element is appended as a child Element of the `<ul>` Element
 
 Relevant API documentation:
@@ -302,7 +302,7 @@ return movieCard;
 </div>
 ```
 
-:book: Notice the new `image-container` div element with ang `img` element in it.
+:book: Notice the new `image-container` div element with an `img` element in it.
 
 :pencil2: Open the web app in Chrome. You should now see movie posters for each movie displayed in each card.
 
