@@ -10,7 +10,7 @@ You will learn to:
 
 :pencil2: In the `routes.js` file, create a new POST route under `/movie`.
 
-Here is a simple example of how to create a POST route to get your started. The request body can be accessed using the `body` parameter on the `req` (Request) object. For now, it is enough to simply print out the request body to display its content as a new request is routed to this endpoint.
+Here is a simple example of how to create a POST route to get your started. The request body can be accessed using the `body` property on the `req` (Request) object. For now, it is enough to simply print out the request body to display its content as a new request is routed to this endpoint.
   
 ```javascript
 router.post('/movie', async (req, res) => {
