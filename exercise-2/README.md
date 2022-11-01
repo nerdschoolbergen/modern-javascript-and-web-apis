@@ -235,6 +235,10 @@ import fs from "fs/promises";
 const dataFilePath = "./backend/data/movies.json";
 
 export const getMovies = async () => {
+  /* 
+    on Windows you have to use 
+    const file = await fs.readFile(dataFilePath, "utf8");
+  */
   const file = await fs.readFile(dataFilePath);
   return JSON.parse(file);
 }
@@ -255,7 +259,7 @@ import { getMovies } from "./data/database.js";
 
 ```javascript
 router.get('/movie', async (req, res) => {
-  const movies = getMovies();
+  const movies = await getMovies();
   res.send(movies);
 });
 ```
