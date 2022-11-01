@@ -8,5 +8,5 @@ app.use(express.static('frontend'));
 app.use(routes);
 
 app.listen(port, () => {
-  console.log(`Application started on port ${port}`);
+  console.log(`Application started on http://localhost:${port}`);
 });
