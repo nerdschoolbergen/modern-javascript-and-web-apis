@@ -73,10 +73,9 @@ let movie = {
   "movies": [
     {
       "id": 1,
-      "title": "The godfather",
+      "title": "The Godfather",
       "releaseDate": "1972-03-14",
       "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
-      "title": "The Godfather",
       "voteAverage": 8.7,
       "voteCount": 12345,
       "posterUrl": "/posters/1.jpg"
@@ -86,7 +85,6 @@ let movie = {
       "title": "The Shawshank Redemption",
       "releaseDate": "1994-09-23",
       "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
-      "title": "The Godfather",
       "voteAverage": 8.6,
       "voteCount": 534533,
       "posterUrl": "/posters/2.jpg"
@@ -141,7 +139,7 @@ router.get('/helloworld', async (req, res) => {
       },
       {
         id: 2,
-        title: "The Godfather",
+        title: "The Shawshank Redemption",
         releaseDate: "1994-09-23",
         overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
         voteAverage: 8.6,
