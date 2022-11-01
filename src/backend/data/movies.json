@@ -1,0 +1,184 @@
+{
+  "movies": [
+    {
+      "id": 238,
+      "releaseDate": "1972-03-14",
+      "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+      "title": "The Godfather",
+      "voteAverage": 8.7,
+      "voteCount": 16808,
+      "posterUrl": "/movie-posters/238.jpg"
+    },
+    {
+      "id": 278,
+      "releaseDate": "1994-09-23",
+      "overview": "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
+      "title": "The Shawshank Redemption",
+      "voteAverage": 8.7,
+      "voteCount": 22535,
+      "posterUrl": "/movie-posters/278.jpg"
+    },
+    {
+      "id": 240,
+      "releaseDate": "1974-12-20",
+      "overview": "In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.",
+      "title": "The Godfather Part II",
+      "voteAverage": 8.6,
+      "voteCount": 10183,
+      "posterUrl": "/movie-posters/240.jpg"
+    },
+    {
+      "id": 19404,
+      "releaseDate": "1995-10-19",
+      "overview": "Raj is a rich, carefree, happy-go-lucky second generation NRI. Simran is the daughter of Chaudhary Baldev Singh, who in spite of being an NRI is very strict about adherence to Indian values. Simran has left for India to be married to her childhood fiancé. Raj leaves for India with a mission at his hands, to claim his lady love under the noses of her whole family. Thus begins a saga.",
+      "title": "Dilwale Dulhania Le Jayenge",
+      "voteAverage": 8.6,
+      "voteCount": 3927,
+      "posterUrl": "/movie-posters/19404.jpg"
+    },
+    {
+      "id": 424,
+      "releaseDate": "1993-12-15",
+      "overview": "The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.",
+      "title": "Schindler's List",
+      "voteAverage": 8.6,
+      "voteCount": 13378,
+      "posterUrl": "/movie-posters/424.jpg"
+    },
+    {
+      "id": 129,
+      "releaseDate": "2001-07-20",
+      "overview": "A young girl, Chihiro, becomes trapped in a strange new world of spirits. When her parents undergo a mysterious transformation, she must call upon the courage she never knew she had to free her family.",
+      "title": "Spirited Away",
+      "voteAverage": 8.5,
+      "voteCount": 13473,
+      "posterUrl": "/movie-posters/129.jpg"
+    },
+    {
+      "id": 667257,
+      "releaseDate": "2021-06-17",
+      "overview": "Matilde is a woman who, after the death of her husband - a man who constantly abused her - finds her new best friend in Miguel, her young, insecure, disoriented and even dealer neighbor",
+      "title": "Impossible Things",
+      "voteAverage": 8.5,
+      "voteCount": 271,
+      "posterUrl": "/movie-posters/667257.jpg"
+    },
+    {
+      "id": 389,
+      "releaseDate": "1957-04-10",
+      "overview": "The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.",
+      "title": "12 Angry Men",
+      "voteAverage": 8.5,
+      "voteCount": 6751,
+      "posterUrl": "/movie-posters/389.jpg"
+    },
+    {
+      "id": 372058,
+      "releaseDate": "2016-08-26",
+      "overview": "High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.",
+      "title": "Your Name.",
+      "voteAverage": 8.5,
+      "voteCount": 9171,
+      "posterUrl": "/movie-posters/372058.jpg"
+    },
+    {
+      "id": 496243,
+      "releaseDate": "2019-05-30",
+      "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+      "title": "Parasite",
+      "voteAverage": 8.5,
+      "voteCount": 14602,
+      "posterUrl": "/movie-posters/496243.jpg"
+    },
+    {
+      "id": 497,
+      "releaseDate": "1999-12-10",
+      "overview": "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
+      "title": "The Green Mile",
+      "voteAverage": 8.5,
+      "voteCount": 14547,
+      "posterUrl": "/movie-posters/497.jpg"
+    },
+    {
+      "id": 372754,
+      "releaseDate": "2016-02-20",
+      "overview": "Rihito Sajo, an honor student with a perfect score on the entrance exam and Hikaru Kusakabe, in a band and popular among girls, would have never crossed paths. Until one day they started talking at the practice for their school’s upcoming chorus festival. After school, the two meet regularly, as Hikaru helps Rihito to improve his singing skills. While they listen to each other’s voice and harmonize, their hearts start to beat together.",
+      "title": "Dou kyu sei – Classmates",
+      "voteAverage": 8.5,
+      "voteCount": 257,
+      "posterUrl": "/movie-posters/372754.jpg"
+    },
+    {
+      "id": 724089,
+      "releaseDate": "2020-07-31",
+      "overview": "Professor Gabriel Emerson finally learns the truth about Julia Mitchell's identity, but his realization comes a moment too late. Julia is done waiting for the well-respected Dante specialist to remember her and wants nothing more to do with him. Can Gabriel win back her heart before she finds love in another's arms?",
+      "title": "Gabriel's Inferno: Part II",
+      "voteAverage": 8.5,
+      "voteCount": 1440,
+      "posterUrl": "/movie-posters/724089.jpg"
+    },
+    {
+      "id": 696374,
+      "releaseDate": "2020-05-29",
+      "overview": "An intriguing and sinful exploration of seduction, forbidden love, and redemption, Gabriel's Inferno is a captivating and wildly passionate tale of one man's escape from his own personal hell as he tries to earn the impossible--forgiveness and love.",
+      "title": "Gabriel's Inferno",
+      "voteAverage": 8.5,
+      "voteCount": 2293,
+      "posterUrl": "/movie-posters/696374.jpg"
+    },
+    {
+      "id": 155,
+      "releaseDate": "2008-07-14",
+      "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as the Joker.",
+      "title": "The Dark Knight",
+      "voteAverage": 8.5,
+      "voteCount": 28469,
+      "posterUrl": "/movie-posters/155.jpg"
+    },
+    {
+      "id": 730154,
+      "releaseDate": "2020-10-23",
+      "overview": "A tragic accident lead to Kaori's blindness, but she clings to life and the smaller pleasures it can still afford her. She meets Rui and begins to talk to him. Rui was once a promising kickboxer, but something happened in his past. Kaori's smile brings out a change in Rui. However, the two are connected in more than one way. Rui attempts to do what is right.",
+      "title": "Your Eyes Tell",
+      "voteAverage": 8.5,
+      "voteCount": 357,
+      "posterUrl": "/movie-posters/730154.jpg"
+    },
+    {
+      "id": 680,
+      "releaseDate": "1994-09-10",
+      "overview": "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.",
+      "title": "Pulp Fiction",
+      "voteAverage": 8.5,
+      "voteCount": 23963,
+      "posterUrl": "/movie-posters/680.jpg"
+    },
+    {
+      "id": 429,
+      "releaseDate": "1966-12-23",
+      "overview": "While the Civil War rages on between the Union and the Confederacy, three men – a quiet loner, a ruthless hitman, and a Mexican bandit – comb the American Southwest in search of a strongbox containing $200,000 in stolen gold.",
+      "title": "The Good, the Bad and the Ugly",
+      "voteAverage": 8.5,
+      "voteCount": 6932,
+      "posterUrl": "/movie-posters/429.jpg"
+    },
+    {
+      "id": 553512,
+      "releaseDate": "2018-11-15",
+      "overview": "A documentary following the worldwide famous music group BTS, as they tour the world and share their experience along with their beloved band friends and fans.",
+      "title": "Burn the Stage: The Movie",
+      "voteAverage": 8.5,
+      "voteCount": 369,
+      "posterUrl": "/movie-posters/553512.jpg"
+    },
+    {
+      "id": 122,
+      "releaseDate": "2003-12-01",
+      "overview": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
+      "title": "The Lord of the Rings: The Return of the King",
+      "voteAverage": 8.5,
+      "voteCount": 20418,
+      "posterUrl": "/movie-posters/122.jpg"
+    }
+  ]
+}

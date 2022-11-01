@@ -1,0 +1,20 @@
+{
+  "name": "movies-server",
+  "version": "1.0.0",
+  "description": "Example code for the 'Modern Javascript and Web APIs' Nerdschool workshop",
+  "type": "module",
+  "nodemonConfig": {
+    "ext": "js,html,css"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

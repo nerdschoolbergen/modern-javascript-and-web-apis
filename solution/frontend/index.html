@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer type="module" src="main.js"></script>
+    <title>Nerdschool movies app</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nerdschool movie app</h1>
+
+        <div id="movie-list"></div>
+
+        <div id="movie-cards"></div>
+
+        <form id="create-movie-form">
+            <div class="input-container">
+                <label for="movie-title">Title</label>
+                <div class="flex">
+                    <input type="text" name="movie-title" />
+                </div>
+            </div>
+            <div class="input-container">
+                <label for="movie-overview">Overview</label>
+                <div class="flex">
+                    <textarea type="text" name="movie-overview"></textarea>
+                </div>
+            </div>
+            <input type="submit" value="Save" class="btn-submit" />
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,37 +1,46 @@
-# Modern JavaScript and REST
+# Modern JavaScript and Web APIs
 
-This workshop focuses on the new language constructs in the latest version of JavaScript known as ECMAScript2015 or ECAMScript 6. We'll look at what problems these things solve, and also build something against a server-side REST based API. 
+This workshop focuses on language constructs in modern JavaScript versions known as ECMAScript2015 (ES2015) or ECMAScript 6 (ES6). We'll look at features in modern JavaScript and use these features to build a JavaScript-based web application against a server-side web API.
 
-This workshop also covers more of working with web development in a browser development console and inspecting web traffic with Fiddler or Postman (chrome plugin).
+This repository contains a link to a Google Presentation, exercises and a starter project.
 
-This repository contains a link to a Google Presentation and three exercises.
-
-## [Open presentation slides](https://docs.google.com/presentation/d/1uSMSw9_o-krhU3yWBmGX4RoOA6fGe1hrp9NoN9bryv8)
+## [Open presentation slides](https://docs.google.com/presentation/d/1ZUS6HK2MxgwwHm1B1125DoPfZHtXPZ4-0Gse6-KY6zA/)
 
 ## What you need
 
-* A browser: [Chrome](https://www.google.com/chrome)
-* A code editor: [Visual Studio Code](https://code.visualstudio.com)
+* [Chrome](https://www.google.com/chrome)
+* [Visual Studio Code](https://code.visualstudio.com)
+
+## Prerequisites
+
+* A basic understanding of JavaScript
+* Some knowledge about basic web technologies like HTML and HTTP is helpful
 
 ## How to get started
+
 * Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
 * Although you have this `README.md` file on your computer, it's easier to read it on GitHub with formatting. We therefore recommend you keep a web browser tab open with the exercise tasks.
-* Open [exercise 1](./exercise1/README.md/).
+* Open [exercise 1](./exercise-1/README.md/).
 * Remember to ask an instructor if you're stuck.
 
 ## Exercises
+
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
 
-- [Exercise 1](./exercise1/README.md)
-- [Exercise 2](./exercise2/README.md)
-- [Exercise 3](./exercise3/README.md)
+* [Exercise 1](./exercise-1/README.md)
+* [Exercise 2](./exercise-2/README.md)
+* [Exercise 3](./exercise-3/README.md)
+* [Exercise 4](./exercise-4/README.md)
+* [Exercise 5](./exercise-5/README.md)
 
 ## Helpful resources
+
 > **Note:** Avoid W3Schools.com. It's often outdated by todays web specifications. Use MDN instead.
 
-- `letVsVarExample.js` - A file located at the root of this repository, containing a comparison between `var` and `let` in JavaScript.
-- [MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/)
-- [Chrome Dev Tools documentation](https://developers.google.com/web/tools/chrome-devtools/)
+* [`cheatsheet.js`](./cheatsheet.js) - JavaScript cheat sheet
+* [Troubleshooting](./troubleshooting.md) - Some JavaScript troubleshooting tips
+* [MDN - Mozilla Developer Network](https://developer.mozilla.org/en-US/)
+* [Chrome Dev Tools documentation](https://developers.google.com/web/tools/chrome-devtools/)
 
 
 ### Symbols and notation used in exercises

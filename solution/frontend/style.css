@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+body {
+    background-color: #cde8d7;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.movie-card {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    display: flex;
+    gap: 1rem;
+}
+
+.movie-card h2 {
+    font-weight: normal;
+    color: #45B788;
+    margin: 0 0 0.5rem 0;
+}
+
+.movie-card p {
+    margin: 0;
+    color: #1f714f;
+}
+
+.movie-card img {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.movie-card .image-container {
+    flex-shrink: 1;
+    height: 120px;
+}
+
+.movie-card .content {
+    flex: 1;
+}
+
+.btn-submit {
+    background-color: #45B788;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+}
+
+.btn-delete {
+    background-color: red;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: none;
+}
+
+.input-container label {
+    color: #1f714f;
+    display: block;
+    margin: 0 0 0.5rem 0;
+}
+
+.input-container input, textarea {
+    padding: 0.5rem;
+    flex: 1;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin-bottom: 1rem;
+}
+
+.flex  {
+    display: flex;
+}
