@@ -75,7 +75,7 @@ let movie = {
       "id": 1,
       "title": "The godfather",
       "releaseDate": "1972-03-14",
-      "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
+      "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
       "title": "The Godfather",
       "voteAverage": 8.7,
       "voteCount": 12345,
@@ -85,7 +85,7 @@ let movie = {
       "id": 2,
       "title": "The Shawshank Redemption",
       "releaseDate": "1994-09-23",
-      "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge."
+      "overview": "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
       "title": "The Godfather",
       "voteAverage": 8.6,
       "voteCount": 534533,
@@ -122,7 +122,38 @@ router.get('/helloworld', async (req, res) => {
 
 :pencil2: Create a new route using the example above that responds to `GET` requests on the URL `/movie`.
 
-:pencil2: Use `res.send()` to return some movie data of your own choice.
+:pencil2: Use `res.send()` to return some hard-coded movie data:
+
+<details>
+  <summary>Show movie data example</summary>
+
+  ```javascript
+  const movies = {
+    movies: [
+      {
+        id: 1,
+        title: "The Godfather",
+        releaseDate: "1972-03-14",
+        overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+        voteAverage: 8.7,
+        voteCount: 12345,
+        posterUrl: "/posters/1.jpg"
+      },
+      {
+        id: 2,
+        title: "The Godfather",
+        releaseDate: "1994-09-23",
+        overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+        voteAverage: 8.6,
+        voteCount: 534533,
+        posterUrl: "/posters/2.jpg"
+      }
+    ]
+  };
+  ```
+
+</details>
+
 
 ### 2.1.3 Get data from the API into the browser
 
