@@ -22,8 +22,8 @@ See the Express.js API reference on the [Request object](https://expressjs.com/e
 
 ## 4.2 - Capturing user input
 
-:pencil2: In our frontend code, we want to create a new form to capture the users input for adding a new movie. 
-In our `index.html` file, create a form with two text input fields; one for the movie `title` and one for the movie `overview`. 
+:pencil2: In our frontend code, we want to create a new [HTML form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to capture the users input for adding a new movie.
+In our `index.html` file, create a form with two text input fields; one for the movie `title` and one for the movie `overview`.
 
 You should:
 - Give the form a unique ID. We will use this ID to retrieve the form values in our javascript code as the user submits the form.
