@@ -89,7 +89,7 @@ createMovieForm.addEventListener('submit', async (e) => {
 ## 4.3 - Storing the data
 
 :pencil2: Create a function to retrieve the form values as the user submits the form. 
-In our `main.js` file, query for a reference for our form DOM element. Add an event listener called `submit` to the form and override
+In our `main.js` file, query for our form DOM-element. Add an event listener called `submit` to the form and prevent the default submit-behavior
 
 :pencil2: Create a new function in `database.js` to store the new movie into our json file. 
 
