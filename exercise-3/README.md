@@ -254,11 +254,11 @@ for(const movieCard of movieCards) {
 
 :pencil2: Open the web app in Chrome and verify that everything is working.
 
-:pencil2: Notice that we still are rendering the bullet list. We don´t need that list anymore, so go ahead and remove the bullet list-related code from `main.js` to remove it from the GUI.
+:pencil2: Notice that we still are rendering the bullet list. We don´t need that list anymore, so go ahead and remove the bullet list-related code from `main.js` to remove it from the UI.
 
 ## 3.3 Displaying movie posters
 
-In order to make the GUI even more fun, we are going to add movie posters to each movie card.
+In order to make the UI even more fun, we are going to add movie posters to each movie card.
 
 :pencil2: Open `dom.js` and add the following code marked in green (without the `+`) to `createMovieCard`:
 
