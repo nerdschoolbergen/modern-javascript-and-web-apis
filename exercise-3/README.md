@@ -52,14 +52,7 @@ Visually it should look something like this in the browser:
 1. Frontend JavaScript code converts JSON movie data to JavaScript objects representing movies
 1. Frontend JavaScript code dynamically creates and inserts HTML with movie titles into the page
 
-:book: We solved the first step and second step in the last exercise. The code should look something like this:
-
-```javascript
-const getMoviesApiResponse = await fetch('/movie');
-const movieData = await getMoviesApiResponse.json();
-
-const { movies } = movieData; // movies contains an array of movie objects
-```
+:book: We solved the first step and second step in the last exercise in our `getMoviesFromApi` function inside `api.js`.
 
 :book: Now we need to create some code that renders the data into HTML using the _DOM_ API.
 
