@@ -70,6 +70,15 @@ const dale = norway.regions[0].counties[1].name;
 const stavanger = norway.regions[1].counties[0].name;
 
 //
+// Array.push and Array.pop
+//
+const animals = ['pigs', 'goats', 'sheep'];
+animals.push('cows');
+console.log(animals); // ['pigs', 'goats', 'sheep', 'cows']
+animals.pop();
+console.log(animals); // ['pigs', 'goats', 'sheep']
+
+//
 // Array.map
 //
 
@@ -77,15 +86,29 @@ const array1 = [1, 4, 9, 16];
 const map1 = array1.map(x => x * 2);
 console.log(map1); // [2, 8, 18, 32]
 
-const kvArray = [
-    { key: 1, value: 10 },
-    { key: 2, value: 20 },
-    { key: 3, value: 30 },
-  ];
-  
-const reformattedArray = kvArray.map(({ key, value }) => ({ [key]: value }));
-  
-console.log(reformattedArray);
+//
+// Array.filter
+//
+
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result); // ['exuberant', 'destruction', 'present']
+
+//
+// Array.reduce
+//
+const array2 = [1, 2, 3, 4];
+const sum = (accumulatedSum, arrayItem) => accumulatedSum + arrayItem;
+const sumOfArray = array2.reduce(sum);
+console.log(sumOfArray); // 10 
+
+// 
+// Array.find
+//
+
+const array3 = [5, 12, 8, 130, 44];
+const found = array3.find(element => element > 10);
+console.log(found); // 12
 
 //
 // === Destructuring ===
