@@ -3,11 +3,11 @@
 // Semicolons are optional - recommended best practice is to use them.
 //
 
-let name = 'bob'; // string - either single-quote or double-quote. Stick to one of them.
-let age = 23; // number (note: there is no int, double, float, etc. Just "number")
-let isImpressed = false; // bool
-let nada = undefined; // undefined aka nothing at all
-let alsoNada = null; // null is nothing, but also something (it's a value). Yeah, it's weird...
+const name = 'bob'; // string - either single-quote or double-quote. Stick to one of them.
+const age = 23; // number (note: there is no int, double, float, etc. Just "number")
+const isImpressed = false; // bool
+const nada = undefined; // undefined aka nothing at all
+const alsoNada = null; // null is nothing, but also something (it's a value). Yeah, it's weird...
 
 // Note regarding null and undefined: If you want to ensure a value is set,
 // you need to check for both null AND undefined. If you just check for null,
@@ -17,13 +17,13 @@ let alsoNada = null; // null is nothing, but also something (it's a value). Yeah
 // === Objects ===
 //
 
-let person2 = {
+const person2 = {
     name: 'john',
     height: 190
 };
 
 // Object with nested object
-let janeDoe = {
+const janeDoe = {
     name: 'jane',
     contactInfo: {
         email: 'jane@doe.com'
@@ -36,17 +36,17 @@ let janeDoe = {
 //
 
 // An array of strings
-let fruits = ['apple', 'orange', 'banana'];
+const fruits = ['apple', 'orange', 'banana'];
 
 // An array of car objects
-let cars = [
+const cars = [
     { make: 'ford', model: 'focus', colour: 'red' },
     { make: 'toyota', model: 'corolla', colour: 'black' },
     { make: 'mercedes', model: 'glc', colour: 'white' }
 ];
 
 // Complex object with arrays and objects
-let norway = {
+const norway = {
     regions: [
         {
             name: 'Vestland',
@@ -66,36 +66,54 @@ let norway = {
         }
     ]
 };
-let dale = norway.regions[0].counties[1].name;
-let stavanger = norway.regions[1].counties[0].name;
+const dale = norway.regions[0].counties[1].name;
+const stavanger = norway.regions[1].counties[0].name;
+
+//
+// Array.map
+//
+
+const array1 = [1, 4, 9, 16];
+const map1 = array1.map(x => x * 2);
+console.log(map1); // [2, 8, 18, 32]
+
+const kvArray = [
+    { key: 1, value: 10 },
+    { key: 2, value: 20 },
+    { key: 3, value: 30 },
+  ];
+  
+const reformattedArray = kvArray.map(({ key, value }) => ({ [key]: value }));
+  
+console.log(reformattedArray);
 
 //
 // === Destructuring ===
 //
 
 // Destructure array
-let cities = ['Bergen', 'Oslo', 'Trondheim', 'Kristiansand'];
+const cities = ['Bergen', 'Oslo', 'Trondheim', 'Kristiansand'];
 
-let [ firstCity ] = cities;
+const [ firstCity ] = cities;
 console.log(firstCity); // Bergen
 
-let [ , ...restOfTheCities ] = cities;
+const [ , ...restOfTheCities ] = cities;
 console.log(restOfTheCities); // ['Oslo', 'Trondheim', 'Kristiansand']
 
 // Destructure object
-let city = {
+const city = {
     name: 'Stavanger',
     population: 285900,
     municipality: 'Vestland',
     country: 'Norway',
     website: 'https://www.bergen.kommune.no'
 };
-let { population, website } = city;
+const { population, website } = city;
 console.log(population); // 285900
 console.log(website); // 'https://www.bergen.kommune.no'
 
 // Destructuring complex objects by combining array and object destructuring
-let norway2 = {
+const norway2 = {
     regions: [
         {
             name: 'Vestland',
@@ -115,13 +133,13 @@ let norway2 = {
         }
     ]
 };
-let { regions: [ { name: firstRegionName }] } = norway2;
+const { regions: [ { name: firstRegionName }] } = norway2;
 console.log(firstRegionName); // 'Vestland'
 
-let { regions: [ , ...{ name: lastRegionName }] } = norway2;
+const { regions: [ , ...{ name: lastRegionName }] } = norway2;
 console.log(lastRegionName); 'Rogaland'
 
-let { regions: [ , ...{ counties: [, lastRegionLastCounty] }] } = norway2;
+const { regions: [ , ...{ counties: [, lastRegionLastCounty] }] } = norway2;
 
 // 
 // === Object/array spread ===
@@ -156,7 +174,7 @@ const newPerson = {
 
 // Assign an anonymous function (it has no name) to the variable sayHello:
 // Anonymous functions are also called function expressions
-let sayHello = function(){
+const sayHello = function(){
     alert('Hello!');
 }
 
@@ -217,7 +235,7 @@ greeter('bob'); // <- only one param = still valid
         return 'hello' + worldFunction();
     }
 
-    let helloWorld = hello(world);
+    const helloWorld = hello(world);
 
 }());
 
@@ -234,7 +252,7 @@ greeter('bob'); // <- only one param = still valid
         }
     }
 
-    let bob = new Person('bob', 'bobson', 30); // When a function is supposed to be newed/instantiated, the common convention is to use uppercase first letter.
+    const bob = new Person('bob', 'bobson', 30); // When a function is supposed to be newed/instantiated, the common convention is to use uppercase first letter.
     bob.greet();
 
 }());
@@ -247,7 +265,7 @@ greeter('bob'); // <- only one param = still valid
 // named function:
 
 // Traditional anonymus function
-let bob = function (a) {
+const bob = function (a) {
     return a + 100;
 }
 
@@ -327,22 +345,22 @@ do {
 
 // For-loop:
 
-for (let i = 0; i < items.length; i++){
+for (const i = 0; i < items.length; i++){
     console.log(items[i]);
 }
 
 // For of loop:
-let cars2 = ['Volkswagen', 'Ferrari', 'Ford'];
-for(let car of cars2) {
+const cars2 = ['Volkswagen', 'Ferrari', 'Ford'];
+for(const car of cars2) {
     console.log(car); // 0 1 2
 }
 
 // For-in loop:
-let car = {
+const car = {
     model: 'Passat',
     make: 'Volkswagen'
 }
-for(let carProperty in car) {
+for(const carProperty in car) {
     console.log(carProperty); // 'model' 'make'
 }
 
