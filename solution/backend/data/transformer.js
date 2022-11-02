@@ -1,6 +1,6 @@
 import fs from "fs/promises"
 
-const file = await fs.readFile("./basedata.json");
+const file = await fs.readFile("./basedata.json", 'utf8');
 
 const fileJson = JSON.parse(file);
 const mappedMovies = fileJson["results"].map((movie) => ({

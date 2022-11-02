@@ -205,7 +205,7 @@ export const getMoviesFromApi = async () => {
 import { getMoviesFromApi } from "./api.js";
 ```
 
-:pencil2: Call the `getMoviesFromApi` method and assign the result to a variable called `getMoviesFromApiResult`.
+:pencil2: Call the `getMoviesFromApi` method using `await` and assign the result to a variable called `getMoviesFromApiResult`.
 
 :exclamation: Remember that the get movies API response has the following format:
 
@@ -235,11 +235,7 @@ import fs from "fs/promises";
 const dataFilePath = "./backend/data/movies.json";
 
 export const getMovies = async () => {
-  /* 
-    on Windows you have to use 
-    const file = await fs.readFile(dataFilePath, "utf8");
-  */
-  const file = await fs.readFile(dataFilePath);
+  const file = await fs.readFile(dataFilePath, 'utf8');
   return JSON.parse(file);
 }
 ```
