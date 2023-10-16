@@ -4,7 +4,7 @@ This workshop focuses on language constructs in modern JavaScript versions known
 
 This repository contains a link to a Google Presentation, exercises and a starter project.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1ZUS6HK2MxgwwHm1B1125DoPfZHtXPZ4-0Gse6-KY6zA/)
+## [Open presentation slides](https://docs.google.com/presentation/d/1nsJdsPtAG-gkhjsCDdwaRd0hG2Os4U2xqKKfmfcDPJs/edit?usp=sharing)
 
 ## What you need
 
