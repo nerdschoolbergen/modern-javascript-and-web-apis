@@ -1,5 +1,5 @@
 {
-  "name": "movies-app",
+  "name": "nerdschool-movies-app",
   "private": true,
   "description": "Example code for the 'Modern Javascript and Web APIs' Nerdschool workshop",
   "type": "module",
