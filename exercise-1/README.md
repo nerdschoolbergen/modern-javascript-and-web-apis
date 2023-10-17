@@ -32,16 +32,16 @@ You will learn to:
 
 :pencil2: Open a terminal and change directories to the `src` folder.
 
-:pencil2: Install all [npm](https://npmjs.com) dependencies by running the following command:
+:pencil2: Install all [npm](https://npmjs.com) dependencies by running the command `npm install`:
 
 ```bash
-$ npm install
+npm install
 ```
 
-:pencil2: Run the following commands to start the web app:
+:pencil2: After `npm install` finishes, run the command `npm start` to start the web app:
 
 ```bash
-$ npm start
+npm start
 ```
 
 :pencil2: Open [http://localhost:3000](http://localhost:3000) in Chrome
