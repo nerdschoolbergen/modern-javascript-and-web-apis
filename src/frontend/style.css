@@ -1,8 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 
+/* Color variables */
+:root {
+    --color-primary: #45B788;
+    --color-secondary: #1f714f;
+    --color-background: #cde8d7;
+    --color-card-background: #fff;
+    --color-card-text-primary: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+ul {
+    list-style-position: inside;
+    margin: 0 0 2rem 0;
+}
+
+li {
+    margin: 0 0 0.25rem 1rem;
+}
+
 body {
-    background-color: #cde8d7;
+    background-color: var(--color-background);
     font-family: 'Source Sans Pro', sans-serif;
+    margin: 0 2rem;
 }
 
 .container {
@@ -11,29 +39,30 @@ body {
 }
 
 .movie-card {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     padding: 0.5rem;
-    background-color: white;
+    background-color: var(--color-card-background);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 5px;
+    border-radius: 15px;
     display: flex;
     gap: 1rem;
 }
 
 .movie-card h2 {
     font-weight: normal;
-    color: #45B788;
+    color: var(--color-secondary);
     margin: 0 0 0.5rem 0;
 }
 
 .movie-card p {
-    margin: 0;
-    color: #1f714f;
+    color: var(--color-card-primary);
+    line-height: 1.5rem;
+    margin: 0 0 1rem 0;
 }
 
 .movie-card img {
     height: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .movie-card .image-container {
@@ -43,18 +72,33 @@ body {
 
 .movie-card .content {
     flex: 1;
+    color: var(--color-secondary);
 }
 
 .btn-submit {
-    background-color: #45B788;
+    background-color: var(--color-primary);
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 3px;
+    border-radius: 15px;
     border: none;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background-color: var(--color-secondary);
 }
 
 .input-container label {
-    color: #1f714f;
+    color: var(--color-secondary);
     display: block;
     margin: 0 0 0.5rem 0;
 }
