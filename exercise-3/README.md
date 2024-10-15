@@ -10,7 +10,7 @@ You will learn to:
 
 ## 3.1 A simple list of movie titles
 
-:book: In order to display a list of movie titles, we need some HTML. Bullet lists in HTML looks like this:
+:book: In order to display a list of movie titles, we need some HTML. Bullet lists ([unordered lists](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul)) in HTML looks like this:
 
 ```html
 <ul>
@@ -138,13 +138,32 @@ Relevant API documentation:
 import { createMovieList } from './dom.js';
 ```
 
-:pencil2: Add the following code after the `getMoviesFromApi` function call:
+:pencil2: Add the following code at the bottom of `main.js`:
 
 ```javascript
 const movieListContainer = document.getElementById('movie-list');
 const moviesList = createMovieList(movies);
 movieListContainer.appendChild(moviesList);
 ```
+
+:book: Stuck? Click "Show solution" to see what `main.js` should look like:
+
+<details>
+  <summary>Show solution</summary>
+
+  ```javascript
+  import { createMovieList } from './dom.js';
+  import { getMoviesFromApi } from "./api.js";
+
+  const movieData = await getMoviesFromApi();
+  const { movies } = movieData;
+  console.log(movies);
+
+  const movieListContainer = document.getElementById('movie-list');
+  const moviesList = createMovieList(movies);
+  movieListContainer.appendChild(moviesList);
+  ```
+</details>
 
 Let's break this code down:
 
