@@ -22,9 +22,12 @@ You will learn to:
 
 :exclamation: **Note:** If you have Node installed with a version _less_ than the latest LTS version, please upgrade to the latest LTS version before continuing.
 
-### 1.1.2 Chrome
+### 1.1.2 Chrome and VS Code
 
 :pencil2: [Install Google Chrome if you don't have it](https://www.google.com/chrome/browser/desktop/)
+
+:pencil2: [Install VS Code if you don't have it](https://code.visualstudio.com/)
+
 
 ## 1.2 Local development environment setup
 
@@ -46,9 +49,11 @@ npm start
 
 :pencil2: Open [http://localhost:3000](http://localhost:3000) in Chrome
 
-:book: You should now see the text "Hello Nerdschool!" displayed on the screen.
+:book: You should now see the text "Message from API: 'Hello Nerdschool 🎉🎉🎉'" displayed on the screen.
 
-:pencil2: To stop the application, press <kbd>CTRL</kbd>+<kbd>C</kbd> while inside the terminal window you started the application in.
+:book: Tip: If you want stop the application, press <kbd>CTRL</kbd>+<kbd>C</kbd> while inside the terminal window you started the application in. Run the command `npm start` to start the app again.
+
+:pencil2: Open VS Code and open the `src` folder inside the repo folder. See [Open a folder in VS Code](https://code.visualstudio.com/docs/getstarted/getting-started#_step-1-open-a-folder-in-vs-code) if you are new to VS Code.
 
 ### 1.2.2 Starter project structure
 
