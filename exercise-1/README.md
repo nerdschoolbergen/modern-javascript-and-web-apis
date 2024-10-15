@@ -93,7 +93,7 @@ src
 [nodemon] app crashed - waiting for file changes before starting...
 ```
 
-:book: To restart the backend app after a crash, change a backend file and save it. The app will automatically restart itself.
+:book: To restart the backend app after a crash, change a backend file and save it. The app will automatically restart itself. Make sure to reload the page after restarting the app.
 
 :book: Note that if the backend crashes, the web server will not respond anymore, leading to Chrome saying "This site can’t be reached".
 
