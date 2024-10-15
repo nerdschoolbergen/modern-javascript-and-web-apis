@@ -18,7 +18,7 @@ This repository contains a link to a Google Presentation, exercises and a starte
 
 ## How to get started
 
-* Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the "Download ZIP" button to the right.
+* Start by cloning this repository into a folder on your computer. If you've never used git before, you can alternatively use the the green "Code" button to the top right, and then select "Download zip". Unzip the downloaded zip file (make sure to remember where you put it).
 * Although you have this `README.md` file on your computer, it's easier to read it on GitHub with formatting. We therefore recommend you keep a web browser tab open with the exercise tasks.
 * Open [exercise 1](./exercise-1/README.md/).
 * Remember to ask an instructor if you're stuck.
