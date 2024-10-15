@@ -23,7 +23,7 @@ See the Express.js API reference on the [Request object](https://expressjs.com/e
 ## 4.2 - Capturing user input
 
 :pencil2: In our frontend code, we want to create a new [HTML form](https://developer.mozilla.org/en-US/docs/Learn/Forms) to capture the users input for adding a new movie.
-In our `index.html` file, create a form with two text input fields; one for the movie `title` and one for the movie `overview`.
+In our `index.html` file, create a form with two text input fields; one for the movie `title` and one for the movie `overview`. Place the form inside the `<div class="container">` tag.
 
 You should:
 - Give the form a unique ID. We will use this ID to retrieve the form values in our javascript code as the user submits the form.
@@ -55,8 +55,8 @@ You should:
 
 We want to override the default html form mechanics for submitting the form, as we want to capture the data of the form and submit the data ourselves as JSON to our web api.
 
-In order to capture the data from the form, we must add an event listener to the form DOM element. 
-We have supplied a simple skeleton for this event listener.
+In order to capture the data from the form, we must add an event listener to the form DOM element.
+We have supplied a simple skeleton for this event listener. Add this to the bottom of `main.js`:
 
 ```javascript
 
@@ -82,11 +82,30 @@ createMovieForm.addEventListener('submit', async (e) => {
 })
 ```
 
-:pencil2: Create a new method in `api.js` that POSTS a movie to our api, named e.g. `postMovieToApi`.
+:pencil2: Create a new method in `api.js` that POSTS a movie to our api, named `postMovieToApi`.
+
+<details>
+  <summary>Show suggested postMovieToApi function solution</summary>
+
+  ```javascript
+  export const postMovieToApi = async (movie) => {
+    const response = await fetch('/movie', {
+      method: 'POST',
+      body: JSON.stringify(movie),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return await response.json();
+  }
+  ```
+</details>
+
+:pencil2: Call the new `postMovieToApi` function from `main.js` inside the submit event listener (just before `e.target.reset()`) using the following syntax: `postMovieToApi({ title, overview });`
 
 :book: For more information on how to use the Fetch API to send JSON data to the API, see [Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#uploading_json_data) on MDN.
 
-:pencil2: After you have completed the frontend code, check that you are able to submit new movies and that they are printed to the console running our web application. 
+:pencil2: After you have completed the frontend code, check that you are able to submit new movies and that they are printed to the terminal window running our web application (not the Chrome Dev Tools console).
 
 ## 4.3 - Storing the data
 
