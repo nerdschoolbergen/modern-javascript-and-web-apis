@@ -27,29 +27,29 @@ In our `index.html` file, create a form with two text input fields; one for the 
 
 You should:
 - Give the form a unique ID. We will use this ID to retrieve the form values in our javascript code as the user submits the form.
-- Give the inputs descriptive name values (e.g. `movie-title` or `title` and `movie-overview` or `overview`) 
-- Create descriptive labels for the inputs, correlating them using the `for` attribute for the label and `name` field for the input. 
-- Create a submit button which submits the form 
+- Give the inputs descriptive `name` and `id` values (e.g. `movie-title` or `title` and `movie-overview` or `overview`)
+- Create descriptive labels for the inputs, correlating them using the `for` attribute for the label and `id` field for the input.
+- Create a submit button which submits the form.
 
 <details>
   <summary>Show suggested solution</summary>
 
   ```html
-    <form id="create-movie-form">
-      <div class="input-container">
-          <label for="movie-title">Title</label>
-          <div class="flex">
-              <input type="text" name="movie-title" />
-          </div>
+  <form id="create-movie-form">
+    <div class="input-container">
+      <label for="movie-title">Title</label>
+      <div class="flex">
+        <input type="text" name="movie-title" id="movie-title"/>
       </div>
-      <div class="input-container">
-          <label for="movie-overview">Overview</label>
-          <div class="flex">
-              <textarea type="text" name="movie-overview"></textarea>
-          </div>
-      </div>
-      <input type="submit" value="Save" class="btn-submit" />
-    </form>
+    </div>
+    <div class="input-container">
+      <label for="movie-overview">Overview</label>
+        <div class="flex">
+          <textarea type="text" name="movie-overview" id="movie-overview"></textarea>
+        </div>
+    </div>
+    <input type="submit" value="Save" class="btn-submit" />
+  </form>
   ```
 </details>
 
