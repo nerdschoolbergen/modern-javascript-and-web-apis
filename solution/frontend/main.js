@@ -16,8 +16,6 @@ const setupMovieCard = (movies) => {
 const moviesApiResult = await getMoviesFromApi();
 const { movies } = moviesApiResult;
 
-const moviesList = createMovieList(movies);
-movieListContainer.appendChild(moviesList);
 setupMovieCard(movies);
 
 createMovieForm.addEventListener('submit', async (e) => {
