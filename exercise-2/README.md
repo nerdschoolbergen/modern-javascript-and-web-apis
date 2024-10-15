@@ -132,7 +132,7 @@ router.get('/helloworld', async (req, res) => {
 
 :book: To start things off we are going to make this new `/movie` API endpoint return some hardcoded movie data.
 
-:pencil2: Inside the route callback function (where you see the comment "movie API code here"), declare an array of movie objects and assign it to a new variable called `movies`. Click on "Show movie data example" below to see an example array of movie objects:
+:pencil2: Inside the route callback function (where you see the comment "movie API code here"), declare a new variable called `movies`. Set the value of `movies` to a new object with a property called `movies`. Set the value of the `movies` _property_ to a new array of movie objects. Click on "Show movie data example" below to see an example:
 
 <details>
   <summary>Show movie data example</summary>
@@ -165,6 +165,8 @@ router.get('/helloworld', async (req, res) => {
 </details>
 
 :pencil2: To make the new API endpoint return the value of `movies` as JSON, add `res.send(movies);` after the `movies` variable.
+
+:lightbulb: Why can´t we just return the array instead of a object with a property containing an array? We could, but returning an object with an array inside it makes the API code more extendable.
 
 ### 2.1.3 Get data from the API into the browser
 
