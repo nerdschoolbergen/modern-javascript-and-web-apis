@@ -166,7 +166,7 @@ router.get('/helloworld', async (req, res) => {
 
 :pencil2: To make the new API endpoint return the value of `movies` as JSON, add `res.send(movies);` after the `movies` variable.
 
-:lightbulb: Why can´t we just return the array instead of a object with a property containing an array? We could, but returning an object with an array inside it makes the API code more extendable.
+:bulb: Why can´t we just return the array instead of a object with a property containing an array? We could, but returning an object with an array inside it makes the API code more extendable.
 
 ### 2.1.3 Get data from the API into the browser
 
