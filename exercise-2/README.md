@@ -198,6 +198,20 @@ const helloWorldData = await helloWorldApiResponse.json();
 
 :pencil2: You should now see the data you returned from the backend displayed in the console.
 
+:book: Stuck? Click "Show solution" to see what `main.js` should look like:
+
+<details>
+  <summary>Show solution</summary>
+
+  ```javascript
+  const movieApiResponse = await fetch('/movie');
+  const movieData = await movieApiResponse.json();
+
+  const { movies } = movieData;
+  console.log(movies);
+  ```
+</details>
+
 #### Refactoring the fetch code
 
 :book: In order to structure the code a bit better, we want to move the fetch-related frontend code into a separate module.
@@ -231,6 +245,8 @@ import { getMoviesFromApi } from "./api.js";
 ```
 
 :pencil2: Use destructuring (see `cheatsheet.js`) or dot notation (`getMoviesFromApiResult.movies`) to create a new variable called `movies` containing the array of movies from the `getMoviesFromApiResult` object. Use `console.log` to log the output to verify the data is correct.
+
+:book: Click on the "Expand" triangle icon in front of log messages in the the Chrome Dev Tools Console to view the data inside the log message. See [Chrome Dev Tools docs[(https://developer.chrome.com/docs/devtools/console/log#javascript) for more info.
 
 ## 2.2 Replacing example movie data with real data
 
