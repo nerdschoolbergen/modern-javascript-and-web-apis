@@ -118,9 +118,21 @@ router.get('/helloworld', async (req, res) => {
 - the arrow function `async (req, res) => {}` handles the HTTP request (`req`) and the HTTP response (`res`).
 - `res.send(someObject)` will convert an object to JSON and return it in the HTTP response to the browser.
 
-:pencil2: Create a new route using the example above that responds to `GET` requests on the URL `/movie`.
+:pencil2: Create a new route using the example above that responds to `GET` requests on the URL `/movie`. Click on "Show solution" below if you are stuck.
 
-:pencil2: Use `res.send()` to return some hard-coded movie data:
+<details>
+  <summary>Show solution</summary>
+
+  ```javascript
+  router.get('/movie', async (req, res) => {
+    // movie API code here
+  });
+  ```
+</details>
+
+:book: To start things off we are going to make this new `/movie` API endpoint return some hardcoded movie data.
+
+:pencil2: Inside the route callback function (where you see the comment "movie API code here"), declare an array of movie objects and assign it to a new variable called `movies`. Click on "Show movie data example" below to see an example array of movie objects:
 
 <details>
   <summary>Show movie data example</summary>
@@ -140,7 +152,7 @@ router.get('/helloworld', async (req, res) => {
       {
         id: 2,
         releaseDate: "1994-09-23",
-        overview: "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.",
+        overview: "Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.",
         title: "The Shawshank Redemption",
         voteAverage: 8.6,
         voteCount: 534533,
@@ -152,6 +164,7 @@ router.get('/helloworld', async (req, res) => {
 
 </details>
 
+:pencil2: To make the new API endpoint return the value of `movies` as JSON, add `res.send(movies);` after the `movies` variable.
 
 ### 2.1.3 Get data from the API into the browser
 
