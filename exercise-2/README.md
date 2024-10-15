@@ -216,7 +216,7 @@ const helloWorldData = await helloWorldApiResponse.json();
 
 :book: In order to structure the code a bit better, we want to move the fetch-related frontend code into a separate module.
 
-:pencil2: Create a new file called `api.js` inside the `/frontend` folder.
+:pencil2: Create a new file called `api.js` inside the `/src/frontend` folder.
 
 :pencil2: Add the following code to `api.js`:
 
@@ -226,7 +226,21 @@ export const getMoviesFromApi = async () => {
 }
 ```
 
-:pencil2: Add the fetch-related code from `main.js` to the function. Make sure to return the movie data from the function.
+:pencil2: Move the fetch-related code from `main.js` to the `getMoviesFromApi` function. Make sure to return the movie data from the `getMoviesFromApi` function.
+
+:book: Stuck? Click "Show solution" to see what the `getMoviesFromApi` function should look like:
+
+<details>
+  <summary>Show solution</summary>
+
+  ```javascript
+    export const getMoviesFromApi = async () => {
+      const movieApiResponse = await fetch('/movie');
+      const movieData = await movieApiResponse.json();
+      return movieData;
+    }
+  ```
+</details>
 
 :pencil2: In `main.js`, import the function at the top:
 
@@ -247,6 +261,21 @@ import { getMoviesFromApi } from "./api.js";
 :pencil2: Use destructuring (see `cheatsheet.js`) or dot notation (`getMoviesFromApiResult.movies`) to create a new variable called `movies` containing the array of movies from the `getMoviesFromApiResult` object. Use `console.log` to log the output to verify the data is correct.
 
 :book: Click on the "Expand" triangle icon in front of log messages in the the Chrome Dev Tools Console to view the data inside the log message. See [Chrome Dev Tools docs[(https://developer.chrome.com/docs/devtools/console/log#javascript) for more info.
+
+:book: Stuck? Click "Show solution" to see what `main.js` should look like:
+
+<details>
+  <summary>Show solution</summary>
+
+  ```javascript
+    import { getMoviesFromApi } from "./api.js";
+
+    const movieData = await getMoviesFromApi();
+
+    const { movies } = movieData;
+    console.log(movies);
+  ```
+</details>
 
 ## 2.2 Replacing example movie data with real data
 
