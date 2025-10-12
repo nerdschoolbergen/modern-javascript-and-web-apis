@@ -419,3 +419,61 @@ if (name === 'bob'){
 //
 // TL;DR: Always use === and !== instead of == and !=
 // http://stackoverflow.com/questions/359494/does-it-matter-which-equals-operator-vs-i-use-in-javascript-comparisons
+
+// === Template literals (template strings) ===
+// Use backticks (``) instead of single or double quotes
+// Allows for multi-line strings and embedded expressions
+const message = `Hello ${firstName}, you are ${age} years old!`;
+
+// 
+// === Fetch API and async/await ===
+//
+// async/await is a modern way of handling asynchronous operations in JavaScript.
+// It is built on top of Promises and provides a more readable and concise syntax.
+// Example of using fetch with async/await to get data from an API endpoint:
+async function fetchData() {
+    try {
+        const response = await fetch('/api/data');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+//
+// === Optional chaining and nullish coalescing ===
+//
+// Optional chaining (?.) allows you to safely access deeply nested properties
+// without having to check if each reference in the chain is valid.
+// Nullish coalescing (??) provides a way to set default values when dealing
+// with null or undefined.
+
+const user = {
+    profile: {
+        email: 'user@example.com'
+    }
+};
+
+// Using optional chaining to access email
+const email = user?.profile?.email; // 'user@example.com'
+
+// Using nullish coalescing to provide a default value
+const phone = user?.profile?.phone ?? 'N/A'; // 'N/A'
+
+//
+// === Modules ===
+//
+// JavaScript modules allow you to break up your code into separate files.
+// You can export variables, functions, or classes from one file and import them
+// into another file.
+
+// Exporting from a module (e.g., math.js)
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// Importing into another module (e.g., app.js)
+import { add, subtract } from './math.js';
+    
+console.log(add(2, 3));
+console.log(subtract(5, 2));
