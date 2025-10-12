@@ -33,7 +33,7 @@ You will learn to:
 
 :book: In order to kickstart the exercises we have created a starter project for you.
 
-:pencil2: Open a terminal and change directories to the `src` folder.
+:pencil2: Open a terminal and change directories to the folder where you cloned this repository, then change directories into the `src` folder.
 
 :pencil2: Install all [npm](https://npmjs.com) dependencies by running the command `npm install`:
 
@@ -41,10 +41,32 @@ You will learn to:
 npm install
 ```
 
+:book: The output should be something like this:
+
+```bash
+added 132 packages, and audited 133 packages in 677ms
+```
+
 :pencil2: After `npm install` finishes, run the command `npm start` to start the web app:
 
 ```bash
 npm start
+```
+
+:book: The output should be something like this:
+
+```bash
+❯ npm start
+
+> start
+> nodemon app.js
+
+[nodemon] 3.1.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,html,css
+[nodemon] starting `node app.js`
+Application started on http://localhost:3000
 ```
 
 :pencil2: Open [http://localhost:3000](http://localhost:3000) in Chrome
